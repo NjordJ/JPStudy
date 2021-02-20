@@ -29,6 +29,12 @@
             android:label="@string/menu_grammar"
             tools:layout="@layout/fragment_slideshow"/>
 
+    <fragment
+            android:id="@+id/nav_dictionary"
+            android:name="com.bigil.jpstudy.ui.dictionary.DictionaryFragment"
+            android:label="@string/menu_dictionary"
+            tools:layout="@layout/fragment_slideshow"/>
+
 
 
 </navigation>
