@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+                android:id="@+id/nav_home"
+                android:icon="@drawable/ic_menu_camera"
+                android:title="@string/menu_search"/>
+        <item
+                android:id="@+id/nav_gallery"
+                android:icon="@drawable/ic_menu_gallery"
+                android:title="@string/menu_favourite"/>
+        <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kana"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiKeys"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_myLists"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerOne"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerTwo"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerThree"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerFour"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerFive"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiBeginnerSix"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiMiddleOne"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiMiddleTwo"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiMiddleThree"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiHigh"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_kanjiAnother"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_grammar"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_dictionary"/>
+        <item
+
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="@string/menu_settings"/>
+
+    </group>
+</menu>
