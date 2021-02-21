@@ -1,4 +1,4 @@
-JPStudy - japanesse studying program
+JPStudy - japanese studying program
 ==========================
 
 CONTENTS:
