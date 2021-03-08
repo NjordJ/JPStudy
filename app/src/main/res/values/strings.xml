@@ -3,25 +3,23 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">JPStudy</string>
-    <string name="nav_header_subtitle">Hello</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    /* Menu items*/
+    <!-- Header combo strings -->
+    <string name="nav_header_subtitle">Hello</string>
+    <string name="nav_header_learnedkanji">6</string>
+    <string name="nav_header_daysinrow">25</string>
+    <string name="nav_header_timetostudyleft">30 min</string>
+
+    <!-- Menu items -->
     <string name="menu_search">Search</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_kana">Kana</string>
     <string name="menu_kanjiKeys">Keys</string>
     <string name="menu_myLists">My lists</string>
-    <string name="menu_kanjiBeginnerOne">Beginner 1</string>
-    <string name="menu_kanjiBeginnerTwo">Beginner 2</string>
-    <string name="menu_kanjiBeginnerThree">Beginner 3</string>
-    <string name="menu_kanjiBeginnerFour">Beginner 4</string>
-    <string name="menu_kanjiBeginnerFive">Beginner 5</string>
-    <string name="menu_kanjiBeginnerSix">Beginner 6</string>
-    <string name="menu_kanjiMiddleOne">Middle 1</string>
-    <string name="menu_kanjiMiddleTwo">Middle 2</string>
-    <string name="menu_kanjiMiddleThree">Middle 3</string>
+    <string name="menu_kanjiBeginner">Beginner</string>
+    <string name="menu_kanjiMiddle">Middle</string>
     <string name="menu_kanjiHigh">High</string>
     <string name="menu_kanjiAnother">Another kanji</string>
     <string name="menu_grammar">Grammar</string>

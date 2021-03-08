@@ -1,16 +1,16 @@
-package com.bigil.jpstudy.ui.slideshow;
+package com.bigil.jpstudy.ui.highkanji.parent;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class HighKanjiParentViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public HighKanjiParentViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is high kanji fragment");
     }
 
     public LiveData<String> getText() {

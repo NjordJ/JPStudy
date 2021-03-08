@@ -3,38 +3,78 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/mobile_navigation"
-            app:startDestination="@+id/nav_home">
+            app:startDestination="@+id/nav_search">
 
     <fragment
-            android:id="@+id/nav_home"
-            android:name="com.bigil.jpstudy.ui.home.HomeFragment"
+            android:id="@+id/nav_search"
+            android:name="com.bigil.jpstudy.ui.search.SearchFragment"
             android:label="@string/menu_search"
-            tools:layout="@layout/fragment_home"/>
+            tools:layout="@layout/fragment_search"/>
 
     <fragment
-            android:id="@+id/nav_gallery"
-            android:name="com.bigil.jpstudy.ui.gallery.GalleryFragment"
+            android:id="@+id/nav_favourite"
+            android:name="com.bigil.jpstudy.ui.favourite.FavouriteFragment"
             android:label="@string/menu_favourite"
-            tools:layout="@layout/fragment_gallery"/>
+            tools:layout="@layout/fragment_favourite"/>
 
     <fragment
-            android:id="@+id/nav_slideshow"
-            android:name="com.bigil.jpstudy.ui.slideshow.SlideshowFragment"
+            android:id="@+id/nav_kana"
+            android:name="com.bigil.jpstudy.ui.kana.KanaFragment"
             android:label="@string/menu_kana"
-            tools:layout="@layout/fragment_slideshow"/>
+            tools:layout="@layout/fragment_kana"/>
+
+    <fragment
+            android:id="@+id/nav_keysofkanji"
+            android:name="com.bigil.jpstudy.ui.keysofkanji.KeysOfKanjiFragment"
+            android:label="@string/menu_kanjiKeys"
+            tools:layout="@layout/fragment_kanjikeys"/>
+
+    <fragment
+            android:id="@+id/nav_userlistofkanji"
+            android:name="com.bigil.jpstudy.ui.userlistofkanji.UserListOfKanjiFragment"
+            android:label="@string/menu_myLists"
+            tools:layout="@layout/fragment_userlistofkanji"/>
+
+    <fragment
+            android:id="@+id/nav_beginnerkanji"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment"
+            android:label="@string/menu_kanjiBeginner"
+            tools:layout="@layout/fragment_beginnerlistofkanji"/>
+
+    <fragment
+            android:id="@+id/nav_middlekanji"
+            android:name="com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment"
+            android:label="@string/menu_kanjiBeginner"
+            tools:layout="@layout/fragment_middlelistofkanji"/>
+
+    <fragment
+            android:id="@+id/nav_highkanji"
+            android:name="com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment"
+            android:label="@string/menu_kanjiHigh"
+            tools:layout="@layout/fragment_highlistofkanji"/>
+
+    <fragment
+            android:id="@+id/nav_anotherkanji"
+            android:name="com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment"
+            android:label="@string/menu_kanjiAnother"
+            tools:layout="@layout/fragment_anotherlistofkanji"/>
 
     <fragment
             android:id="@+id/nav_grammar"
             android:name="com.bigil.jpstudy.ui.grammar.GrammarFragment"
             android:label="@string/menu_grammar"
-            tools:layout="@layout/fragment_slideshow"/>
+            tools:layout="@layout/fragment_grammar"/>
 
     <fragment
             android:id="@+id/nav_dictionary"
             android:name="com.bigil.jpstudy.ui.dictionary.DictionaryFragment"
             android:label="@string/menu_dictionary"
-            tools:layout="@layout/fragment_slideshow"/>
+            tools:layout="@layout/fragment_dictionary"/>
 
-
+    <fragment
+            android:id="@+id/nav_settings"
+            android:name="com.bigil.jpstudy.ui.settings.SettingsFragment"
+            android:label="@string/menu_settings"
+            tools:layout="@layout/fragment_settings"/>
 
 </navigation>

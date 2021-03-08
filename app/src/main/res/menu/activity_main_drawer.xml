@@ -5,67 +5,39 @@
 
     <group android:checkableBehavior="single">
         <item
-                android:id="@+id/nav_home"
+                android:id="@+id/nav_search"
                 android:icon="@drawable/ic_menu_camera"
                 android:title="@string/menu_search"/>
         <item
-                android:id="@+id/nav_gallery"
+                android:id="@+id/nav_favourite"
                 android:icon="@drawable/ic_menu_gallery"
                 android:title="@string/menu_favourite"/>
         <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_kana"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_kana"/>
         <item
-
+                android:id="@+id/nav_keysofkanji"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_kanjiKeys"/>
         <item
-
+                android:id="@+id/nav_userlistofkanji"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_myLists"/>
         <item
-
+                android:id="@+id/nav_beginnerkanji"
                 android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerOne"/>
+                android:title="@string/menu_kanjiBeginner"/>
         <item
-
+                android:id="@+id/nav_middlekanji"
                 android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerTwo"/>
+                android:title="@string/menu_kanjiMiddle"/>
         <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerThree"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerFour"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerFive"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiBeginnerSix"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiMiddleOne"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiMiddleTwo"/>
-        <item
-
-                android:icon="@drawable/ic_menu_slideshow"
-                android:title="@string/menu_kanjiMiddleThree"/>
-        <item
-
+                android:id="@+id/nav_highkanji"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_kanjiHigh"/>
         <item
-
+                android:id="@+id/nav_anotherkanji"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_kanjiAnother"/>
         <item
@@ -77,9 +49,10 @@
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_dictionary"/>
         <item
-
+                android:id="@+id/nav_settings"
                 android:icon="@drawable/ic_menu_slideshow"
                 android:title="@string/menu_settings"/>
+
 
     </group>
 </menu>

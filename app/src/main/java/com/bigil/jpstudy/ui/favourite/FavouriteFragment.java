@@ -1,4 +1,4 @@
-package com.bigil.jpstudy.ui.home;
+package com.bigil.jpstudy.ui.favourite;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,17 +12,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.bigil.jpstudy.R;
 
-public class HomeFragment extends Fragment {
+public class FavouriteFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
+    private FavouriteViewModel favouriteViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        favouriteViewModel =
+                ViewModelProviders.of(this).get(FavouriteViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_favourite, container, false);
+        final TextView textView = root.findViewById(R.id.text_gallery);
+        favouriteViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -36,8 +36,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
+        // * If nav is not in stack, it will create new with go back option
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_grammar, R.id.nav_dictionary)
+                R.id.nav_search, R.id.nav_favourite, R.id.nav_kana, R.id.nav_keysofkanji, R.id.nav_userlistofkanji, R.id.nav_beginnerkanji, R.id.nav_middlekanji, R.id.nav_highkanji, R.id.nav_anotherkanji, R.id.nav_grammar, R.id.nav_dictionary, R.id.nav_settings)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
