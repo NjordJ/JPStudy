@@ -10,7 +10,7 @@ public class BeginnerKanjiParentViewModel extends ViewModel {
 
     public BeginnerKanjiParentViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is beginner kanji fragment");
+        mText.setValue("This is branchfeature beginner kanji fragment");
     }
 
     public LiveData<String> getText() {

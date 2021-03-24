@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:cardCornerRadius="4dp"
+        android:layout_margin="5dp">
+
+    <!--RelativeLayout contains texts that shows
+    kana and transcription-->
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp">
+
+        <!--Big kana-->
+        <TextView
+                android:id="@+id/textViewBigKana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="あ"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"/>
+
+        <!--Small kana-->
+        <TextView
+                android:id="@+id/textViewSmallKana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewBigKana"
+                android:text="ア"
+                android:textSize="15sp"
+                android:textStyle="normal"
+                android:textColor="@android:color/darker_gray"/>
+
+        <!--Transcription-->
+        <TextView
+                android:id="@+id/textViewTranscriptionKana"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewBigKana"
+                android:layout_toEndOf="@id/textViewSmallKana"
+                android:layout_marginStart="8dp"
+                android:text="a"
+                android:textSize="15sp"
+                android:textStyle="italic"
+                android:textColor="@android:color/darker_gray"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

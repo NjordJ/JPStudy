@@ -28,6 +28,7 @@
             android:text="@string/nav_header_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
+    <!--TODO add img for counters-->
     <!--Combo layout-->
     <LinearLayout
             android:layout_width="wrap_content"

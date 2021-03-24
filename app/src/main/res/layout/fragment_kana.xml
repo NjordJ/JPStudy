@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".ui.kana.KanaFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.kana.KanaFragment">
+        android:padding="10dp">
 
-    <TextView
-            android:id="@+id/text_slideshow"
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewKana"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:background="@android:color/darker_gray"
+            android:scrollbars="vertical"
+            android:padding="4dp"/>
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:textAlignment="center"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_below="@id/recyclerViewKana"
+            android:background="@android:color/holo_blue_bright">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="354573498"
+                  android:textSize="20sp"
+                  android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
