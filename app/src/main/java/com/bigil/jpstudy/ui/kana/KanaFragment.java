@@ -61,7 +61,7 @@ public class KanaFragment extends Fragment {
         kanaItemArrayList.add(new KanaItem("お", "オ", "o"));*/
 
         try {
-            JSONObject jsonObject = new JSONObject(Jsondatafromasset());
+            JSONObject jsonObject = new JSONObject(JsonDataFromAsset());
             JSONArray jsonArray = jsonObject.getJSONArray("kana");
             for (int index = 0; index < jsonArray.length(); index++){
                 JSONObject hiraganaData = jsonArray.getJSONObject(index);
@@ -97,10 +97,10 @@ public class KanaFragment extends Fragment {
         }
 
         //Parsing json file
-    private String Jsondatafromasset() {
+    private String JsonDataFromAsset() {
         String json = null;
         try {
-            InputStream inputStream = getActivity().getAssets().open("hiragana_alphabet.json");
+            InputStream inputStream = getActivity().getAssets().open("japanese_alphabet.json");
             int sizeOfFile = inputStream.available();
             byte[] bufferData = new byte[sizeOfFile];
             inputStream.read(bufferData);
