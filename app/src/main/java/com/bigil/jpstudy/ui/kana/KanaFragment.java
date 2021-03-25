@@ -54,11 +54,6 @@ public class KanaFragment extends Fragment {
         Button buttonParseKana = root.findViewById(R.id.buttonParseKana);*/
 
                 ArrayList<KanaItem> kanaItemArrayList = new ArrayList<>();
-        /*kanaItemArrayList.add(new KanaItem("あ", "ア", "a"));
-        kanaItemArrayList.add(new KanaItem("い", "イ", "i"));
-        kanaItemArrayList.add(new KanaItem("う", "ウ", "u"));
-        kanaItemArrayList.add(new KanaItem("え", "エ", "e"));
-        kanaItemArrayList.add(new KanaItem("お", "オ", "o"));*/
 
         try {
             JSONObject jsonObject = new JSONObject(JsonDataFromAsset());
