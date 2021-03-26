@@ -52,35 +52,28 @@ public class KanaFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_kana, container, false);
         final /*TextView textView = root.findViewById(R.id.textViewKanaResult);
         Button buttonParseKana = root.findViewById(R.id.buttonParseKana);*/
-
                 ArrayList<KanaItem> kanaItemArrayList = new ArrayList<>();
-        /*kanaItemArrayList.add(new KanaItem("あ", "ア", "a"));
-        kanaItemArrayList.add(new KanaItem("い", "イ", "i"));
-        kanaItemArrayList.add(new KanaItem("う", "ウ", "u"));
-        kanaItemArrayList.add(new KanaItem("え", "エ", "e"));
-        kanaItemArrayList.add(new KanaItem("お", "オ", "o"));*/
+            /*kanaItemArrayList.add(new KanaItem("あ", "ア", "a"));
+            kanaItemArrayList.add(new KanaItem("い", "イ", "i"));
+            kanaItemArrayList.add(new KanaItem("う", "ウ", "u"));
+            kanaItemArrayList.add(new KanaItem("え", "エ", "e"));
+            kanaItemArrayList.add(new KanaItem("お", "オ", "o"));*/
 
-        try {
-            JSONObject jsonObject = new JSONObject(JsonDataFromAsset());
-            JSONArray jsonArray = jsonObject.getJSONArray("kana");
-            for (int index = 0; index < jsonArray.length(); index++){
-                JSONObject hiraganaData = jsonArray.getJSONObject(index);
-                String hiragana = hiraganaData.getString("hiragana");
-                String katakana = hiraganaData.getString("katakana");
-                String transcription = hiraganaData.getString("transcription");
+            try {
+                JSONObject rootJson = new JSONObject(JsonDataFromAsset());
+                JSONArray jsonArray = rootJson.getJSONArray("kana");
+                for (int index = 0; index < jsonArray.length(); index++){
+                    JSONObject hiraganaData = jsonArray.getJSONObject(index);
+                    String hiragana = hiraganaData.getString("hiragana");
+                    String katakana = hiraganaData.getString("katakana");
+                    String transcription = hiraganaData.getString("transcription");
 
-                kanaItemArrayList.add(new KanaItem(hiragana, katakana, transcription));
+                    kanaItemArrayList.add(new KanaItem(hiragana, katakana, transcription));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
-        /*kanaViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
 
             mRecyclerViewKana = root.findViewById(R.id.recyclerViewKana);
             mRecyclerViewKana.setHasFixedSize(true);
@@ -90,6 +83,13 @@ public class KanaFragment extends Fragment {
 
             mRecyclerViewKana.setLayoutManager(mLayoutManagerKana);
             mRecyclerViewKana.setAdapter(mAdapterKana);
+
+            /*kanaViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView.setText(s);
+            }
+        });*/
 
             return root;
 

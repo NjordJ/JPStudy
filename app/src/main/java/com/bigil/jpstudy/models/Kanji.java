@@ -3,16 +3,17 @@ package com.bigil.jpstudy.models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "kanji_data")
+//@Entity(tableName = "kanji_data")
 public class Kanji {
 
-    @PrimaryKey(autoGenerate = true)
+    //@PrimaryKey(autoGenerate = true)
     private Integer id;
 
     private String kanji;
     private Integer grade;
     private Integer strokeCount;
     private String [] meanings;
+    private String heisig_en;
     private String [] kunyomiReading;
     private String [] onyomiReading;
     private String [] nameReadings;
@@ -20,15 +21,15 @@ public class Kanji {
     private String unicodeKanji;
 
     //Constructor
-
     public Kanji(String kanji, Integer grade, Integer strokeCount, String[] meanings,
-                 String[] kunyomiReading, String[] onyomiReading, String[] nameReadings,
-                 Integer jlpt, String unicodeKanji)
+                 String heisig_en,  String[] kunyomiReading, String[] onyomiReading,
+                 String[] nameReadings, Integer jlpt, String unicodeKanji)
     {
         this.kanji = kanji;
         this.grade = grade;
         this.strokeCount = strokeCount;
         this.meanings = meanings;
+        this.heisig_en = heisig_en;
         this.kunyomiReading = kunyomiReading;
         this.onyomiReading = onyomiReading;
         this.nameReadings = nameReadings;
@@ -56,6 +57,10 @@ public class Kanji {
 
     public String[] getMeanings() {
         return meanings;
+    }
+
+    public String getHeisig_en() {
+        return heisig_en;
     }
 
     public String[] getKunyomiReading() {

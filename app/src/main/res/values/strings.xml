@@ -25,6 +25,14 @@
     <string name="menu_grammar">Grammar</string>
     <string name="menu_dictionary">Dictionary</string>
     <string name="menu_settings">Settings</string>
+
+    <!--Kanji strings-->
+    <string name="kanji_10kanjis">10 kanji</string>
+    <string name="kanji_StartLearning">Start learning</string>
+    <!--Beginner-->
+
+    <!--End of kanji strigns-->
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
