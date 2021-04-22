@@ -3,90 +3,11 @@ package com.bigil.jpstudy.models;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-//@Entity(tableName = "kanji_data")
+import java.util.List;
+
+
 public class Kanji {
 
-    //@PrimaryKey(autoGenerate = true)
-    private Integer id;
-
-    private String kanji;
-    private Integer grade;
-    private Integer strokeCount;
-    private String [] meanings;
-    private String heisig_en;
-    private String [] kunyomiReading;
-    private String [] onyomiReading;
-    private String [] nameReadings;
-    private Integer jlpt;
-    private String unicodeKanji;
-
-    //Constructor
-    public Kanji(String kanji, Integer grade, Integer strokeCount, String[] meanings,
-                 String heisig_en,  String[] kunyomiReading, String[] onyomiReading,
-                 String[] nameReadings, Integer jlpt, String unicodeKanji)
-    {
-        this.kanji = kanji;
-        this.grade = grade;
-        this.strokeCount = strokeCount;
-        this.meanings = meanings;
-        this.heisig_en = heisig_en;
-        this.kunyomiReading = kunyomiReading;
-        this.onyomiReading = onyomiReading;
-        this.nameReadings = nameReadings;
-        this.jlpt = jlpt;
-        this.unicodeKanji = unicodeKanji;
-    }
-
-
-    //Getters
-    public Integer getId() {
-        return id;
-    }
-
-    public String getKanji() {
-        return kanji;
-    }
-
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public Integer getStrokeCount() {
-        return strokeCount;
-    }
-
-    public String[] getMeanings() {
-        return meanings;
-    }
-
-    public String getHeisig_en() {
-        return heisig_en;
-    }
-
-    public String[] getKunyomiReading() {
-        return kunyomiReading;
-    }
-
-    public String[] getOnyomiReading() {
-        return onyomiReading;
-    }
-
-    public String[] getNameReadings() {
-        return nameReadings;
-    }
-
-    public Integer getJlpt() {
-        return jlpt;
-    }
-
-    public String getUnicodeKanji() {
-        return unicodeKanji;
-    }
-
-    //Setters
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+    public List<KanjiItem> kanjis;
 
 }

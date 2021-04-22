@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context=".ui.beginnerkanji.tests.BeginnerKanjiTestsFragment">
+
+    <LinearLayout
+            android:id="@+id/linearLayoutBeginenrKanjiTestsOnKunReadings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+        <!--On_readings-->
+        <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsOnReadings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="イチ,イツ"
+                    android:textSize="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Kun_readings-->
+        <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsKunReadings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ひとつ"
+                    android:textSize="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+
+    <!--Random kanjis-->
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewBeginnerKanjiTestsRandomKanjis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linearLayoutBeginenrKanjiTestsOnKunReadings"
+            tools:listitem="@layout/beginnerkanji_kanjitests_item">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
+import com.bigil.jpstudy.models.KanaItem;
 
 import java.util.ArrayList;
 

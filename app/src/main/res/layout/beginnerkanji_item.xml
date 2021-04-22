@@ -56,7 +56,7 @@
                 android:layout_marginRight="6dp"
                 android:background="@android:color/black"
                 android:layout_toEndOf="@id/textView10KanjiBeginner"/>
-        <ImageButton
+        <!--<ImageButton
                 android:id="@+id/buttonStartLearningBeginnerKanji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="20dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_start_learning"/>
+                android:src="@drawable/ic_start_learning"/>-->
 
     </RelativeLayout>
 

@@ -33,6 +33,11 @@
 
     <!--End of kanji strigns-->
 
+    <!--Samples for textViews-->
+    <string name="kanji_sample">草</string>
+    <string name="kunyomi_sample">くさ</string>
+    <string name="onyomi_sample">ソー</string>
+
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
