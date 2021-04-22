@@ -20,13 +20,51 @@
                 android:textColor="@android:color/black"
                 android:textSize="50dp"/>
         <TextView
-                android:id="@+id/textViewCurrentCardBeginnerKanji"
+                android:id="@+id/textViewCurrentNumberBeginnerKanji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
                 android:text="1/8"
                 android:textColor="@android:color/black"
                 android:textSize="20dp"
                 android:layout_toEndOf="@id/textViewFirstKanjiCardInBeginnerKanji"/>
+        <TextView
+                android:id="@+id/textView10KanjiBeginner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/kanji_10kanjis"
+                android:textColor="@android:color/black"
+                android:layout_toEndOf="@id/textViewCurrentNumberBeginnerKanji"/>
+        <TextView
+                android:id="@+id/textViewClickedLastTimeBeginnerKanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="14dp"
+                android:text="2 weeks ago"
+                android:textStyle="italic"
+                android:textColor="@android:color/black"
+                android:layout_toEndOf="@id/textViewFirstKanjiCardInBeginnerKanji"
+                android:layout_below="@id/textViewCurrentNumberBeginnerKanji"/>
+        <View
+                android:id="@+id/separatorBeginnerKanji"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginRight="6dp"
+                android:background="@android:color/black"
+                android:layout_toEndOf="@id/textView10KanjiBeginner"/>
+        <!--<ImageButton
+                android:id="@+id/buttonStartLearningBeginnerKanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/separatorBeginnerKanji"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_start_learning"/>-->
 
     </RelativeLayout>
 
