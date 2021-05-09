@@ -75,6 +75,6 @@
             android:id="@+id/nav_settings"
             android:name="com.bigil.jpstudy.ui.settings.SettingsFragment"
             android:label="@string/menu_settings"
-            tools:layout="@layout/fragment_settings"/>
+            tools:layout="@xml/root_preferences"/>
 
 </navigation>

@@ -1,6 +1,8 @@
 package com.bigil.jpstudy.ui.beginnerkanji.info;
 
 import android.content.Intent;
+import android.os.Parcel;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.VideoView;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,39 +23,43 @@ import static com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragm
 
 public class BeginnerKanjiInfoFragment extends Fragment {
 
+    //Classes
+    private KanjiItem kanjiItem;
+
+    //Variables
+
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.fragment_beginnerkanji_info, container, false);
+        final View root = inflater.inflate(R.layout.beginnerkanji_info_item, container, false);
 
-        //kanjiBeginnerItemArrayList = (ArrayList<KanjiItem>)getArguments().get("kanjiItemData");
+        kanjiItem = new KanjiItem(Parcel.obtain());
 
-        Intent intent = new Intent();
+        Bundle bundle = this.getArguments();
 
-        String kanji = intent.getStringExtra(EXTRA_KANJI);
-//        Integer grade = intent.getIntExtra(EXTRA_GRADE, 0);
-//        Integer strokeCount = intent.getIntExtra(EXTRA_STROKECOUNT, 0);
-//        String meanings = intent.getStringExtra(EXTRA_MEANINGS);
-//        String heisigEn = intent.getStringExtra(EXTRA_HEISIGEN);
-//        String kunReadings = intent.getStringExtra(EXTRA_KUNREADINGS);
-//        String onReadings = intent.getStringExtra(EXTRA_ONREADINGS);
-//        String nameReadings = intent.getStringExtra(EXTRA_NAMEREADINGS);
-//        Integer jlpt = intent.getIntExtra(EXTRA_JLPT, 0);
-//        String unicode = intent.getStringExtra(EXTRA_UNICODE);
+        if (bundle != null) {
+            kanjiItem = bundle.getParcelable("KanjiItemData");
+        }
+
+        String kanjiValue = kanjiItem.getKanji();
+        Integer gradeValue = kanjiItem.getGrade();
+        Integer strokeountValue = kanjiItem.getStrokeCount();
+        Integer jlptValue = kanjiItem.getJlpt();
+        String unicodeValue = kanjiItem.getKanji();
 
 //        VideoView videoViewBeginnerKanjiInfo = root.findViewById(R.id.videoViewBeginnerKanjiInfoHowToStroke);
         TextView textViewBeginnerKanjiInfoKanji = root.findViewById(R.id.textViewBeginnerKanjiInfoKanjiValue);
-//        TextView textViewBeginnerKanjiInfoGradeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoGradeValue);
-//        TextView textViewBeginnerKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeCountValue);
-//        TextView textViewBeginnerKanjiInfoStrokeUnicodeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeUnicodeValue);
-//        TextView textViewBeginnerKanjiInfoJlptValue = root.findViewById(R.id.textViewBeginnerKanjiInfoJlptValue);
+        TextView textViewBeginnerKanjiInfoGradeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoGradeValue);
+        TextView textViewBeginnerKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeCountValue);
+        TextView textViewBeginnerKanjiInfoStrokeUnicodeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeUnicodeValue);
+        TextView textViewBeginnerKanjiInfoJlptValue = root.findViewById(R.id.textViewBeginnerKanjiInfoJlptValue);
 
-        textViewBeginnerKanjiInfoKanji.setText(kanji);
-//        textViewBeginnerKanjiInfoGradeValue.setText(grade);
-//        textViewBeginnerKanjiInfoStrokeCountValue.setText(strokeCount);
-//        textViewBeginnerKanjiInfoJlptValue.setText(jlpt);
-//        textViewBeginnerKanjiInfoStrokeUnicodeValue.setText(unicode);
+        textViewBeginnerKanjiInfoKanji.setText(kanjiValue);
+        textViewBeginnerKanjiInfoGradeValue.setText(String.valueOf(gradeValue));
+        textViewBeginnerKanjiInfoStrokeCountValue.setText(String.valueOf(strokeountValue));
+        textViewBeginnerKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
+        textViewBeginnerKanjiInfoStrokeUnicodeValue.setText(String.valueOf(unicodeValue));
 
         return root;
     }

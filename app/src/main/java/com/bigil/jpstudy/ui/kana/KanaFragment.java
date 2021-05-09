@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
@@ -27,7 +28,7 @@ public class KanaFragment extends Fragment {
 
     //RecyclerView for show information
     private RecyclerView mRecyclerViewKana;
-    private RecyclerView.Adapter mAdapterKana;
+    private KanaAdapter mAdapterKana;
     private RecyclerView.LayoutManager mLayoutManagerKana;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -35,7 +36,6 @@ public class KanaFragment extends Fragment {
         kanaViewModel =
                 ViewModelProviders.of(this).get(KanaViewModel.class);
         View root = inflater.inflate(R.layout.fragment_kana, container, false);
-        final //TextView textView = root.findViewById(R.id.textViewKanaResult);
 
             JSONParsingAsync jsonParsingAsync = new JSONParsingAsync();
 
@@ -66,12 +66,17 @@ public class KanaFragment extends Fragment {
             mRecyclerViewKana.setLayoutManager(mLayoutManagerKana);
             mRecyclerViewKana.setAdapter(mAdapterKana);
 
-            /*kanaViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
+            mAdapterKana.setOnItemClickListener(new KanaAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(int position) {
+                    Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onStartStudyClick(int position) {
+
+                }
+            });
 
             return root;
 

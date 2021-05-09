@@ -1,5 +1,6 @@
 package com.bigil.jpstudy.ui.beginnerkanji.parent;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +9,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
+import com.bigil.jpstudy.ui.beginnerkanji.info.BeginnerKanjiInfoFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BeginnerKanjiAdapter extends RecyclerView.Adapter<BeginnerKanjiAdapter.BeginnerKanjiViewHolder> {
 
@@ -28,22 +31,35 @@ public class BeginnerKanjiAdapter extends RecyclerView.Adapter<BeginnerKanjiAdap
 
     public static class BeginnerKanjiViewHolder extends RecyclerView.ViewHolder {
 
-        //Parent field in card
-        public TextView mTextViewFirstKanjiBeginnerKanji;
+        //Variables
+        public TextView mTextViewKanji;
+//        public TextView mTextViewGrade;
+//        public TextView mTextViewStrokeCount;
+//        public TextView mTextViewMeanings;
+//        public TextView mTextViewHeisigEn;
+//        public TextView mTextViewKunReadings;
+//        public TextView mTextViewOnReadings;
+//        public TextView mTextViewNameReadings;
+//        public TextView mTextViewJlpt;
+//        public TextView mTextViewUnicode;
+
         public TextView mTextViewCurrentNumberBeginnerKanji;
         public TextView mTextViewClickedLastTimeBeginnerKanji;
-
-        //Field to show kanjis in child of beginnerkanji
-
-        //Child fields to show lists of kanjis
-//        public TextView mTextViewBeginnerKanji;
-//        public TextView mTextViewKunyomiReading;
-//        public TextView mTextViewOnyomiReading;
 
         public BeginnerKanjiViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
-            mTextViewFirstKanjiBeginnerKanji = itemView.findViewById(R.id.textViewFirstKanjiCardInBeginnerKanji);
+            mTextViewKanji = itemView.findViewById(R.id.textViewFirstKanjiCardInBeginnerKanji);
+//            mTextViewGrade = null;
+//            mTextViewStrokeCount = null;
+//            mTextViewMeanings = null;
+//            mTextViewHeisigEn = null;
+//            mTextViewKunReadings = null;
+//            mTextViewOnReadings = null;
+//            mTextViewNameReadings = null;
+//            mTextViewJlpt = null;
+//            mTextViewUnicode = null;
+
             mTextViewCurrentNumberBeginnerKanji = itemView.findViewById(R.id.textViewCurrentNumberBeginnerKanji);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -79,16 +95,23 @@ public class BeginnerKanjiAdapter extends RecyclerView.Adapter<BeginnerKanjiAdap
 
         KanjiItem currentItem = mBeginnerKanjiList.get(position);
 
-
-
         int allKanjiCount = mBeginnerKanjiList.size();
-        for(int i = 0; i < mBeginnerKanjiList.size(); i++){
+        for(int i = 1; i < mBeginnerKanjiList.size(); i++){
             holder.mTextViewCurrentNumberBeginnerKanji.setText(i+"/"+allKanjiCount);
             i++;
         }
 
         //Get information for current position
-        holder.mTextViewFirstKanjiBeginnerKanji.setText(currentItem.getKanji());
+        holder.mTextViewKanji.setText(currentItem.getKanji());
+//        holder.mTextViewGrade.setText(currentItem.getGrade());
+//        holder.mTextViewStrokeCount.setText(currentItem.getStrokeCount());
+//        holder.mTextViewMeanings.setText(currentItem.getMeanings());
+//        holder.mTextViewKunReadings.setText(currentItem.getKunyomiReading());
+//        holder.mTextViewOnReadings.setText(currentItem.getOnyomiReading());
+//        holder.mTextViewNameReadings.setText(currentItem.getNameReadings());
+//        holder.mTextViewJlpt.setText(currentItem.getJlpt());
+//        holder.mTextViewUnicode.setText(currentItem.getUnicodeKanji());
+//        holder.mTextViewHeisigEn.setText(currentItem.getHeisig_en());
 
         //holder.mTextViewCurrentNumberBeginnerKanji.setText(kanjiCount+"/"+allKanjiCount);
 
