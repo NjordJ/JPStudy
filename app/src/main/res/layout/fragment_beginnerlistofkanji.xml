@@ -15,7 +15,6 @@
             android:text="Start"
             android:layout_centerHorizontal="true"/>
 
-    <!--TODO custom listiew with kanjis separated by 10-->
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewBeginnerKanji"
             android:layout_width="match_parent"

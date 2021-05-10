@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools">
 
     <RelativeLayout
             android:id="@+id/relativeLayoutKanjiInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp">
+            android:padding="15dp" tools:ignore="MissingConstraints">
         <!--How to stroke kanji-->
         <VideoView
                 android:id="@+id/videoViewBeginnerKanjiInfoHowToStroke"
@@ -22,7 +22,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/videoViewBeginnerKanjiInfoHowToStroke"
                 android:text="Kanji"
-                android:textSize="15dp"/>
+                android:textSize="15dp" android:layout_marginStart="8dp"/>
+
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoKanjiValue"
                 android:layout_width="wrap_content"
@@ -31,40 +32,38 @@
                 android:layout_below="@id/textViewBeginnerKanjiInfoKanji"
                 android:textColor="@color/colorAccent"
                 android:text="草"
-                android:textSize="30dp"/>
-
+                android:textSize="30dp" android:layout_marginTop="0dp" android:layout_marginStart="10dp"/>
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoGrade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoKanji"
                 android:text="Grade"
-                android:textSize="15dp"/>
+                android:textSize="15dp" android:layout_marginStart="24dp"/>
+
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoGradeValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoKanjiValue"
-                android:layout_below="@id/textViewBeginnerKanjiInfoGrade"
+                android:layout_below="@+id/textViewBeginnerKanjiInfoGrade"
                 android:text="1"
-                android:textSize="30dp"/>
-
+                android:textSize="30dp" android:layout_marginTop="-1dp" android:layout_marginStart="36dp"/>
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoStrokeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoGrade"
                 android:text="Stroke count"
-                android:textSize="15dp"/>
-
+                android:textSize="15dp" android:layout_marginStart="20dp"/>
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoStrokeCountValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoGrade"
-                android:layout_below="@id/textViewBeginnerKanjiInfoStrokeCount"
+                android:layout_below="@+id/textViewBeginnerKanjiInfoStrokeCount"
                 android:text="3"
-                android:textSize="30dp"/>
+                android:textSize="30dp" android:layout_marginTop="0dp" android:layout_marginStart="52dp"/>
 
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoUnicode"
@@ -73,16 +72,15 @@
                 android:layout_below="@id/textViewBeginnerKanjiInfoKanjiValue"
                 android:layout_toEndOf="@id/videoViewBeginnerKanjiInfoHowToStroke"
                 android:text="Unicode"
-                android:textSize="15dp"/>
-
+                android:textSize="15dp" android:layout_marginTop="5dp" android:layout_marginStart="8dp"/>
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoStrokeUnicodeValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewBeginnerKanjiInfoUnicode"
+                android:layout_below="@+id/textViewBeginnerKanjiInfoUnicode"
                 android:layout_toEndOf="@id/videoViewBeginnerKanjiInfoHowToStroke"
                 android:text="4e00"
-                android:textSize="30dp"/>
+                android:textSize="20dp" android:layout_marginTop="3dp" android:layout_marginStart="14dp"/>
 
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoJlpt"
@@ -91,29 +89,44 @@
                 android:layout_below="@id/textViewBeginnerKanjiInfoGradeValue"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoUnicode"
                 android:text="JLPT"
-                android:textSize="15dp"/>
-
+                android:textSize="15dp" android:layout_marginTop="7dp" android:layout_marginStart="8dp"/>
         <TextView
                 android:id="@+id/textViewBeginnerKanjiInfoJlptValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewBeginnerKanjiInfoJlpt"
+                android:layout_below="@+id/textViewBeginnerKanjiInfoJlpt"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoUnicode"
                 android:text="2"
-                android:textSize="30dp"/>
+                android:textSize="30dp" android:layout_marginTop="1dp" android:layout_marginStart="15dp"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoHeisigEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewBeginnerKanjiInfoStrokeCount"
+                android:layout_toEndOf="@id/textViewBeginnerKanjiInfoJlpt"
+                android:text="Heisig en."
+                android:textSize="15dp" android:layout_marginTop="47dp" android:layout_marginStart="28dp"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoHeisigEnValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textViewBeginnerKanjiInfoHeisigEn"
+                android:layout_toEndOf="@id/textViewBeginnerKanjiInfoJlptValue"
+                android:text="Asia"
+                android:textSize="30dp" android:layout_marginTop="1dp" android:layout_marginStart="42dp"/>
 
     </RelativeLayout>
 
     <!--Bottom block with kun and on readings + meanings-->
-    <RelativeLayout
+    <ListView
+            android:id="@+id/listViewKanjiInfo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/relativeLayoutKanjiInfo">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:textSize="30dp"/>
-    </RelativeLayout>
+            android:layout_height="wrap_content" app:layout_anchorGravity="bottom|center"
+            app:layout_anchor="@+id/relativeLayoutKanjiInfo"
+            tools:listitem="@layout/beginnerkanji_item"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </ListView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

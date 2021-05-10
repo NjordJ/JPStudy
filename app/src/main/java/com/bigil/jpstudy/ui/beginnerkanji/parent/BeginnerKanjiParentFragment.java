@@ -124,8 +124,8 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 String unicode = jValue.getString("unicode");
                 String heisig_en = jValue.getString("heisig_en");
 
-                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,null,null,
-                        null,null,null,null));
+                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
+                        null,null,null,unicode));
             }
 
 //            Iterator keyNames = jsonObjectKanjis.keys();

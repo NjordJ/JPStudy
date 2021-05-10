@@ -14,21 +14,21 @@
         android:gravity="bottom">
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="101dp"
+            android:layout_height="87dp"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
-            app:srcCompat="@mipmap/ic_launcher_round"
+            app:srcCompat="@drawable/ic_kanji"
             android:contentDescription="@string/nav_header_desc"
             android:id="@+id/imageView"/>
 
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            android:layout_marginLeft="12dp"
+            android:textSize="20dp"
             android:text="@string/nav_header_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-    <!--TODO add img for counters-->
     <!--Combo layout-->
     <LinearLayout
             android:layout_width="wrap_content"
@@ -40,15 +40,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="86dp"
+                    android:layout_height="84dp"
                     android:paddingTop="@dimen/nav_header_vertical_spacing"
-                    app:srcCompat="@mipmap/ic_launcher_round"
+                    app:srcCompat="@drawable/ic_flame"
                     android:contentDescription="@string/nav_header_desc"
                     android:id="@+id/imageViewDaysInRow"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/nav_header_daysinrow"
                     android:id="@+id/textViewDaysInRow"
                     android:textAlignment="center"/>
@@ -60,15 +61,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="84dp"
                     android:paddingTop="@dimen/nav_header_vertical_spacing"
-                    app:srcCompat="@mipmap/ic_launcher_round"
+                    app:srcCompat="@drawable/ic_calligraphy"
                     android:contentDescription="@string/nav_header_desc"
                     android:id="@+id/imageViewLearnedKanji"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/nav_header_learnedkanji"
                     android:id="@+id/textViewLearnedKanji"
                     android:textAlignment="center"/>
@@ -80,15 +82,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
             <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="90dp"
+                    android:layout_height="84dp"
                     android:paddingTop="@dimen/nav_header_vertical_spacing"
-                    app:srcCompat="@mipmap/ic_launcher_round"
+                    app:srcCompat="@drawable/ic_hourglass"
                     android:contentDescription="@string/nav_header_desc"
                     android:id="@+id/imageViewTimeToStudyLeft"/>
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/nav_header_timetostudyleft"
                     android:id="@+id/textViewTimeToStudyLeft"
                     android:textAlignment="center"/>
