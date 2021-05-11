@@ -73,6 +73,9 @@ public class BeginnerKanjiParentFragment extends Fragment {
 
             JSONArray jArray = jsonObjectKanjis.names();
             int len = jsonObjectKanjis.length();
+
+            Integer gradeClauseFirst = 1;
+
             for (int i=0; i<len; i++) {
                 String keyName = (String)jArray.get(i);
                 JSONObject jValue = jsonObjectKanjis.getJSONObject(keyName);
@@ -87,9 +90,23 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 String unicode = jValue.getString("unicode");
                 String heisig_en = jValue.getString("heisig_en");
 
-                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                        jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), null,unicode));
+                if(Integer.valueOf("1").equals(grade) || Integer.valueOf("2").equals(grade) || Integer.valueOf("3").equals(grade) ||
+                        Integer.valueOf("4").equals(grade) || Integer.valueOf("5").equals(grade) || Integer.valueOf("6").equals(grade)){
+                    kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
+                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), null,unicode));
+                }
+
+//                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
+//                        jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), null,unicode));
             }
+
+            Collections.sort(kanjiBeginnerItemArrayList, new Comparator<KanjiItem>() {
+                @Override
+                public int compare(KanjiItem o1, KanjiItem o2) {
+                    return Integer.compare(o1.getGrade(), o2.getGrade());
+                }
+            });
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
