@@ -6,6 +6,7 @@ import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.google.gson.Gson;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class JSONParsingAsync {
 
@@ -75,11 +77,24 @@ public class JSONParsingAsync {
             byte[] bufferData = new byte[sizeOfFile];
             inputStream.read(bufferData);
             inputStream.close();
-            json = new String(bufferData,"UTF-8");
+            json = new String(bufferData, "UTF-8");
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
         return json;
     }
+
+    public String[] toStringArray(JSONArray array) {
+        if (array == null)
+            return null;
+
+        String[] arr = new String[array.length()];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = array.optString(i);
+        }
+        return arr;
+
+    }
+
 }

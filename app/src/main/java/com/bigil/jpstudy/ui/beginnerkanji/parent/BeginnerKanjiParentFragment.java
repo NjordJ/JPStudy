@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ import com.bigil.jpstudy.utils.JSONParsingAsync;
 import com.bigil.jpstudy.utils.KanjiStudyTests;
 import com.bigil.jpstudy.utils.LoadNewLayout;
 import com.google.gson.Gson;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -65,45 +67,6 @@ public class BeginnerKanjiParentFragment extends Fragment {
         Integer countOfKanjiCards = 1;
 
         //Def json parse
-//        try {
-//            JSONObject rootJson = new JSONObject(jsonParsingAsync.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
-//            JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
-//
-//            Iterator keyNames = jsonObjectKanjis.keys();
-//            while(keyNames.hasNext()){
-//                String keyname = (String) keyNames.next();
-//
-//                JSONObject kanjiData = jsonObjectKanjis.getJSONObject(keyname);
-//                String kanji = kanjiData.getString("kanji");
-//                Integer grade = kanjiData.getInt("grade");
-//                Integer stroke_count = kanjiData.getInt("stroke_count");
-////                JSONArray meanings = kanjiData.getJSONArray("meanings");
-////                JSONArray kun_readings = kanjiData.getJSONArray("kun_readings");
-////                JSONArray on_readings = kanjiData.getJSONArray("on_readings");
-////                JSONArray name_readings = kanjiData.getJSONArray("name_readings");
-//                Integer jlpt = kanjiData.getInt("jlpt");
-//                String unicode = kanjiData.getString("unicode");
-//                String heisig_en = kanjiData.getString("heisig_en");
-//
-//                //textViewCountOfKanjiCards.setText(countOfKanjiCards);
-//
-////                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
-////                        null,null,jlpt,unicode));
-//
-////                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
-////                        null,null,jlpt,unicode));
-//
-//                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,null,null,null,null,null,
-//                        null,null,null,null));
-//
-//                //System.out.println("KANJI DATA: "+kanjiBeginnerItemArrayList);
-//
-//            }
-//
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-
         try {
             JSONObject rootJson = new JSONObject(jsonParsingAsync.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
             JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
@@ -116,47 +79,17 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 String kanji = jValue.optString("kanji");
                 Integer grade = jValue.optInt("grade");
                 Integer stroke_count = jValue.getInt("stroke_count");
-//                JSONArray meanings = jValue.getJSONArray("meanings");
-//                JSONArray kun_readings = jValue.getJSONArray("kun_readings");
-//                JSONArray on_readings = jValue.getJSONArray("on_readings");
-//                JSONArray name_readings = jValue.getJSONArray("name_readings");
+                JSONArray meanings = jValue.getJSONArray("meanings");
+                JSONArray kun_readings = jValue.getJSONArray("kun_readings");
+                JSONArray on_readings = jValue.getJSONArray("on_readings");
+                JSONArray name_readings = jValue.getJSONArray("name_readings");
 //                Integer jlpt = jValue.getInt("jlpt");
                 String unicode = jValue.getString("unicode");
                 String heisig_en = jValue.getString("heisig_en");
 
-                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
-                        null,null,null,unicode));
+                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
+                        jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), null,unicode));
             }
-
-//            Iterator keyNames = jsonObjectKanjis.keys();
-//            while(keyNames.hasNext()){
-//                String keyname = (String) keyNames.next();
-//
-//                JSONObject kanjiData = jsonObjectKanjis.getJSONObject(keyname);
-//                String kanji = kanjiData.getString("kanji");
-//                Integer grade = kanjiData.getInt("grade");
-//                Integer stroke_count = kanjiData.getInt("stroke_count");
-////                JSONArray meanings = kanjiData.getJSONArray("meanings");
-////                JSONArray kun_readings = kanjiData.getJSONArray("kun_readings");
-////                JSONArray on_readings = kanjiData.getJSONArray("on_readings");
-////                JSONArray name_readings = kanjiData.getJSONArray("name_readings");
-//                Integer jlpt = kanjiData.getInt("jlpt");
-//                String unicode = kanjiData.getString("unicode");
-//                String heisig_en = kanjiData.getString("heisig_en");
-//
-//                //textViewCountOfKanjiCards.setText(countOfKanjiCards);
-//
-////                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
-////                        null,null,jlpt,unicode));
-//
-////                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,null,heisig_en,null,
-////                        null,null,jlpt,unicode));
-//
-//                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,null,null,null,null,null,
-//                        null,null,null,null));
-//
-//                //System.out.println("KANJI DATA: "+kanjiBeginnerItemArrayList);
-//            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -215,13 +148,19 @@ public class BeginnerKanjiParentFragment extends Fragment {
         buttonStartLearningBeginnerKanji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //openKanjiTestsFragment();
-                //kanjiStudyTests.ChooseAllBeginnerKanji(kanjiBeginnerItemArrayList);
 
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, new BeginnerKanjiTestsFragment());
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                //using Bundle to send data
+                Fragment fragmentBeginnerKanjiTestsFragment = new BeginnerKanjiTestsFragment();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("KanjiItemData", (Parcelable) kanjiBeginnerItemArrayList);
+                fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
+
+                //loadNewLayout.LoadNewFragmentWithArrayList(getActivity().getApplicationContext(),"KanjiItemData", kanjiBeginnerItemArrayList.get(position), fragmentBeginnerKanjiInfo);
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment, null)
+                        .addToBackStack(null)
+                        .commit();
 
                 //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
 

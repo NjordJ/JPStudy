@@ -113,20 +113,93 @@
                 android:layout_below="@+id/textViewBeginnerKanjiInfoHeisigEn"
                 android:layout_toEndOf="@id/textViewBeginnerKanjiInfoJlptValue"
                 android:text="Asia"
-                android:textSize="30dp" android:layout_marginTop="1dp" android:layout_marginStart="42dp"/>
+                android:textSize="20dp" android:layout_marginTop="1dp" android:layout_marginStart="42dp"/>
 
     </RelativeLayout>
 
     <!--Bottom block with kun and on readings + meanings-->
-    <ListView
-            android:id="@+id/listViewKanjiInfo"
+<!--    <ListView-->
+<!--            android:id="@+id/listViewKanjiInfo"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" app:layout_anchorGravity="bottom|center"-->
+<!--            app:layout_anchor="@+id/relativeLayoutKanjiInfo"-->
+<!--            tools:listitem="@layout/beginnerkanji_item"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">-->
+
+<!--    </ListView>-->
+
+    <!--Bottom block with kun and on readings + meanings + name readings-->
+    <RelativeLayout
+            android:id="@+id/relativeVeLayoutKanjiInfoArrays"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" app:layout_anchorGravity="bottom|center"
-            app:layout_anchor="@+id/relativeLayoutKanjiInfo"
-            tools:listitem="@layout/beginnerkanji_item"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
             app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">
 
-    </ListView>
+<!--        Kunyomi-->
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoKunyomi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kunyomi"
+                android:textSize="15dp"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoKunyomiValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kunyomi value"
+                android:textSize="20dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoKunyomi"/>
+
+<!--        Onyomi-->
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoOnyomi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Onyomi"
+                android:textSize="15dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoKunyomiValue"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoOnyomiValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Onyomi value"
+                android:textSize="20dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoOnyomi"/>
+
+<!--        Meanings-->
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoMeanings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meanings"
+                android:textSize="15dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoOnyomiValue"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoMeaningsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meanings value"
+                android:textSize="20dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoMeanings"/>
+
+<!--        Name readings-->
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoNameReadings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name readings"
+                android:textSize="15dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoMeaningsValue"/>
+        <TextView
+                android:id="@+id/textViewBeginnerKanjiInfoNameReadingsValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name readings value"
+                android:textSize="20dp"
+                android:layout_below="@id/textViewBeginnerKanjiInfoNameReadings"/>
+
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
