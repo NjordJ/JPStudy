@@ -23,7 +23,7 @@
             android:scrollbars="vertical"
             android:padding="4dp"
             android:layout_below="@id/buttonStartLearningBeginnerKanji"
-            tools:listitem="@layout/beginnerkanji_item"/>
+            tools:listitem="@layout/kanji_item"/>
 
 
 </RelativeLayout>

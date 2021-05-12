@@ -2,23 +2,16 @@ package com.bigil.jpstudy.ui.beginnerkanji.info;
 
 import android.os.Parcel;
 import android.text.TextUtils;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bigil.jpstudy.R;
-import com.bigil.jpstudy.activity.MainActivity;
 import com.bigil.jpstudy.models.KanjiItem;
-import com.bigil.jpstudy.utils.JSONParsingAsync;
-
-import java.util.ArrayList;
 
 public class BeginnerKanjiInfoFragment extends Fragment {
 
@@ -30,7 +23,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        final View root = inflater.inflate(R.layout.beginnerkanji_info_item, container, false);
+        final View root = inflater.inflate(R.layout.kanji_info_item, container, false);
 
 
         kanjiItem = new KanjiItem(Parcel.obtain());
@@ -50,7 +43,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         String[] on_readingsValue = kanjiItem.getOnyomiReading();
         String[] name_readingsValue = kanjiItem.getNameReadings();
         Integer jlptValue = kanjiItem.getJlpt();
-        String unicodeValue = kanjiItem.getKanji();
+        String unicodeValue = kanjiItem.getUnicodeKanji();
         String heisigenValue = kanjiItem.getHeisig_en();
 
         //Convert String[] to single String
@@ -60,29 +53,29 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         String name_readings = TextUtils.join(",", name_readingsValue);
 
         //Find variables from layout
-//        VideoView videoViewBeginnerKanjiInfo = root.findViewById(R.id.videoViewBeginnerKanjiInfoHowToStroke);
-        TextView textViewBeginnerKanjiInfoKanji = root.findViewById(R.id.textViewBeginnerKanjiInfoKanjiValue);
-        TextView textViewBeginnerKanjiInfoGradeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoGradeValue);
-        TextView textViewBeginnerKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeCountValue);
-        TextView textViewBeginnerKanjiInfoMeaningsValue = root.findViewById(R.id.textViewBeginnerKanjiInfoMeaningsValue);
-        TextView textViewBeginnerKanjiInfoKunyomiValue = root.findViewById(R.id.textViewBeginnerKanjiInfoKunyomiValue);
-        TextView textViewBeginnerKanjiInfoOnyomiValue = root.findViewById(R.id.textViewBeginnerKanjiInfoOnyomiValue);
-        TextView textViewBeginnerKanjiInfoNameReadingsValue = root.findViewById(R.id.textViewBeginnerKanjiInfoNameReadingsValue);
-        TextView textViewBeginnerKanjiInfoStrokeUnicodeValue = root.findViewById(R.id.textViewBeginnerKanjiInfoStrokeUnicodeValue);
-        TextView textViewBeginnerKanjiInfoJlptValue = root.findViewById(R.id.textViewBeginnerKanjiInfoJlptValue);
-        TextView textViewBeginnerKanjiInfoHeisigEnValue = root.findViewById(R.id.textViewBeginnerKanjiInfoHeisigEnValue);
+//        VideoView videoViewBeginnerKanjiInfo = root.findViewById(R.id.videoViewKanjiInfoHowToStroke);
+        TextView textViewKanjiInfoKanji = root.findViewById(R.id.textViewKanjiInfoKanjiValue);
+        TextView textViewKanjiInfoGradeValue = root.findViewById(R.id.textViewKanjiInfoGradeValue);
+        TextView textViewrKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewKanjiInfoStrokeCountValue);
+        TextView textViewKanjiInfoMeaningsValue = root.findViewById(R.id.textViewKanjiInfoMeaningsValue);
+        TextView textViewKanjiInfoKunyomiValue = root.findViewById(R.id.textViewKanjiInfoKunyomiValue);
+        TextView textViewKanjiInfoOnyomiValue = root.findViewById(R.id.textViewKanjiInfoOnyomiValue);
+        TextView textViewKanjiInfoNameReadingsValue = root.findViewById(R.id.textViewKanjiInfoNameReadingsValue);
+        TextView textViewKanjiInfoStrokeUnicodeValue = root.findViewById(R.id.textViewKanjiInfoUnicodeValue);
+        TextView textViewBKanjiInfoJlptValue = root.findViewById(R.id.textViewKanjiInfoJlptValue);
+        TextView textViewKanjiInfoHeisigEnValue = root.findViewById(R.id.textViewKanjiInfoHeisigEnValue);
 
         //Set values to TextViews
-        textViewBeginnerKanjiInfoKanji.setText(kanjiValue);
-        textViewBeginnerKanjiInfoGradeValue.setText(String.valueOf(gradeValue));
-        textViewBeginnerKanjiInfoStrokeCountValue.setText(String.valueOf(strokeountValue));
-        textViewBeginnerKanjiInfoMeaningsValue.setText(meanings);
-        textViewBeginnerKanjiInfoKunyomiValue.setText(kun_readings);
-        textViewBeginnerKanjiInfoOnyomiValue.setText(on_readings);
-        textViewBeginnerKanjiInfoNameReadingsValue.setText(name_readings);
-        textViewBeginnerKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
-        textViewBeginnerKanjiInfoStrokeUnicodeValue.setText(String.valueOf(unicodeValue));
-        textViewBeginnerKanjiInfoHeisigEnValue.setText(heisigenValue);
+        textViewKanjiInfoKanji.setText(kanjiValue);
+        textViewKanjiInfoGradeValue.setText(String.valueOf(gradeValue));
+        textViewrKanjiInfoStrokeCountValue.setText(String.valueOf(strokeountValue));
+        textViewKanjiInfoMeaningsValue.setText(meanings);
+        textViewKanjiInfoKunyomiValue.setText(kun_readings);
+        textViewKanjiInfoOnyomiValue.setText(on_readings);
+        textViewKanjiInfoNameReadingsValue.setText(name_readings);
+        textViewKanjiInfoStrokeUnicodeValue.setText(unicodeValue);
+        textViewBKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
+        textViewKanjiInfoHeisigEnValue.setText(heisigenValue);
 
         return root;
     }

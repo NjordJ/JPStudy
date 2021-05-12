@@ -27,10 +27,6 @@ import java.util.*;
 
 public class BeginnerKanjiParentFragment extends Fragment {
 
-    private BeginnerKanjiParentViewModel beginnerKanjiParentViewModel;
-
-    private static final String BACK_STACK_ROOT_TAG = "root_fragment";
-
     //Classes
     JSONParsingAsync jsonParsingAsync  = new JSONParsingAsync();
     LoadNewLayout loadNewLayout = new LoadNewLayout();
@@ -61,29 +57,25 @@ public class BeginnerKanjiParentFragment extends Fragment {
             JSONArray jArray = jsonObjectKanjis.names();
             int len = jsonObjectKanjis.length();
 
-            Integer gradeClauseFirst = 1;
-
             for (int i=0; i<len; i++) {
                 String keyName = (String)jArray.get(i);
                 JSONObject jValue = jsonObjectKanjis.getJSONObject(keyName);
                 String kanji = jValue.optString("kanji");
                 Integer grade = jValue.optInt("grade");
-                Integer stroke_count = jValue.getInt("stroke_count");
+                Integer stroke_count = jValue.optInt("stroke_count");
                 JSONArray meanings = jValue.getJSONArray("meanings");
                 JSONArray kun_readings = jValue.getJSONArray("kun_readings");
                 JSONArray on_readings = jValue.getJSONArray("on_readings");
                 JSONArray name_readings = jValue.getJSONArray("name_readings");
-                //Integer jlpt = jValue.getInt("jlpt");
-                String unicode = jValue.getString("unicode");
-                String heisig_en = jValue.getString("heisig_en");
+                Integer jlpt = jValue.optInt("jlpt");
+                String unicode = jValue.optString("unicode");
+                String heisig_en = jValue.optString("heisig_en");
 
                 if(Integer.valueOf("1").equals(grade)){
                     kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), 0,unicode));
+                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode));
                 }
 
-//                kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-//                        jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), null,unicode));
             }
 
             Collections.sort(kanjiBeginnerItemArrayList, new Comparator<KanjiItem>() {

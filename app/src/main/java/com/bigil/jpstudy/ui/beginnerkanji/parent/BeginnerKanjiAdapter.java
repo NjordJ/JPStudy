@@ -85,7 +85,7 @@ public class BeginnerKanjiAdapter extends RecyclerView.Adapter<BeginnerKanjiAdap
     @Override
     public BeginnerKanjiAdapter.BeginnerKanjiViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //Paste layout to ViewHolder
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.beginnerkanji_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.kanji_item, parent, false);
         BeginnerKanjiAdapter.BeginnerKanjiViewHolder beginnerKanjiViewHolder = new BeginnerKanjiAdapter.BeginnerKanjiViewHolder(v, mListener);
         return beginnerKanjiViewHolder;
     }
