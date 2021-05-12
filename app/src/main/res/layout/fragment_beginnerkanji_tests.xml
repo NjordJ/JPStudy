@@ -7,7 +7,7 @@
         tools:context=".ui.beginnerkanji.tests.BeginnerKanjiTestsFragment">
 
     <LinearLayout
-            android:id="@+id/linearLayoutBeginenrKanjiTestsOnKunReadings"
+            android:id="@+id/linearLayoutBeginnerKanjiTestsOnKunReadings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -25,8 +25,8 @@
                     android:id="@+id/textViewBeginnerKanjiTestsOnReadings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="イチ,イツ"
-                    android:textSize="30dp"/>
+                    android:text="@string/onyomi_sample"
+                    android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -42,8 +42,8 @@
                     android:id="@+id/textViewBeginnerKanjiTestsKunReadings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ひとつ"
-                    android:textSize="30dp"/>
+                    android:text="@string/kunyomi_sample"
+                    android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
@@ -51,14 +51,14 @@
 
 
     <!--Random kanjis-->
-    <ListView
+    <!--<ListView
             android:id="@+id/listViewBeginnerKanjiTestsRandomKanjis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayoutBeginenrKanjiTestsOnKunReadings"
             tools:listitem="@layout/beginnerkanji_kanjitests_item">
 
-    </ListView>
+    </ListView>-->
 
     <!--Random kanji-->
     <androidx.cardview.widget.CardView
@@ -71,10 +71,12 @@
     </androidx.cardview.widget.CardView>
     <TextView
             android:id="@+id/textViewBeginnerKanjiTestsKanjis"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="草"
-            android:textSize="30dp"/>
+            android:gravity="center"
+            android:layout_below="@id/linearLayoutBeginnerKanjiTestsOnKunReadings"
+            android:text="@string/kanji_sample"
+            android:textSize="30sp"/>
 
 
 </RelativeLayout>

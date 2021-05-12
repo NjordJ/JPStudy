@@ -19,7 +19,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:text="あ"
+                android:text="@string/hiragana_sample"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"/>
@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textViewBigKana"
-                android:text="ア"
+                android:text="@string/katakana_sample"
                 android:textSize="15sp"
                 android:textStyle="normal"
                 android:textColor="@android:color/darker_gray"/>
@@ -43,7 +43,7 @@
                 android:layout_below="@id/textViewBigKana"
                 android:layout_toEndOf="@id/textViewSmallKana"
                 android:layout_marginStart="8dp"
-                android:text="a"
+                android:text="@string/romanji_sample"
                 android:textSize="15sp"
                 android:textStyle="italic"
                 android:textColor="@android:color/darker_gray"/>

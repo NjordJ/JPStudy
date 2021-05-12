@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                                    android:layout_width="match_parent"
-                                   android:layout_height="wrap_content"
-                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                   app:cardCornerRadius="4dp"
-                                   android:layout_margin="5dp">
+                                   android:layout_height="wrap_content">
 
     <RelativeLayout
             android:layout_width="match_parent"
@@ -15,26 +12,26 @@
                 android:id="@+id/textViewFirstKanjiCardInBeginnerKanji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="一"
+                android:text="@string/kanji_sample"
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:textSize="50dp"/>
+                android:textSize="50sp"/>
         <TextView
                 android:id="@+id/textViewCurrentNumberBeginnerKanji"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="14dp"
-                android:text="1/8"
+                android:layout_marginStart="14dp"
+                android:text="@string/countKanji_List"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:layout_toEndOf="@id/textViewFirstKanjiCardInBeginnerKanji"/>
         <TextView
                 android:id="@+id/textView10KanjiBeginner"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginLeft="10dp"
-                android:text="@string/kanji_10kanjis"
+                android:layout_marginStart="10dp"
+                android:text="@string/kanji10_List"
                 android:textColor="@android:color/black"
                 android:layout_toEndOf="@id/textViewCurrentNumberBeginnerKanji"/>
         <TextView
@@ -42,8 +39,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="14dp"
-                android:text="2 weeks ago"
+                android:layout_marginStart="14dp"
+                android:text="@string/lastSeen_List"
                 android:textStyle="italic"
                 android:textColor="@android:color/black"
                 android:layout_toEndOf="@id/textViewFirstKanjiCardInBeginnerKanji"

@@ -25,7 +25,7 @@ import java.util.Arrays;
 public class BeginnerKanjiTestsFragment extends Fragment {
 
     //Classes
-    private KanjiItem kanjiItem;
+    private ArrayList<KanjiItem> kanjiItem;
 
     //Variables
     private ArrayList<String> arrayList;
@@ -35,18 +35,18 @@ public class BeginnerKanjiTestsFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_beginnerkanji_tests, container, false);
 
-        //kanjiItem = new KanjiItem(Parcel.obtain);
+        //kanjiItem = new KanjiItem(Parcel.obtain());
 
-//        Bundle bundle = this.getArguments();
+        Bundle bundle = this.getArguments();
 //
 //        //Get values from behind fragment
-//        if (bundle != null) {
-//            kanjiItem = (KanjiItem) bundle.getSerializable("KanjiItemDataTests");
-//        }
+        if (bundle != null) {
+            kanjiItem = bundle.getParcelableArrayList("KanjiItemDataTests");
+        }
 
-        String kanjiValue = kanjiItem.getKanji();
-        String[] kun_readingsValue = kanjiItem.getKunyomiReading();
-        String[] on_readingsValue = kanjiItem.getOnyomiReading();
+        String kanjiValue = kanjiItem.get(1).getKanji();
+        String[] kun_readingsValue = kanjiItem.get(1).getKunyomiReading();
+        String[] on_readingsValue = kanjiItem.get(1).getOnyomiReading();
 
         //Convert String[] to single String
         String kun_readings = TextUtils.join(",", kun_readingsValue);
@@ -59,12 +59,12 @@ public class BeginnerKanjiTestsFragment extends Fragment {
         TextView textViewBeginnerKanjiTestsKanji = root.findViewById(R.id.textViewBeginnerKanjiTestsKanjis);
         TextView textViewBeginnerKanjiTestsKunyomiValue = root.findViewById(R.id.textViewBeginnerKanjiTestsOnReadings);
         TextView textViewBeginnerKanjiTestsOnyomiValue = root.findViewById(R.id.textViewBeginnerKanjiTestsKunReadings);
-        ListView listViewBeginnerKanjiTestsRandomKanjis = root.findViewById(R.id.listViewBeginnerKanjiTestsRandomKanjis);
+        //ListView listViewBeginnerKanjiTestsRandomKanjis = root.findViewById(R.id.listViewBeginnerKanjiTestsRandomKanjis);
 
         //Set values to TextViews
-//        textViewBeginnerKanjiTestsKanji.setText(kanjiValue);
-//        textViewBeginnerKanjiTestsKunyomiValue.setText(kun_readings);
-//        textViewBeginnerKanjiTestsOnyomiValue.setText(on_readings);
+        textViewBeginnerKanjiTestsKanji.setText(kanjiValue);
+        textViewBeginnerKanjiTestsKunyomiValue.setText(kun_readings);
+        textViewBeginnerKanjiTestsOnyomiValue.setText(on_readings);
 
         return root;
     }

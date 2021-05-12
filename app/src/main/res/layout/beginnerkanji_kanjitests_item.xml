@@ -16,7 +16,7 @@
                 android:id="@+id/textViewBeginnerKanjiTestKanjiCard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="50dp"
+                android:textSize="50sp"
                 android:textColor="@android:color/black"
                 android:text="@string/kanji_sample"
                 android:layout_centerHorizontal="true"/>

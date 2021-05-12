@@ -26,17 +26,38 @@
     <string name="menu_dictionary">Dictionary</string>
     <string name="menu_settings">Settings</string>
 
-    <!--Kanji strings-->
-    <string name="kanji_10kanjis">10 kanji</string>
-    <string name="kanji_StartLearning">Start learning</string>
-    <!--Beginner-->
+    <!--Sample strings-->
+    <string name="kanji10_List">10 kanji</string>
+    <string name="countKanji_List">1/8</string>
+    <string name="lastSeen_List">2 weeks ago</string>
 
-    <!--End of kanji strigns-->
+    <string name="kanji_DetailInfo">Kanji</string>
+    <string name="strokeCount_DetailInfo">Stroke count</string>
+    <string name="unicode_DetailInfo">Unicode</string>
+    <string name="jlpt_DetailInfo">JLPT</string>
+    <string name="heisigEn_DetailInfo">Heisig en.</string>
+    <string name="grade_DetailInfo">Grade</string>
+    <string name="kunyomi_DetailInfo">Kunyomi</string>
+    <string name="onyomi_DetailInfo">Onyomi</string>
+    <string name="meanings_DetailInfo">Meanings</string>
+    <string name="nameReadings_DetailInfo">Name readings</string>
 
     <!--Samples for textViews-->
     <string name="kanji_sample">草</string>
     <string name="kunyomi_sample">くさ</string>
     <string name="onyomi_sample">ソー</string>
+    <string name="hiragana_sample">あ</string>
+    <string name="katakana_sample">ア</string>
+    <string name="romanji_sample">a</string>
+    <string name="grade_sample">1</string>
+    <string name="strokeCount_sample">1</string>
+    <string name="heisigEn_sample">Asia</string>
+    <string name="unicode_sample">4e00</string>
+    <string name="meanings_sample">Asia</string>
+    <string name="nameReadings_sample">かず</string>
+
+    <!--Samples for textViews-->
+    <string name="button_start">Start</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
