@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class LoadNewLayout {
 
-    public void LoadNewFragmentWithArrayList(Context context, String nameForData, Object arrayList, Fragment fragmentB){
+    public void LoadNewFragmentWithArrayList(Context context, String nameForData, ArrayList<Object> arrayList, Fragment fragmentB){
 
         //using Bundle to send data
         Bundle bundle = new Bundle();

@@ -11,11 +11,10 @@ public class KanjiStudyTests {
 
     //public static ArrayList<KanjiItem> kanjiItems = new ArrayList<>();
     public static Integer n;
-    private static Boolean isWasKanji;
     private static ArrayList<String> tempRandomKanjis;
 
     public static String ChooseAllBeginnerKanji(ArrayList<KanjiItem> kanjiBeginnerArrayList){
-        isWasKanji = kanjiHasDuplicates(kanjiBeginnerArrayList);
+        boolean isWasKanji = kanjiHasDuplicates(kanjiBeginnerArrayList);
 
         Random random = new Random();
         Integer number = random.nextInt();

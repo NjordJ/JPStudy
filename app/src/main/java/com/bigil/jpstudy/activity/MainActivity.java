@@ -2,7 +2,9 @@ package com.bigil.jpstudy.activity;
 
 import android.os.Bundle;
 import android.view.Menu;
+import androidx.fragment.app.Fragment;
 import com.bigil.jpstudy.R;
+import com.bigil.jpstudy.utils.IOnBackPressed;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -60,6 +62,17 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    @Override
+    public void onBackPressed() {
+
+        if (getFragmentManager().getBackStackEntryCount() > 0) {
+            getFragmentManager().popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 
 
 }

@@ -5,9 +5,10 @@ import android.os.Parcelable;
 import com.google.gson.annotations.SerializedName;
 import org.json.JSONArray;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class KanjiItem implements Parcelable {
+public class KanjiItem implements Parcelable, Serializable {
 
     //private Integer id;
 

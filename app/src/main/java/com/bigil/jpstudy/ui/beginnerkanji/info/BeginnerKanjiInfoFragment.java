@@ -8,11 +8,13 @@ import android.widget.TextView;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.bigil.jpstudy.R;
+import com.bigil.jpstudy.activity.MainActivity;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.bigil.jpstudy.utils.JSONParsingAsync;
 
@@ -47,7 +49,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         String[] kun_readingsValue = kanjiItem.getKunyomiReading();
         String[] on_readingsValue = kanjiItem.getOnyomiReading();
         String[] name_readingsValue = kanjiItem.getNameReadings();
-//        Integer jlptValue = kanjiItem.getJlpt();
+        Integer jlptValue = kanjiItem.getJlpt();
         String unicodeValue = kanjiItem.getKanji();
         String heisigenValue = kanjiItem.getHeisig_en();
 
@@ -78,7 +80,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         textViewBeginnerKanjiInfoKunyomiValue.setText(kun_readings);
         textViewBeginnerKanjiInfoOnyomiValue.setText(on_readings);
         textViewBeginnerKanjiInfoNameReadingsValue.setText(name_readings);
-        //textViewBeginnerKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
+        textViewBeginnerKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
         textViewBeginnerKanjiInfoStrokeUnicodeValue.setText(String.valueOf(unicodeValue));
         textViewBeginnerKanjiInfoHeisigEnValue.setText(heisigenValue);
 
