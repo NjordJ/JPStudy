@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
+import android.text.TextUtils;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.google.gson.Gson;
 import org.json.JSONArray;
@@ -12,9 +13,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class JSONParsingAsync {
 
@@ -23,48 +22,69 @@ public class JSONParsingAsync {
 
     Gson gson = new Gson();
 
-    /*class JSONParseAsync extends AsyncTask<String, ArrayList<KanjiItem>, String>{
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
+    //Parse json
+    public ArrayList<KanjiItem> ParseJsonWithGradeAndJlpt(ArrayList<KanjiItem> arrayList, String[] gradeClause, String[] jlptClause){
+        try {
+            JSONObject rootJson = new JSONObject(JsonData("kanjiapi_obj.json"));
+            JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
 
-            progressDialog.setMessage("Please wait");
-            progressDialog.show();
-        }
+            JSONArray jArray = jsonObjectKanjis.names();
+            int len = jsonObjectKanjis.length();
 
-        @Override
-        protected String doInBackground(String... strings) {
-            return "";
-        }
+            for (int i=0; i<len; i++) {
+                String keyName = (String)jArray.get(i);
+                JSONObject jValue = jsonObjectKanjis.getJSONObject(keyName);
+                String kanji = jValue.optString("kanji");
+                Integer grade = jValue.optInt("grade");
+                Integer stroke_count = jValue.optInt("stroke_count");
+                JSONArray meanings = jValue.getJSONArray("meanings");
+                JSONArray kun_readings = jValue.getJSONArray("kun_readings");
+                JSONArray on_readings = jValue.getJSONArray("on_readings");
+                JSONArray name_readings = jValue.getJSONArray("name_readings");
+                Integer jlpt = jValue.optInt("jlpt");
+                String unicode = jValue.optString("unicode");
+                String heisig_en = jValue.optString("heisig_en");
 
-        protected ArrayList<KanjiItem> onPostExecute(ArrayList<KanjiItem> kj) {
-            super.onPostExecute(String.valueOf(kj));
+                String gradeCl = TextUtils.join(",", gradeClause);
+                String jlptCl = TextUtils.join(",", jlptClause);
 
-            try {
-                JSONObject rootJson = new JSONObject(JsonDataFromAsset(,"kanjiapi_obj.json"));
-                JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
-
-                Iterator keyNames = jsonObjectKanjis.keys();
-                while(keyNames.hasNext()){
-                    String keyname = (String) keyNames.next();
-
-                    JSONObject kanjiData = jsonObjectKanjis.getJSONObject(keyname);
-                    String kanji = kanjiData.getString("kanji");
-
-                    kanjiItemArrayList.add(new KanjiItem(kanji,null,null,null,null,null,
-                            null,null,null,null));
+                if(Integer.valueOf(gradeCl).equals(grade) && Integer.valueOf(jlptCl).equals(jlpt)){
+                    arrayList.add(new KanjiItem(kanji,grade,stroke_count,toStringArray(meanings),heisig_en,toStringArray(kun_readings),
+                            toStringArray(on_readings),toStringArray(name_readings), jlpt,unicode));
                 }
 
-
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
 
-            return kanjiItemArrayList;
+            Collections.sort(arrayList, new Comparator<KanjiItem>() {
+                @Override
+                public int compare(KanjiItem o1, KanjiItem o2) {
+                    return Integer.compare(o1.getGrade(), o2.getGrade());
+                }
+            });
 
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-    }*/
+        return arrayList;
+    }
 
+    public String JsonData(String jsonName) {
+        AssetManager manager = null;
+        String json = null;
+        InputStream inputStream = null;
+        try {
+            inputStream = manager.open(jsonName);
+            int sizeOfFile = inputStream.available();
+            byte[] bufferData = new byte[sizeOfFile];
+            inputStream.read(bufferData);
+            inputStream.close();
+            json = new String(bufferData, "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+        return json;
+    }
 
     //Parsing json file
     public String JsonDataFromAsset(Context context, String jsonName) {

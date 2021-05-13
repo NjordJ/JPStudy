@@ -27,34 +27,42 @@
         <!--On_readings-->
         <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 app:cardCornerRadius="6dp"
                 android:padding="4dp"
                 android:layout_margin="5dp">
 
-            <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsOnReadings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/onyomi_sample"
-                    android:textSize="30sp"/>
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:id="@+id/textViewBeginnerKanjiTestsOnReadings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/onyomi_sample"
+                        android:textSize="30sp"/>
+            </ScrollView>
 
         </androidx.cardview.widget.CardView>
 
         <!--Kun_readings-->
         <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 app:cardCornerRadius="6dp"
                 android:padding="4dp"
                 android:layout_margin="5dp">
 
-            <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsKunReadings"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/kunyomi_sample"
-                    android:textSize="30sp"/>
+            <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <TextView
+                        android:id="@+id/textViewBeginnerKanjiTestsKunReadings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kunyomi_sample"
+                        android:textSize="30sp"/>
+            </ScrollView>
 
         </androidx.cardview.widget.CardView>
 
@@ -76,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -98,7 +106,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -121,7 +129,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -144,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -167,7 +175,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
@@ -191,7 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
-                android:padding="4dp"
+                app:contentPadding="15dp"
                 android:layout_margin="5dp"
                 android:clickable="true"
                 android:focusable="true"
