@@ -1,14 +1,10 @@
 package com.bigil.jpstudy.ui.beginnerkanji.tests;
 
-import android.content.Intent;
-import android.os.Parcel;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.cardview.widget.CardView;
-import androidx.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,9 +15,7 @@ import android.view.ViewGroup;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment;
-import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
 import java.util.*;
 
 public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClickListener {
@@ -77,9 +71,6 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         //Randomize elements
         Collections.shuffle(arrayListKanjiItem);
 
-        //Collect n unique elements
-        tempKanji = arrayListKanjiItem.subList(0,6);
-
         //Find variables from layout
         cardViewBeginnerKanjiTestsAnswer1 = root.findViewById(R.id.cardViewBeginnerKanjiTestsAnswer1);
         cardViewBeginnerKanjiTestsAnswer2 = root.findViewById(R.id.cardViewBeginnerKanjiTestsAnswer2);
@@ -115,6 +106,9 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         answerKanjiItem = kanjiValue;
         kun_readingsValue = arrayListKanjiItem.get(number).getKunyomiReading();
         on_readingsValue = arrayListKanjiItem.get(number).getOnyomiReading();
+
+        //Collect n unique elements
+        tempKanji = pickNRandom(arrayListKanjiItem, 6);
 
         //Randomize cards in test
         //Collections.shuffle(tempKanji);
@@ -198,19 +192,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
             case R.id.cardViewBeginnerKanjiTestsAnswer5:
             case R.id.cardViewBeginnerKanjiTestsAnswer6:
                 //Check if answer correct
-                //Need to fix this
-                /*if(arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(0).getKanji())
-                        || arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(1).getKanji())
-                        || arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(2).getKanji())
-                        || arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(3).getKanji())
-                        || arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(4).getKanji())
-                        || arrayListKanjiItem.get(currentQuestion).getKanji()
-                        .equals(tempKanji.get(5).getKanji())) {*/
+                //Need to fix cards, they not update to new kanji
                     if(answerKanjiItem
                             .equals(tempKanji.get(0).getKanji())
                             || answerKanjiItem
@@ -235,15 +217,41 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                 //Load next question if any
                 if(currentQuestion < arrayListKanjiItem.size()-1){
                     currentQuestion++;
-                    tempKanji.remove(answerKanjiItem);
-                    tempKanji = arrayListKanjiItem.subList(0,6);
-                    Collections.shuffle(tempKanji);
+
+                    tempKanji = pickNRandom(arrayListKanjiItem, 6);
+                    //Collections.shuffle(tempKanji);
                     setTextsScreen(currentQuestion);
                 }else{
-                    System.out.println("Correct: "+correctAnswer+" Wrong: "+wrongAnswer);
+                    //ShowDialog with results at end test
+                    AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+                    alertDialog.setTitle("Alert");
+                    alertDialog.setMessage("Correct: "+correctAnswer+" Wrong: "+wrongAnswer);
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+
+                    Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
+
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                            .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiParentFragment)
+                            .addToBackStack(null)
+                            .commit();
                 }
                 break;
 
         }
+
     }
+
+    public static List<KanjiItem> pickNRandom(List<KanjiItem> lst, int n) {
+        List<KanjiItem> copy = new ArrayList<>(lst);
+        Collections.shuffle(copy);
+        return n > copy.size() ? copy.subList(0, copy.size()) : copy.subList(0, n);
+    }
+
 }

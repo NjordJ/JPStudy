@@ -20,7 +20,7 @@ public class UserListOfKanjiFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         userListOfKanjiViewModel =
                 ViewModelProviders.of(this).get(UserListOfKanjiViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_search, container, false);
+        View root = inflater.inflate(R.layout.fragment_userlistofkanji, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         userListOfKanjiViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

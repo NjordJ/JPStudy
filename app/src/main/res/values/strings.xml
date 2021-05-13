@@ -56,6 +56,9 @@
     <string name="meanings_sample">Asia</string>
     <string name="nameReadings_sample">かず</string>
 
+    <!--Edit text-->
+    <string name="search_Hint">Write something</string>
+
     <!--Samples for textViews-->
     <string name="button_start">Start</string>
 

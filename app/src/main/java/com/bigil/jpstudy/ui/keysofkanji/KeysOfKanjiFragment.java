@@ -20,7 +20,7 @@ public class KeysOfKanjiFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         keysOfKanjiViewModel =
                 ViewModelProviders.of(this).get(KeysOfKanjiViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_search, container, false);
+        View root = inflater.inflate(R.layout.fragment_kanjikeys, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         keysOfKanjiViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override

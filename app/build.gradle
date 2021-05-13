@@ -60,4 +60,7 @@ dependencies {
     //GSON
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //JSON part
+    implementation 'com.jayway.jsonpath:json-path:2.5.0'
+
 }
