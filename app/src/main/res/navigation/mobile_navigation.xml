@@ -44,7 +44,7 @@
     <fragment
             android:id="@+id/nav_middlekanji"
             android:name="com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment"
-            android:label="@string/menu_kanjiBeginner"
+            android:label="@string/menu_kanjiMiddle"
             tools:layout="@layout/fragment_middlelistofkanji"/>
 
     <fragment

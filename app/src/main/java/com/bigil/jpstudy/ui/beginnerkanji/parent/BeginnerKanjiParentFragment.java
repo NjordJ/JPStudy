@@ -152,7 +152,7 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
 
                 getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                        .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
                         .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment)
                         .addToBackStack(null)
                         .commit();

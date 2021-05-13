@@ -154,12 +154,12 @@ public class HighKanjiParentFragment extends Fragment {
 
                 //using Bundle to send data
                 Fragment fragmentBeginnerKanjiTestsFragment = new BeginnerKanjiTestsFragment();
-//                Bundle bundle = new Bundle();
-//                bundle.putSerializable("KanjiItemDataTests", kanjiBeginnerItemArrayList);
-//                fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("KanjiItemDataTests", kanjiHighItemArrayList);
+                fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
 
                 getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top)
+                        .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
                         .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment)
                         .addToBackStack(null)
                         .commit();
