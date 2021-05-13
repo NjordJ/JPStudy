@@ -6,12 +6,23 @@
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".ui.beginnerkanji.tests.BeginnerKanjiTestsFragment">
 
+    <TextView
+            android:id="@+id/textViewBeginnerKanjiTestsCurrentAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/countKanji_List"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@id/linearLayoutBeginnerKanjiTestsOnKunReadings"
+            android:layout_alignParentTop="true"/>
+
     <LinearLayout
             android:id="@+id/linearLayoutBeginnerKanjiTestsOnKunReadings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_centerVertical="true">
 
         <!--On_readings-->
         <androidx.cardview.widget.CardView
@@ -51,32 +62,154 @@
 
 
     <!--Random kanjis-->
-    <!--<ListView
-            android:id="@+id/listViewBeginnerKanjiTestsRandomKanjis"
+    <RelativeLayout
+            android:id="@+id/relativeLayoutKanjiAnswers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/linearLayoutBeginenrKanjiTestsOnKunReadings"
-            tools:listitem="@layout/beginnerkanji_kanjitests_item">
-
-    </ListView>-->
-
-    <!--Random kanji-->
-    <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="6dp"
-            android:padding="4dp"
-            android:layout_margin="5dp">
-
-    </androidx.cardview.widget.CardView>
-    <TextView
-            android:id="@+id/textViewBeginnerKanjiTestsKanjis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_below="@id/linearLayoutBeginnerKanjiTestsOnKunReadings"
-            android:text="@string/kanji_sample"
-            android:textSize="30sp"/>
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+        <!--Answer 1-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Answer 2-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer1">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Answer 3-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer2">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Answer 4-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer1">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Answer 5-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer2"
+                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer4">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <!--Answer 6-->
+        <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBeginnerKanjiTestsAnswer6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="6dp"
+                android:padding="4dp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer3"
+                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer5">
+
+            <TextView
+                    android:id="@+id/textViewBeginnerKanjiTestsAnswer6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/kanji_sample"
+                    android:textSize="30sp"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

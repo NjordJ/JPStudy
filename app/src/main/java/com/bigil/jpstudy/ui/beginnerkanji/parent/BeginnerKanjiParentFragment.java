@@ -6,10 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
@@ -22,18 +21,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.*;
 
 public class BeginnerKanjiParentFragment extends Fragment {
 
     //Classes
     JSONParsingAsync jsonParsingAsync  = new JSONParsingAsync();
-    LoadNewLayout loadNewLayout = new LoadNewLayout();
 
     //Variables
     public ArrayList<KanjiItem> kanjiBeginnerItemArrayList = new ArrayList<>();
-    public ArrayList<KanjiItem> kanjiBeginnerItems = new ArrayList<>();
 
     //RecyclerView for show information
     private RecyclerView mRecyclerViewBeginnerKanji;
@@ -160,8 +156,6 @@ public class BeginnerKanjiParentFragment extends Fragment {
                         .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment)
                         .addToBackStack(null)
                         .commit();
-
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
 
             }
         });
