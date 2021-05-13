@@ -7,6 +7,7 @@ import org.json.JSONArray;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class KanjiItem implements Parcelable, Serializable {
 
