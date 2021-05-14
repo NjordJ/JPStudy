@@ -1,24 +1,24 @@
-package com.bigil.jpstudy.ui.beginnerkanji.tests;
+package com.bigil.jpstudy.ui.middlekanji.tests;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.widget.TextView;
-import androidx.cardview.widget.CardView;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
-import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment;
+import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
 
 import java.util.*;
 
-public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClickListener {
+public class MiddleKanjiTestsFragment extends Fragment implements View.OnClickListener {
 
     //Classes
 
@@ -138,63 +138,56 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         textViewBeginnerKanjiTestsOnyomiValue.setText(on_readings);
         textViewBeginnerKanjiTestsCurrentAnswer.setText((currentQuestion+1)+"/"+ arrayListKanjiItem.size());
 
-        textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-        textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-        textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-        textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
-        textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
-        textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
-
-//        switch (tempKanjiSize) {
-////            case 5:
-////                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-////                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-////                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-////                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
-////                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
-////                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
-////                break;
-////            case 5:
-////                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
-////                textViewBeginnerKanjiTestsAnswer3.setText(kanji3);
-////                textViewBeginnerKanjiTestsAnswer4.setText(kanji4);
-////                textViewBeginnerKanjiTestsAnswer5.setText(kanji5);
-////                textViewBeginnerKanjiTestsAnswer6.setText(kanji6);
-////                break;
-////            case 4:
-////                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
-////                textViewBeginnerKanjiTestsAnswer3.setText(kanji3);
-////                textViewBeginnerKanjiTestsAnswer4.setText(kanji4);
-////                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
-////                break;
-////            case 3:
-////                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
-////                textViewBeginnerKanjiTestsAnswer3.setText(kanji3);
-////                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
-////                break;
-////            case 2:
-////                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
-////                textViewBeginnerKanjiTestsAnswer3.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
-////                break;
-////            case 1:
-////                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer2.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer3.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
-////                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
-////                break;
-//        }
+        switch (tempKanjiSize) {
+//            case 6:
+//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
+//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
+//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
+//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
+//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
+//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
+//                break;
+            case 5:
+                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
+                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
+                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
+                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
+                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
+                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
+                break;
+//            case 4:
+//                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
+//                textViewBeginnerKanjiTestsAnswer3.setText(kanji3);
+//                textViewBeginnerKanjiTestsAnswer4.setText(kanji4);
+//                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
+//                break;
+//            case 3:
+//                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
+//                textViewBeginnerKanjiTestsAnswer3.setText(kanji3);
+//                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
+//                break;
+//            case 2:
+//                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer2.setText(kanji2);
+//                textViewBeginnerKanjiTestsAnswer3.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
+//                break;
+//            case 1:
+//                textViewBeginnerKanjiTestsAnswer1.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer2.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer3.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer4.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer5.setText(kanji1);
+//                textViewBeginnerKanjiTestsAnswer6.setText(kanji1);
+//                break;
+        }
 
     }
 
@@ -207,7 +200,6 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
             case R.id.cardViewBeginnerKanjiTestsAnswer4:
             case R.id.cardViewBeginnerKanjiTestsAnswer5:
             case R.id.cardViewBeginnerKanjiTestsAnswer6:
-
                 //Check if answer correct
                 if (answerKanjiItem
                         .equals(textViewBeginnerKanjiTestsAnswer1.getText().toString()) ||
@@ -221,18 +213,18 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                                 .equals(textViewBeginnerKanjiTestsAnswer5.getText().toString()) ||
                         answerKanjiItem
                                 .equals(textViewBeginnerKanjiTestsAnswer6.getText().toString())) {
-
-                    correctAnswer++;
-                    //Toast.makeText(getContext().getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
-                    System.out.println("Correct!");
-                }
-                else {
+                    System.out.println("KANJI: "+answerKanjiItem+" TEXTVIEW1: "+textViewBeginnerKanjiTestsAnswer1.getText().toString()+
+                            " TEXTVIEW2: "+textViewBeginnerKanjiTestsAnswer2.getText().toString()+" TEXTVIEW3: "+textViewBeginnerKanjiTestsAnswer3.getText().toString()+
+                            " TEXTVIEW4: "+textViewBeginnerKanjiTestsAnswer4.getText().toString()+" TEXTVIEW5: "+textViewBeginnerKanjiTestsAnswer5.getText().toString()+
+                            " TEXTVIEW6: "+textViewBeginnerKanjiTestsAnswer6.getText().toString());
+                correctAnswer++;
+                //Toast.makeText(getContext().getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
+                //System.out.println("Correct!");
+            } else {
                 wrongAnswer++;
                 //Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_LONG).show();
-                System.out.println("Wrong!");
+                //System.out.println("Wrong!");
             }
-
-
 
                 //Load next question if any
                 if(currentQuestion < arrayListKanjiItem.size()-1){
@@ -253,11 +245,11 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                             });
                     alertDialog.show();
 
-                    Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
+                    Fragment fragmentMiddleKanjiParentFragment = new MiddleKanjiParentFragment();
 
                     getFragmentManager().beginTransaction()
                             .setCustomAnimations(R.anim.slide_in_top, R.anim.slide_out_bottom, R.anim.slide_in_bottom, R.anim.slide_out_top)
-                            .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiParentFragment)
+                            .replace(R.id.nav_host_fragment, fragmentMiddleKanjiParentFragment)
                             .addToBackStack(null)
                             .commit();
                 }
