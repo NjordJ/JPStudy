@@ -1,7 +1,11 @@
 package com.bigil.jpstudy.ui.beginnerkanji.info;
 
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.AnimatedVectorDrawable;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Parcel;
 import android.text.TextUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -18,7 +22,10 @@ public class BeginnerKanjiInfoFragment extends Fragment {
     //Classes
     private KanjiItem kanjiItem;
 
+    AnimatedVectorDrawable imgAnimation;
+
     //Variables
+    private ImageView imageViewKanjiInfoHowToStroke;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -53,7 +60,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         String name_readings = TextUtils.join(",", name_readingsValue);
 
         //Find variables from layout
-//        VideoView videoViewBeginnerKanjiInfo = root.findViewById(R.id.videoViewKanjiInfoHowToStroke);
+        imageViewKanjiInfoHowToStroke = root.findViewById(R.id.imageViewKanjiInfoHowToStroke);
         TextView textViewKanjiInfoKanji = root.findViewById(R.id.textViewKanjiInfoKanjiValue);
         TextView textViewKanjiInfoGradeValue = root.findViewById(R.id.textViewKanjiInfoGradeValue);
         TextView textViewrKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewKanjiInfoStrokeCountValue);
@@ -76,6 +83,8 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         textViewKanjiInfoStrokeUnicodeValue.setText(unicodeValue);
         textViewBKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
         textViewKanjiInfoHeisigEnValue.setText(heisigenValue);
+
+
 
         return root;
     }

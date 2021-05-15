@@ -75,7 +75,7 @@ public class MiddleKanjiParentFragment extends Fragment {
 
                 if(Integer.valueOf("6").equals(grade) && Integer.valueOf("1").equals(jlpt)){
                     kanjiMiddleItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode));
+                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode, null));
                 }
 
             }

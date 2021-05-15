@@ -34,12 +34,12 @@ public class KanjiItem implements Parcelable, Serializable {
     @SerializedName("unicode")
     private String mUnicodeKanji;
 
-    public Boolean mIsWasKanji;
+    private Integer mImageResource;
 
     //Constructor
     public KanjiItem(String kanji, Integer grade, Integer strokeCount, String[] meanings,
                      String heisig_en, String[] kunyomiReading, String[] onyomiReading,
-                     String[] nameReadings, Integer jlpt, String unicodeKanji)
+                     String[] nameReadings, Integer jlpt, String unicodeKanji, Integer imageResource)
     {
         this.mKanji = kanji;
         this.mGrade = grade;
@@ -51,6 +51,7 @@ public class KanjiItem implements Parcelable, Serializable {
         this.mNameReadings = nameReadings;
         this.mJlpt = jlpt;
         this.mUnicodeKanji = unicodeKanji;
+        this.mImageResource = imageResource;
     }
 
     //Parcelable
@@ -77,8 +78,11 @@ public class KanjiItem implements Parcelable, Serializable {
             mJlpt = in.readInt();
         }
         mUnicodeKanji = in.readString();
-        byte tmpMIsWasKanji = in.readByte();
-        mIsWasKanji = tmpMIsWasKanji == 0 ? null : tmpMIsWasKanji == 1;
+        if (in.readByte() == 0) {
+            mImageResource = null;
+        } else {
+            mImageResource = in.readInt();
+        }
     }
 
     public static final Creator<KanjiItem> CREATOR = new Creator<KanjiItem>() {
@@ -125,7 +129,12 @@ public class KanjiItem implements Parcelable, Serializable {
             dest.writeInt(mJlpt);
         }
         dest.writeString(mUnicodeKanji);
-        dest.writeByte((byte) (mIsWasKanji == null ? 0 : mIsWasKanji ? 1 : 2));
+        if (mImageResource == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(mImageResource);
+        }
     }
 
     //Getters
@@ -169,4 +178,7 @@ public class KanjiItem implements Parcelable, Serializable {
         return mUnicodeKanji;
     }
 
+    public Integer getImageResource() {
+        return mImageResource;
+    }
 }

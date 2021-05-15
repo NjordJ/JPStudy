@@ -18,9 +18,9 @@
     <string name="menu_kana">Kana</string>
     <string name="menu_kanjiKeys">Keys</string>
     <string name="menu_myLists">My lists</string>
-    <string name="menu_kanjiBeginner">Beginner 1</string>
-    <string name="menu_kanjiMiddle">Middle 1</string>
-    <string name="menu_kanjiHigh">High 1</string>
+    <string name="menu_kanjiBeginner">Beginner</string>
+    <string name="menu_kanjiMiddle">Middle</string>
+    <string name="menu_kanjiHigh">High</string>
     <string name="menu_kanjiAnother">Another kanji</string>
     <string name="menu_grammar">Grammar</string>
     <string name="menu_dictionary">Dictionary</string>
@@ -41,6 +41,8 @@
     <string name="onyomi_DetailInfo">Onyomi</string>
     <string name="meanings_DetailInfo">Meanings</string>
     <string name="nameReadings_DetailInfo">Name readings</string>
+
+    <string name="image_DetailInfo">Img how to stroke</string>
 
     <!--Samples for textViews-->
     <string name="kanji_sample">草</string>

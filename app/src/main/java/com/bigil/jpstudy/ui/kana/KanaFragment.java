@@ -69,7 +69,7 @@ public class KanaFragment extends Fragment {
             mAdapterKana.setOnItemClickListener(new KanaAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
-                    Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Successful click", Toast.LENGTH_LONG).show();
                 }
 
                 @Override

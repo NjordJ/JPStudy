@@ -74,7 +74,7 @@ public class AnotherKanjiParentFragment extends Fragment {
 
                 if(Integer.valueOf("0").equals(grade)){
                     kanjiAnotherItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode));
+                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode, null));
                 }
 
             }

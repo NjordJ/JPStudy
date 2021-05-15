@@ -4,202 +4,203 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
-            android:id="@+id/relativeLayoutKanjiInfo"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp" tools:ignore="MissingConstraints">
-        <!--How to stroke kanji-->
-        <VideoView
-                android:id="@+id/videoViewKanjiInfoHowToStroke"
-                android:layout_width="170dp"
-                android:layout_height="170dp"/>
+            android:layout_height="match_parent">
 
-        <!--Right block info about kanji-->
-        <TextView
-                android:id="@+id/textViewKanjiInfoKanji"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/videoViewKanjiInfoHowToStroke"
-                android:text="@string/kanji_DetailInfo"
-                android:textSize="15sp" android:layout_marginStart="8dp"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <RelativeLayout
+                    android:id="@+id/relativeLayoutKanjiInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp" tools:ignore="MissingConstraints">
+                <!--How to stroke kanji-->
+                <ImageView
+                        android:id="@+id/imageViewKanjiInfoHowToStroke"
+                        android:layout_width="170dp"
+                        android:layout_height="170dp"
+                        android:src="@drawable/kj_04e00"
+                        android:contentDescription="@string/image_DetailInfo"/>
 
-        <TextView
-                android:id="@+id/textViewKanjiInfoKanjiValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/videoViewKanjiInfoHowToStroke"
-                android:layout_below="@id/textViewKanjiInfoKanji"
-                android:textColor="@color/colorAccent"
-                android:text="@string/kanji_sample"
-                android:textSize="30sp" android:layout_marginTop="0dp" android:layout_marginStart="10dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoGrade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/textViewKanjiInfoKanji"
-                android:text="@string/grade_DetailInfo"
-                android:textSize="15sp" android:layout_marginStart="24dp"/>
+                <!--Right block info about kanji-->
+                <TextView
+                        android:id="@+id/textViewKanjiInfoKanji"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/imageViewKanjiInfoHowToStroke"
+                        android:text="@string/kanji_DetailInfo"
+                        android:textSize="15sp" android:layout_marginStart="8dp"/>
 
-        <TextView
-                android:id="@+id/textViewKanjiInfoGradeValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/textViewKanjiInfoKanjiValue"
-                android:layout_below="@+id/textViewKanjiInfoGrade"
-                android:text="@string/grade_sample"
-                android:textSize="30sp" android:layout_marginTop="-1dp" android:layout_marginStart="36dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoStrokeCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/textViewKanjiInfoGrade"
-                android:text="@string/strokeCount_DetailInfo"
-                android:textSize="15sp" android:layout_marginStart="20dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoStrokeCountValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@id/textViewKanjiInfoGrade"
-                android:layout_below="@+id/textViewKanjiInfoStrokeCount"
-                android:text="@string/strokeCount_sample"
-                android:textSize="30sp" android:layout_marginTop="0dp" android:layout_marginStart="52dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoKanjiValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/imageViewKanjiInfoHowToStroke"
+                        android:layout_below="@id/textViewKanjiInfoKanji"
+                        android:textColor="@color/colorAccent"
+                        android:text="@string/kanji_sample"
+                        android:textSize="30sp" android:layout_marginTop="0dp" android:layout_marginStart="10dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoGrade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textViewKanjiInfoKanji"
+                        android:text="@string/grade_DetailInfo"
+                        android:textSize="15sp" android:layout_marginStart="24dp"/>
 
-        <TextView
-                android:id="@+id/textViewKanjiInfoUnicode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewKanjiInfoKanjiValue"
-                android:layout_toEndOf="@id/videoViewKanjiInfoHowToStroke"
-                android:text="@string/unicode_DetailInfo"
-                android:textSize="15sp" android:layout_marginTop="5dp" android:layout_marginStart="8dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoUnicodeValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewKanjiInfoUnicode"
-                android:layout_toEndOf="@id/videoViewKanjiInfoHowToStroke"
-                android:text="@string/unicode_sample"
-                android:textSize="20sp" android:layout_marginTop="3dp" android:layout_marginStart="14dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoGradeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textViewKanjiInfoKanjiValue"
+                        android:layout_below="@+id/textViewKanjiInfoGrade"
+                        android:text="@string/grade_sample"
+                        android:textSize="30sp" android:layout_marginTop="-1dp" android:layout_marginStart="36dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoStrokeCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textViewKanjiInfoGrade"
+                        android:text="@string/strokeCount_DetailInfo"
+                        android:textSize="15sp" android:layout_marginStart="20dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoStrokeCountValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toEndOf="@id/textViewKanjiInfoGrade"
+                        android:layout_below="@+id/textViewKanjiInfoStrokeCount"
+                        android:text="@string/strokeCount_sample"
+                        android:textSize="30sp" android:layout_marginTop="0dp" android:layout_marginStart="52dp"/>
 
-        <TextView
-                android:id="@+id/textViewKanjiInfoJlpt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewKanjiInfoGradeValue"
-                android:layout_toEndOf="@id/textViewKanjiInfoUnicode"
-                android:text="@string/jlpt_DetailInfo"
-                android:textSize="15sp" android:layout_marginTop="7dp" android:layout_marginStart="8dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoJlptValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewKanjiInfoJlpt"
-                android:layout_toEndOf="@id/textViewKanjiInfoUnicode"
-                android:text="@string/strokeCount_sample"
-                android:textSize="30sp" android:layout_marginTop="1dp" android:layout_marginStart="15dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoHeisigEn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textViewKanjiInfoStrokeCount"
-                android:layout_toEndOf="@id/textViewKanjiInfoJlpt"
-                android:text="@string/heisigEn_DetailInfo"
-                android:textSize="15sp" android:layout_marginTop="47dp" android:layout_marginStart="28dp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoHeisigEnValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textViewKanjiInfoHeisigEn"
-                android:layout_toEndOf="@id/textViewKanjiInfoJlptValue"
-                android:text="@string/heisigEn_sample"
-                android:textSize="20sp" android:layout_marginTop="1dp" android:layout_marginStart="42dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoUnicode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewKanjiInfoKanjiValue"
+                        android:layout_toEndOf="@id/imageViewKanjiInfoHowToStroke"
+                        android:text="@string/unicode_DetailInfo"
+                        android:textSize="15sp" android:layout_marginTop="5dp" android:layout_marginStart="8dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoUnicodeValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewKanjiInfoUnicode"
+                        android:layout_toEndOf="@id/imageViewKanjiInfoHowToStroke"
+                        android:text="@string/unicode_sample"
+                        android:textSize="20sp" android:layout_marginTop="3dp" android:layout_marginStart="14dp"/>
 
-    </RelativeLayout>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoJlpt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewKanjiInfoGradeValue"
+                        android:layout_toEndOf="@id/textViewKanjiInfoUnicode"
+                        android:text="@string/jlpt_DetailInfo"
+                        android:textSize="15sp" android:layout_marginTop="7dp" android:layout_marginStart="8dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoJlptValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewKanjiInfoJlpt"
+                        android:layout_toEndOf="@id/textViewKanjiInfoUnicode"
+                        android:text="@string/strokeCount_sample"
+                        android:textSize="30sp" android:layout_marginTop="1dp" android:layout_marginStart="15dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoHeisigEn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textViewKanjiInfoStrokeCount"
+                        android:layout_toEndOf="@id/textViewKanjiInfoJlpt"
+                        android:text="@string/heisigEn_DetailInfo"
+                        android:textSize="15sp" android:layout_marginTop="47dp" android:layout_marginStart="28dp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoHeisigEnValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textViewKanjiInfoHeisigEn"
+                        android:layout_toEndOf="@id/textViewKanjiInfoJlptValue"
+                        android:text="@string/heisigEn_sample"
+                        android:textSize="20sp" android:layout_marginTop="1dp" android:layout_marginStart="42dp"/>
 
-    <!--Bottom block with kun and on readings + meanings-->
-<!--    <ListView-->
-<!--            android:id="@+id/listViewKanjiInfo"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content" app:layout_anchorGravity="bottom|center"-->
-<!--            app:layout_anchor="@+id/relativeLayoutKanjiInfo"-->
-<!--            tools:listitem="@layout/kanji_item"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">-->
+            </RelativeLayout>
 
-<!--    </ListView>-->
+            <!--Bottom block with kun and on readings + meanings + name readings-->
+            <RelativeLayout
+                    android:id="@+id/relativeVeLayoutKanjiInfoArrays"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">
 
-    <!--Bottom block with kun and on readings + meanings + name readings-->
-    <RelativeLayout
-            android:id="@+id/relativeVeLayoutKanjiInfoArrays"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayoutKanjiInfo">
+                <!--        Kunyomi-->
+                <TextView
+                        android:id="@+id/textViewKanjiInfoKunyomi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kunyomi_DetailInfo"
+                        android:textSize="15sp"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoKunyomiValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kunyomi_sample"
+                        android:textSize="20sp"
+                        android:layout_below="@id/textViewKanjiInfoKunyomi"/>
 
-<!--        Kunyomi-->
-        <TextView
-                android:id="@+id/textViewKanjiInfoKunyomi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/kunyomi_DetailInfo"
-                android:textSize="15sp"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoKunyomiValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/kunyomi_sample"
-                android:textSize="20sp"
-                android:layout_below="@id/textViewKanjiInfoKunyomi"/>
+                <!--        Onyomi-->
+                <TextView
+                        android:id="@+id/textViewKanjiInfoOnyomi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/onyomi_DetailInfo"
+                        android:textSize="15sp"
+                        android:layout_below="@id/textViewKanjiInfoKunyomiValue"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoOnyomiValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/onyomi_sample"
+                        android:textSize="20sp"
+                        android:layout_below="@id/textViewKanjiInfoOnyomi"/>
 
-<!--        Onyomi-->
-        <TextView
-                android:id="@+id/textViewKanjiInfoOnyomi"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/onyomi_DetailInfo"
-                android:textSize="15sp"
-                android:layout_below="@id/textViewKanjiInfoKunyomiValue"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoOnyomiValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/onyomi_sample"
-                android:textSize="20sp"
-                android:layout_below="@id/textViewKanjiInfoOnyomi"/>
+                <!--        Meanings-->
+                <TextView
+                        android:id="@+id/textViewKanjiInfoMeanings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meanings_DetailInfo"
+                        android:textSize="15sp"
+                        android:layout_below="@id/textViewKanjiInfoOnyomiValue"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoMeaningsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/meanings_sample"
+                        android:textSize="20sp"
+                        android:layout_below="@id/textViewKanjiInfoMeanings"/>
 
-<!--        Meanings-->
-        <TextView
-                android:id="@+id/textViewKanjiInfoMeanings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/meanings_DetailInfo"
-                android:textSize="15sp"
-                android:layout_below="@id/textViewKanjiInfoOnyomiValue"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoMeaningsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/meanings_sample"
-                android:textSize="20sp"
-                android:layout_below="@id/textViewKanjiInfoMeanings"/>
+                <!--        Name readings-->
+                <TextView
+                        android:id="@+id/textViewKanjiInfoNameReadings"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nameReadings_DetailInfo"
+                        android:textSize="15sp"
+                        android:layout_below="@id/textViewKanjiInfoMeaningsValue"/>
+                <TextView
+                        android:id="@+id/textViewKanjiInfoNameReadingsValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/nameReadings_sample"
+                        android:textSize="20sp"
+                        android:layout_below="@id/textViewKanjiInfoNameReadings"/>
 
-<!--        Name readings-->
-        <TextView
-                android:id="@+id/textViewKanjiInfoNameReadings"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nameReadings_DetailInfo"
-                android:textSize="15sp"
-                android:layout_below="@id/textViewKanjiInfoMeaningsValue"/>
-        <TextView
-                android:id="@+id/textViewKanjiInfoNameReadingsValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/nameReadings_sample"
-                android:textSize="20sp"
-                android:layout_below="@id/textViewKanjiInfoNameReadings"/>
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </RelativeLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

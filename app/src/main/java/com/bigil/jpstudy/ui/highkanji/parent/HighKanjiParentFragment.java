@@ -76,7 +76,7 @@ public class HighKanjiParentFragment extends Fragment {
                 //Integer.valueOf(8).equals(grade) && Integer.valueOf("2").equals(jlpt)
                 if(Integer.valueOf(9).equals(grade) || Integer.valueOf(10).equals(grade)){
                     kanjiHighItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode));
+                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode, null));
                 }
 
             }
