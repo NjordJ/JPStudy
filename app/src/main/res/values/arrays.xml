@@ -9,4 +9,13 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="kanjiScore_entries">
+        <item>Reset score</item>
+    </string-array>
+
+    <string-array name="kanjiScore_values">
+        <item>reset_score</item>
+    </string-array>
+
 </resources>

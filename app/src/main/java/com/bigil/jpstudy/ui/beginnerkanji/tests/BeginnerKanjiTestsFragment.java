@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
@@ -59,10 +60,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     private Integer correctAnswer = 0;
     private Integer wrongAnswer = 0;
     private Integer currentQuestion = 0;
-
-    private String answerTempKanji;
-
-    private Random r = new Random();
+    private Double answersScore = 0.00;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -242,13 +240,13 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         if (answerKanjiItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
-            //Toast.makeText(getContext().getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
-            System.out.println("Correct!");
+            Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
+            //System.out.println("Correct!");
         }
         else {
             wrongAnswer++;
-            //Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_LONG).show();
-            System.out.println("Wrong!");
+            Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_LONG).show();
+            //System.out.println("Wrong!");
         }
 
         //Load next question if any
@@ -256,10 +254,11 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
             currentQuestion++;
             setTextsScreen(currentQuestion);
         }else{
+            answersScore = (double) ((correctAnswer * 100) / arrayListKanjiItem.size());
             //ShowDialog with results at end test
             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
             alertDialog.setTitle("Result");
-            alertDialog.setMessage("Correct: "+correctAnswer+" Wrong: "+wrongAnswer);
+            alertDialog.setMessage("Correct: "+correctAnswer+"\n Wrong: "+wrongAnswer+"\n Score: "+answersScore+"%");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

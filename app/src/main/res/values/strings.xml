@@ -61,12 +61,17 @@
     <!--Edit text-->
     <string name="search_Hint">Write something</string>
 
-    <!--Samples for textViews-->
+    <!--Samples for Buttons-->
     <string name="button_start">Start</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
+    <string name="kanji_header">Kanji</string>
+    <string name="help_header">Help</string>
+
+    <!--Kanji Preferences-->
+    <string name="kanji_title">Reset kanji score</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
