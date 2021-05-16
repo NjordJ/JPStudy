@@ -21,7 +21,6 @@
                         android:id="@+id/imageViewKanjiInfoHowToStroke"
                         android:layout_width="170dp"
                         android:layout_height="170dp"
-                        android:src="@drawable/kj_04e00"
                         android:contentDescription="@string/image_DetailInfo"/>
 
                 <!--Right block info about kanji-->

@@ -9,29 +9,17 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import com.bigil.jpstudy.R;
-import com.bigil.jpstudy.models.KanjiItem;
-import com.bigil.jpstudy.utils.JSONParsingAsync;
+import com.bigil.jpstudy.utils.JSONUtils;
 import com.jayway.jsonpath.Configuration;
-import com.jayway.jsonpath.JsonPath;
-import com.jayway.jsonpath.ReadContext;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class SearchFragment extends Fragment {
 
     //Classes
-    JSONParsingAsync jsonParsingAsync = new JSONParsingAsync();
+    JSONUtils jsonUtils = new JSONUtils();
 
     //Variables
 
@@ -48,7 +36,7 @@ public class SearchFragment extends Fragment {
         textViewSearchResult = root.findViewById(R.id.textViewSearchResult);
         editText = root.findViewById(R.id.editTextSearch);
 
-        String json = jsonParsingAsync.JsonDataFromAsset(getContext(), "kanjiapi_obj.json");
+        String json = jsonUtils.JsonDataFromAsset(getContext(), "kanjiapi_obj.json");
         Object document = Configuration.defaultConfiguration().jsonProvider().parse(json);
 
         //ReadContext ctx = JsonPath.read(document, "$..亜");

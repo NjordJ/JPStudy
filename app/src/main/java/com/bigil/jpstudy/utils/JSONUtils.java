@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
-public class JSONParsingAsync {
+public class JSONUtils {
 
     //Parsing json file
     public String JsonDataFromAsset(Context context, String jsonName) {

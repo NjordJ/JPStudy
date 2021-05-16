@@ -29,12 +29,12 @@
             android:text="@string/nav_header_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-    Combo layout
-    <LinearLayout
+    <!--Combo layout-->
+    <!--<LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-        <!--Days in row-->
+        &lt;!&ndash;Days in row&ndash;&gt;
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                     android:textAlignment="center"/>
         </LinearLayout>
 
-        <!--Learned kanjis-->
+        &lt;!&ndash;Learned kanjis&ndash;&gt;
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
                     android:textAlignment="center"/>
         </LinearLayout>
 
-        <!--Time to study left-->
+        &lt;!&ndash;Time to study left&ndash;&gt;
         <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     android:textAlignment="center"/>
         </LinearLayout>
 
-    </LinearLayout>
+    </LinearLayout>-->
     <!--End of combo layout-->
 
 </LinearLayout>

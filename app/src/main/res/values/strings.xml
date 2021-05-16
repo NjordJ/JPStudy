@@ -82,5 +82,9 @@
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <!--Score-->
+    <string name="saved_high_score_default_key">0</string>
+    <string name="saved_high_score_key">SCORE_BEGINNERKANJI1_KEY</string>
+    <string name="preference_file_key">Score</string>
 
 </resources>

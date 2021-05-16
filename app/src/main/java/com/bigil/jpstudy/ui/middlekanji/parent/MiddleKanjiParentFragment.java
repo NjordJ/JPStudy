@@ -1,5 +1,6 @@
 package com.bigil.jpstudy.ui.middlekanji.parent;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,10 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
@@ -18,7 +16,8 @@ import com.bigil.jpstudy.models.KanjiItem;
 import com.bigil.jpstudy.ui.beginnerkanji.info.BeginnerKanjiInfoFragment;
 import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiAdapter;
 import com.bigil.jpstudy.ui.beginnerkanji.tests.BeginnerKanjiTestsFragment;
-import com.bigil.jpstudy.utils.JSONParsingAsync;
+import com.bigil.jpstudy.ui.middlekanji.tests.MiddleKanjiTestsFragment;
+import com.bigil.jpstudy.utils.JSONUtils;
 import com.bigil.jpstudy.utils.LoadNewLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +30,7 @@ import java.util.Comparator;
 public class MiddleKanjiParentFragment extends Fragment {
 
     //Classes
-    JSONParsingAsync jsonParsingAsync  = new JSONParsingAsync();
+    JSONUtils jsonUtils = new JSONUtils();
     LoadNewLayout loadNewLayout = new LoadNewLayout();
 
     //Variables
@@ -48,12 +47,14 @@ public class MiddleKanjiParentFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_middlelistofkanji, container, false);
 
         TextView textViewCountOfKanjiCards = root.findViewById(R.id.textViewCurrentNumberBeginnerKanji);
-        Button buttonStartLearningBeginnerKanji = root.findViewById(R.id.buttonStartLearningMiddleKanji);
+        TextView textViewScoreBeginnerKanji1 = root.findViewById(R.id.textViewScoreBeginnerKanji1);
+        Button buttonStartLearningMiddleKanji = root.findViewById(R.id.buttonStartLearningMiddleKanji);
         Integer countOfKanjiCards = 1;
+        Resources resources = this.getResources();
 
         //Def json parse
         try {
-            JSONObject rootJson = new JSONObject(jsonParsingAsync.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
+            JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
             JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
 
             JSONArray jArray = jsonObjectKanjis.names();
@@ -72,10 +73,14 @@ public class MiddleKanjiParentFragment extends Fragment {
                 Integer jlpt = jValue.optInt("jlpt");
                 String unicode = jValue.optString("unicode");
                 String heisig_en = jValue.optString("heisig_en");
+                //Image name from drawable folder
+                String imageName = "kj_"+unicode;
+                //Get resource by imageName from drawable
+                final int resourceId = resources.getIdentifier(imageName, "drawable", getContext().getPackageName());
 
-                if(Integer.valueOf("6").equals(grade) && Integer.valueOf("1").equals(jlpt)){
-                    kanjiMiddleItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode, null));
+                if(Integer.valueOf("8").equals(grade)){
+                    kanjiMiddleItemArrayList.add(new KanjiItem(kanji,grade,stroke_count, jsonUtils.toStringArray(meanings),heisig_en, jsonUtils.toStringArray(kun_readings),
+                            jsonUtils.toStringArray(on_readings), jsonUtils.toStringArray(name_readings), jlpt,unicode, resourceId));
                 }
 
             }
@@ -110,51 +115,28 @@ public class MiddleKanjiParentFragment extends Fragment {
                 bundle.putParcelable("KanjiItemData", kanjiMiddleItemArrayList.get(position));
                 fragmentBeginnerKanjiInfo.setArguments(bundle);
 
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-
                 getFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                         .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo)
                         .addToBackStack(null)
                         .commit();
 
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
-
             }
 
             @Override
             public void onStartStudyClick(int position) {
 
-                //using Bundle to send data
-                Fragment fragmentBeginnerKanjiTestsFragment = new BeginnerKanjiTestsFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("KanjiItemData", kanjiMiddleItemArrayList.get(position));
-                fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
-
-                //loadNewLayout.LoadNewFragmentWithArrayList(getActivity().getApplicationContext(),"KanjiItemData", kanjiBeginnerItemArrayList.get(position), fragmentBeginnerKanjiInfo);
-
-//                getActivity().getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-
-
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
-
             }
         });
 
-        buttonStartLearningBeginnerKanji.setOnClickListener(new View.OnClickListener() {
+        buttonStartLearningMiddleKanji.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //using Bundle to send data
                 Fragment fragmentBeginnerKanjiTestsFragment = new BeginnerKanjiTestsFragment();
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("KanjiItemDataTests", kanjiMiddleItemArrayList);
+                bundle.putParcelableArrayList("KanjiItemDataTests", kanjiMiddleItemArrayList);
                 fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
 
                 getFragmentManager().beginTransaction()
@@ -163,10 +145,9 @@ public class MiddleKanjiParentFragment extends Fragment {
                         .addToBackStack(null)
                         .commit();
 
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
-
             }
         });
+
 
         return root;
     }

@@ -10,16 +10,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.android.volley.RequestQueue;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanaItem;
-import com.bigil.jpstudy.utils.JSONParsingAsync;
+import com.bigil.jpstudy.utils.JSONUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 
 public class KanaFragment extends Fragment {
@@ -37,12 +34,12 @@ public class KanaFragment extends Fragment {
                 ViewModelProviders.of(this).get(KanaViewModel.class);
         View root = inflater.inflate(R.layout.fragment_kana, container, false);
 
-            JSONParsingAsync jsonParsingAsync = new JSONParsingAsync();
+            JSONUtils jsonUtils = new JSONUtils();
 
             ArrayList<KanaItem> kanaItemArrayList = new ArrayList<>();
 
             try {
-                JSONObject rootJson = new JSONObject(jsonParsingAsync.JsonDataFromAsset(getContext(), "japanese_alphabet.json"));
+                JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "japanese_alphabet.json"));
                 JSONArray jsonArray = rootJson.getJSONArray("kana");
                 for (int index = 0; index < jsonArray.length(); index++){
                     JSONObject hiraganaData = jsonArray.getJSONObject(index);
@@ -69,7 +66,7 @@ public class KanaFragment extends Fragment {
             mAdapterKana.setOnItemClickListener(new KanaAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Successful click", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getActivity().getApplicationContext(), "Successful click", Toast.LENGTH_LONG).show();
                 }
 
                 @Override

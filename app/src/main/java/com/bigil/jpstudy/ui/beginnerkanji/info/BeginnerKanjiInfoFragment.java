@@ -1,8 +1,12 @@
 package com.bigil.jpstudy.ui.beginnerkanji.info;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.text.TextUtils;
 import android.widget.ImageView;
@@ -27,6 +31,8 @@ public class BeginnerKanjiInfoFragment extends Fragment {
     //Variables
     private ImageView imageViewKanjiInfoHowToStroke;
 
+    //private Resources resources = getContext().getResources();
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -44,7 +50,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
 
         String kanjiValue = kanjiItem.getKanji();
         Integer gradeValue = kanjiItem.getGrade();
-        Integer strokeountValue = kanjiItem.getStrokeCount();
+        Integer strokecountValue = kanjiItem.getStrokeCount();
         String[] meaningsValue = kanjiItem.getMeanings();
         String[] kun_readingsValue = kanjiItem.getKunyomiReading();
         String[] on_readingsValue = kanjiItem.getOnyomiReading();
@@ -52,6 +58,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         Integer jlptValue = kanjiItem.getJlpt();
         String unicodeValue = kanjiItem.getUnicodeKanji();
         String heisigenValue = kanjiItem.getHeisig_en();
+        Integer img = kanjiItem.getImageResource();
 
         //Convert String[] to single String
         String meanings = TextUtils.join(",", meaningsValue);
@@ -63,7 +70,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         imageViewKanjiInfoHowToStroke = root.findViewById(R.id.imageViewKanjiInfoHowToStroke);
         TextView textViewKanjiInfoKanji = root.findViewById(R.id.textViewKanjiInfoKanjiValue);
         TextView textViewKanjiInfoGradeValue = root.findViewById(R.id.textViewKanjiInfoGradeValue);
-        TextView textViewrKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewKanjiInfoStrokeCountValue);
+        TextView textViewKanjiInfoStrokeCountValue = root.findViewById(R.id.textViewKanjiInfoStrokeCountValue);
         TextView textViewKanjiInfoMeaningsValue = root.findViewById(R.id.textViewKanjiInfoMeaningsValue);
         TextView textViewKanjiInfoKunyomiValue = root.findViewById(R.id.textViewKanjiInfoKunyomiValue);
         TextView textViewKanjiInfoOnyomiValue = root.findViewById(R.id.textViewKanjiInfoOnyomiValue);
@@ -75,7 +82,7 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         //Set values to TextViews
         textViewKanjiInfoKanji.setText(kanjiValue);
         textViewKanjiInfoGradeValue.setText(String.valueOf(gradeValue));
-        textViewrKanjiInfoStrokeCountValue.setText(String.valueOf(strokeountValue));
+        textViewKanjiInfoStrokeCountValue.setText(String.valueOf(strokecountValue));
         textViewKanjiInfoMeaningsValue.setText(meanings);
         textViewKanjiInfoKunyomiValue.setText(kun_readings);
         textViewKanjiInfoOnyomiValue.setText(on_readings);
@@ -84,7 +91,14 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         textViewBKanjiInfoJlptValue.setText(String.valueOf(jlptValue));
         textViewKanjiInfoHeisigEnValue.setText(heisigenValue);
 
+        // get drawable by resource id
 
+        if (img == 0)
+        {
+            imageViewKanjiInfoHowToStroke.setImageResource(R.drawable.ic_kanji);
+        }else{
+            imageViewKanjiInfoHowToStroke.setImageResource(img);
+        }
 
         return root;
     }

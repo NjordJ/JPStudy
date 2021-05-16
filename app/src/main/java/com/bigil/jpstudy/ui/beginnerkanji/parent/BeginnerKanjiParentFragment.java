@@ -1,12 +1,14 @@
 package com.bigil.jpstudy.ui.beginnerkanji.parent;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,7 +17,7 @@ import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.bigil.jpstudy.ui.beginnerkanji.info.BeginnerKanjiInfoFragment;
 import com.bigil.jpstudy.ui.beginnerkanji.tests.BeginnerKanjiTestsFragment;
-import com.bigil.jpstudy.utils.JSONParsingAsync;
+import com.bigil.jpstudy.utils.JSONUtils;
 import com.bigil.jpstudy.utils.LoadNewLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,10 +28,12 @@ import java.util.*;
 public class BeginnerKanjiParentFragment extends Fragment {
 
     //Classes
-    JSONParsingAsync jsonParsingAsync  = new JSONParsingAsync();
+    JSONUtils jsonUtils = new JSONUtils();
 
     //Variables
     public ArrayList<KanjiItem> kanjiBeginnerItemArrayList = new ArrayList<>();
+
+    private SharedPreferences pref;
 
     //RecyclerView for show information
     private RecyclerView mRecyclerViewBeginnerKanji;
@@ -42,12 +46,14 @@ public class BeginnerKanjiParentFragment extends Fragment {
         final View root = inflater.inflate(R.layout.fragment_beginnerlistofkanji, container, false);
 
         TextView textViewCountOfKanjiCards = root.findViewById(R.id.textViewCurrentNumberBeginnerKanji);
+        TextView textViewScoreBeginnerKanji1 = root.findViewById(R.id.textViewScoreBeginnerKanji1);
         Button buttonStartLearningBeginnerKanji = root.findViewById(R.id.buttonStartLearningBeginnerKanji);
         Integer countOfKanjiCards = 1;
+        Resources resources = this.getResources();
 
         //Def json parse
         try {
-            JSONObject rootJson = new JSONObject(jsonParsingAsync.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
+            JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
             JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
 
             JSONArray jArray = jsonObjectKanjis.names();
@@ -66,10 +72,14 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 Integer jlpt = jValue.optInt("jlpt");
                 String unicode = jValue.optString("unicode");
                 String heisig_en = jValue.optString("heisig_en");
+                //Image name from drawable folder
+                String imageName = "kj_"+unicode;
+                //Get resource by imageName from drawable
+                final int resourceId = resources.getIdentifier(imageName, "drawable", getContext().getPackageName());
 
                 if(Integer.valueOf("1").equals(grade)){
-                    kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count,jsonParsingAsync.toStringArray(meanings),heisig_en,jsonParsingAsync.toStringArray(kun_readings),
-                            jsonParsingAsync.toStringArray(on_readings),jsonParsingAsync.toStringArray(name_readings), jlpt,unicode, null));
+                    kanjiBeginnerItemArrayList.add(new KanjiItem(kanji,grade,stroke_count, jsonUtils.toStringArray(meanings),heisig_en, jsonUtils.toStringArray(kun_readings),
+                            jsonUtils.toStringArray(on_readings), jsonUtils.toStringArray(name_readings), jlpt,unicode, resourceId));
                 }
 
             }
@@ -94,6 +104,19 @@ public class BeginnerKanjiParentFragment extends Fragment {
         mRecyclerViewBeginnerKanji.setLayoutManager(mLayoutManagerBeginnerKanji);
         mRecyclerViewBeginnerKanji.setAdapter(mAdapterBeginnerKanji);
 
+        InitPreferences();
+
+//        Integer defScoreValue = Integer.valueOf(getResources().getString(R.string.saved_high_score_key));
+//        Integer highScore = pref.getInt(getString(R.string.saved_high_score_key), defScoreValue);
+//
+//        if(highScore >= defScoreValue){
+//            textViewScoreBeginnerKanji1.setText(String.valueOf(highScore));
+//        }else{
+//            textViewScoreBeginnerKanji1.setText(String.valueOf(defScoreValue));
+//        }
+
+        textViewScoreBeginnerKanji1.setText(pref.getString(getString(R.string.saved_high_score_key), getString(R.string.saved_high_score_default_key)));
+
         mAdapterBeginnerKanji.setOnItemClickListener(new BeginnerKanjiAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
@@ -104,39 +127,16 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 bundle.putParcelable("KanjiItemData", kanjiBeginnerItemArrayList.get(position));
                 fragmentBeginnerKanjiInfo.setArguments(bundle);
 
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo);
-//                fragmentTransaction.addToBackStack(null);
-//                fragmentTransaction.commit();
-
                 getFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
                         .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo)
                         .addToBackStack(null)
                         .commit();
 
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
-
             }
 
             @Override
             public void onStartStudyClick(int position) {
-
-                //using Bundle to send data
-                Fragment fragmentBeginnerKanjiTestsFragment = new BeginnerKanjiTestsFragment();
-                Bundle bundle = new Bundle();
-                bundle.putParcelable("KanjiItemData", kanjiBeginnerItemArrayList.get(position));
-                fragmentBeginnerKanjiTestsFragment.setArguments(bundle);
-
-                //loadNewLayout.LoadNewFragmentWithArrayList(getActivity().getApplicationContext(),"KanjiItemData", kanjiBeginnerItemArrayList.get(position), fragmentBeginnerKanjiInfo);
-
-//                getActivity().getSupportFragmentManager().beginTransaction()
-//                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiTestsFragment)
-//                        .addToBackStack(null)
-//                        .commit();
-
-
-                //Toast.makeText(getActivity(), "Successful click", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -162,6 +162,10 @@ public class BeginnerKanjiParentFragment extends Fragment {
 
 
         return root;
+    }
+
+    public void InitPreferences(){
+        pref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
 }

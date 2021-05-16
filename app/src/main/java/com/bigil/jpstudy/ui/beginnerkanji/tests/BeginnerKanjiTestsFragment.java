@@ -1,7 +1,9 @@
 package com.bigil.jpstudy.ui.beginnerkanji.tests;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,7 +17,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
+import com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment;
 import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment;
+import com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment;
+import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
 
 import java.util.*;
 
@@ -24,7 +29,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     //Classes
 
     //From layout
-    CardView cardViewBeginnerKanjiTestsAnswer1;
+    private CardView cardViewBeginnerKanjiTestsAnswer1;
     CardView cardViewBeginnerKanjiTestsAnswer2;
     CardView cardViewBeginnerKanjiTestsAnswer3;
     CardView cardViewBeginnerKanjiTestsAnswer4;
@@ -41,6 +46,11 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     TextView textViewBeginnerKanjiTestsOnyomiValue;
     TextView textViewBeginnerKanjiTestsKunuomiValue;
     TextView textViewBeginnerKanjiTestsCurrentAnswer;
+
+    //Score
+    TextView textViewScoreBeginnerKanji1;
+
+    private SharedPreferences pref;
 
     //Variables
     private ArrayList<KanjiItem> arrayListKanjiItem;
@@ -60,6 +70,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     private Integer correctAnswer = 0;
     private Integer wrongAnswer = 0;
     private Integer currentQuestion = 0;
+    private Integer grade;
     private Double answersScore = 0.00;
 
     @Override
@@ -97,6 +108,8 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
 
         setTextsScreen(currentQuestion);
 
+        InitPref();
+
         cardViewBeginnerKanjiTestsAnswer1.setOnClickListener(this);
         cardViewBeginnerKanjiTestsAnswer2.setOnClickListener(this);
         cardViewBeginnerKanjiTestsAnswer3.setOnClickListener(this);
@@ -115,10 +128,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         kanjiValue = arrayListKanjiItem.get(number).getKanji();
         answerKanjiItem = kanjiValue;
 
-        //tempKanji.add(arrayListKanjiItem.get(number));
-        //answerTempKanji = tempKanji.get(0).getKanji();
-        //kun_readingsValue = tempKanji.get(0).getKunyomiReading();
-        //on_readingsValue = tempKanji.get(0).getOnyomiReading();
+        grade = arrayListKanjiItem.get(number).getGrade();
         kun_readingsValue = arrayListKanjiItem.get(number).getKunyomiReading();
         on_readingsValue = arrayListKanjiItem.get(number).getOnyomiReading();
 
@@ -148,58 +158,6 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
         textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
         textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
-
-//        switch (tempKanjiSize) {
-//            case 5:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
-//                break;
-//            case 4:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[0]);
-//                break;
-//            case 3:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[0]);
-//                break;
-//            case 2:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[2]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[0]);
-//                break;
-//            case 1:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[1]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[0]);
-//                break;
-//            case 0:
-//                textViewBeginnerKanjiTestsAnswer1.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer2.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer3.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[0]);
-//                textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[0]);
-//                break;
-//        }
-
     }
 
     @Override
@@ -229,24 +187,22 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
 
     }
 
-    public static List<KanjiItem> pickNRandom(List<KanjiItem> lst, int n) {
+    private static List<KanjiItem> pickNRandom(List<KanjiItem> lst, int n) {
         List<KanjiItem> copy = new ArrayList<>(lst);
         //Randomize elements
         Collections.shuffle(copy);
         return n > copy.size() ? copy.subList(0, copy.size()) : copy.subList(0, n);
     }
 
-    public void CheckAnswer (TextView textView){
+    private void CheckAnswer (TextView textView){
         if (answerKanjiItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
             Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
-            //System.out.println("Correct!");
         }
         else {
             wrongAnswer++;
             Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_LONG).show();
-            //System.out.println("Wrong!");
         }
 
         //Load next question if any
@@ -254,7 +210,12 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
             currentQuestion++;
             setTextsScreen(currentQuestion);
         }else{
+            //Score value after end tests
             answersScore = (double) ((correctAnswer * 100) / arrayListKanjiItem.size());
+            //Save to SharedPreferences
+            SharedPreferences.Editor edit = pref.edit();
+            edit.putString(getString(R.string.saved_high_score_key), String.valueOf(answersScore));
+            edit.apply();
             //ShowDialog with results at end test
             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
             alertDialog.setTitle("Result");
@@ -267,13 +228,45 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                     });
             alertDialog.show();
 
-            Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
-            getFragmentManager().beginTransaction()
-                    .setCustomAnimations(R.anim.slide_in_top, R.anim.slide_out_bottom, R.anim.slide_in_bottom, R.anim.slide_out_top)
-                    .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiParentFragment)
-                    .addToBackStack(null)
-                    .commit();
+            switch (grade){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                    Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiParentFragment);
+                    break;
+                case 8:
+                    Fragment fragmentMiddleKanjiParentFragment = new MiddleKanjiParentFragment();
+                    OpenNewFragment(fragmentMiddleKanjiParentFragment);
+                    break;
+                case 9:
+                    Fragment fragmentHighKanjiParentFragment = new HighKanjiParentFragment();
+                    OpenNewFragment(fragmentHighKanjiParentFragment);
+                    break;
+                case 10:
+                    Fragment fragmentAnotherKanjiParentFragment = new AnotherKanjiParentFragment();
+                    OpenNewFragment(fragmentAnotherKanjiParentFragment);
+                    break;
+
+            }
+
         }
+    }
+
+    private void OpenNewFragment(Fragment newFragment){
+        getFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
+                .replace(R.id.nav_host_fragment, newFragment)
+                .addToBackStack(null)
+                .commit();
+
+    }
+
+    private void InitPref(){
+        pref = getActivity().getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
     }
 
 }

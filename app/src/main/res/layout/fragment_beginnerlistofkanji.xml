@@ -7,12 +7,23 @@
         android:padding="10dp"
         tools:context=".ui.beginnerkanji.parent.BeginnerKanjiParentFragment">
 
-    <Button
-            android:id="@+id/buttonStartLearningBeginnerKanji"
-            android:layout_width="wrap_content"
+    <LinearLayout
+            android:id="@+id/linearLayoutBeginnerList"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/button_start"
-            android:layout_centerHorizontal="true"/>
+            android:gravity="center">
+        <TextView
+                android:id="@+id/textViewScoreBeginnerKanji1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:textSize="25sp"/>
+        <Button
+                android:id="@+id/buttonStartLearningBeginnerKanji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_start"/>
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewBeginnerKanji"
@@ -20,7 +31,7 @@
             android:layout_height="match_parent"
             android:scrollbars="vertical"
             android:padding="4dp"
-            android:layout_below="@id/buttonStartLearningBeginnerKanji"
+            android:layout_below="@id/linearLayoutBeginnerList"
             tools:listitem="@layout/kanji_item"/>
 
 
