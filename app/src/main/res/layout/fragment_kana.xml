@@ -7,10 +7,46 @@
         android:layout_height="match_parent"
         android:padding="10dp">
 
+    <RelativeLayout
+            android:id="@+id/linearLayoutKanaLearnButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/textViewKanaLearn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/learnAlphabet_Kana"
+                android:textSize="20sp"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@+id/textViewKanaLearn">
+
+            <Button
+                    android:id="@+id/buttonStartLearningHiragana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_startLearn_Hiragana"/>
+            <Button
+                    android:id="@+id/buttonStartLearningKatakana"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button_startLearn_Katakana"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewKana"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/linearLayoutKanaLearnButtons"
             android:layout_marginBottom="30dp"
             android:scrollbars="vertical"
             android:padding="4dp"/>

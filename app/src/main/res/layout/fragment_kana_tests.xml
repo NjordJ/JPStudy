@@ -4,43 +4,35 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".ui.beginnerkanji.tests.BeginnerKanjiTestsFragment">
+        tools:context=".ui.kana.KanaHiraganaTestsFragment">
 
     <TextView
-            android:id="@+id/textViewBeginnerKanjiTestsCurrentAnswer"
+            android:id="@+id/textViewKanaTestsCurrentAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/countKanji_List"
             android:textSize="30sp"
             android:layout_centerHorizontal="true"
-            android:layout_above="@id/linearLayoutKanjiOnKun"
+            android:layout_above="@id/linearLayoutKanaRomanji"
             android:layout_alignParentTop="true"/>
 
 
     <LinearLayout
-            android:id="@+id/linearLayoutKanjiOnKun"
+            android:id="@+id/linearLayoutKanaRomanji"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/linearLayoutBeginnerKanjiTestsOnKunReadings"
+            android:layout_above="@id/linearLayoutKanaRomanjiReading"
             android:gravity="center">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/onyomi_DetailInfo"
-                android:textSize="30sp"
-                android:layout_marginEnd="40dp"/>
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/kunyomi_DetailInfo"
-                android:textSize="30sp"
-                android:layout_marginStart="40dp"/>
+                android:text="@string/transcription_KanaDetailInfo"
+                android:textSize="30sp"/>
 
     </LinearLayout>
     <LinearLayout
-            android:id="@+id/linearLayoutBeginnerKanjiTestsOnKunReadings"
+            android:id="@+id/linearLayoutKanaRomanjiReading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -59,32 +51,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                 <TextView
-                        android:id="@+id/textViewBeginnerKanjiTestsOnReadings"
+                        android:id="@+id/textViewKanaRomanjiReading"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/onyomi_sample"
-                        android:textSize="30sp"/>
-            </ScrollView>
-
-        </androidx.cardview.widget.CardView>
-
-        <!--Kun_readings-->
-        <androidx.cardview.widget.CardView
-                android:layout_width="180dp"
-                android:layout_height="80dp"
-                app:cardCornerRadius="6dp"
-                android:padding="4dp"
-                android:layout_margin="5dp">
-
-            <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                <TextView
-                        android:id="@+id/textViewBeginnerKanjiTestsKunReadings"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/kunyomi_sample"
-                        android:textSize="30sp"/>
+                        android:text="@string/romanji_sample"
+                        android:textSize="40sp"
+                        android:layout_gravity="center"/>
             </ScrollView>
 
         </androidx.cardview.widget.CardView>
@@ -94,16 +66,16 @@
 
     <!--Random kanjis-->
     <RelativeLayout
-            android:id="@+id/relativeLayoutKanjiAnswers"
+            android:id="@+id/relativeLayoutKanaAnswers"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/linearLayoutBeginnerKanjiTestsOnKunReadings"
+            android:layout_below="@id/linearLayoutKanaRomanjiReading"
             android:layout_alignParentBottom="true"
             android:gravity="center">
 
         <!--Answer 1-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer1"
+                android:id="@+id/cardViewKanaTestsAnswer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -115,18 +87,18 @@
                 android:foreground="?android:attr/selectableItemBackgroundBorderless">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer1"
+                    android:id="@+id/textViewKanaTestsAnswer1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
         <!--Answer 2-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer2"
+                android:id="@+id/cardViewKanaTestsAnswer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -136,21 +108,21 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer1">
+                android:layout_toEndOf="@id/cardViewKanaTestsAnswer1">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer2"
+                    android:id="@+id/textViewKanaTestsAnswer2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
         <!--Answer 3-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer3"
+                android:id="@+id/cardViewKanaTestsAnswer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -160,21 +132,21 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer2">
+                android:layout_toEndOf="@id/cardViewKanaTestsAnswer2">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer3"
+                    android:id="@+id/textViewKanaTestsAnswer3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
         <!--Answer 4-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer4"
+                android:id="@+id/cardViewKanaTestsAnswer4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -184,21 +156,21 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer1">
+                android:layout_below="@id/cardViewKanaTestsAnswer1">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer4"
+                    android:id="@+id/textViewKanaTestsAnswer4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
         <!--Answer 5-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer5"
+                android:id="@+id/cardViewKanaTestsAnswer5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -208,22 +180,22 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer2"
-                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer4">
+                android:layout_below="@id/cardViewKanaTestsAnswer2"
+                android:layout_toEndOf="@id/cardViewKanaTestsAnswer4">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer5"
+                    android:id="@+id/textViewKanaTestsAnswer5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>
 
         <!--Answer 6-->
         <androidx.cardview.widget.CardView
-                android:id="@+id/cardViewBeginnerKanjiTestsAnswer6"
+                android:id="@+id/cardViewKanaTestsAnswer6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="6dp"
@@ -233,15 +205,15 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                android:layout_below="@id/cardViewBeginnerKanjiTestsAnswer3"
-                android:layout_toEndOf="@id/cardViewBeginnerKanjiTestsAnswer5">
+                android:layout_below="@id/cardViewKanaTestsAnswer3"
+                android:layout_toEndOf="@id/cardViewKanaTestsAnswer5">
 
             <TextView
-                    android:id="@+id/textViewBeginnerKanjiTestsAnswer6"
+                    android:id="@+id/textViewKanaTestsAnswer6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/kanji_sample"
+                    android:text="@string/hiragana_sample"
                     android:textSize="30sp"/>
 
         </androidx.cardview.widget.CardView>

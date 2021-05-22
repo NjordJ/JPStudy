@@ -13,9 +13,10 @@
     <string name="nav_header_timetostudyleft">30 min</string>
 
     <!-- Menu items -->
+    <string name="menu_home">Learning algorithm </string>
     <string name="menu_search">Search</string>
     <string name="menu_favourite">Favourite</string>
-    <string name="menu_kana">Kana</string>
+    <string name="menu_kana">Alphabet</string>
     <string name="menu_kanjiKeys">Keys</string>
     <string name="menu_myLists">My lists</string>
     <string name="menu_kanjiBeginner">Beginner</string>
@@ -23,8 +24,8 @@
     <string name="menu_kanjiHigh">High</string>
     <string name="menu_kanjiAnother">Another kanji</string>
     <string name="menu_grammar">Grammar</string>
-    <string name="menu_dictionary">Dictionary</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_dictionary">Glossary</string>
+    <string name="menu_settings">More</string>
 
     <!--Sample strings-->
     <string name="kanji10_List">10 kanji</string>
@@ -41,8 +42,18 @@
     <string name="onyomi_DetailInfo">Onyomi</string>
     <string name="meanings_DetailInfo">Meanings</string>
     <string name="nameReadings_DetailInfo">Name readings</string>
-
     <string name="image_DetailInfo">Img how to stroke</string>
+
+    <string name="hiragana_KanaDetailInfo">Hiragana</string>
+    <string name="katakana_KanaDetailInfo">Katakana</string>
+    <string name="transcription_KanaDetailInfo">Transcription</string>
+    <string name="image_KanaDetailInfo">Img how to stroke</string>
+
+    <string name="learnAlphabet_Kana">Learn alphabet</string>
+
+    <!--Home strings-->
+    <string name="title_HomePage">Guide how to learn japanese</string>
+    <string name="warning_HomePage">Guide how to learn japanese</string>
 
     <!--Samples for textViews-->
     <string name="kanji_sample">草</string>
@@ -62,7 +73,9 @@
     <string name="search_Hint">Write something</string>
 
     <!--Samples for Buttons-->
-    <string name="button_start">Start</string>
+    <string name="button_startLearn">Learn</string>
+    <string name="button_startLearn_Hiragana">Hiragana</string>
+    <string name="button_startLearn_Katakana">Katakana</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
@@ -82,6 +95,13 @@
     <string name="attachment_title">Download incoming attachments</string>
     <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="resetScoreTitle_Settings">Reset score</string>
+    <string name="resetScoreDescription_Settings">Reset score in all kanji levels</string>
+    <string name="suggestionTitle_Settings">Make a suggestion</string>
+    <string name="suggestionDescription_Settings">Suggest what can be improved in the app</string>
+    <string name="bugReportTitle_Settings">Report about error</string>
+    <string name="bugReportDescription_Settings">Write about a bug in the application</string>
     <!--Score-->
     <string name="saved_high_score_default_key">0</string>
     <string name="saved_high_score_key">SCORE_BEGINNERKANJI1_KEY</string>

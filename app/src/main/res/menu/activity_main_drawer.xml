@@ -16,19 +16,19 @@
                 android:id="@+id/nav_kana"
                 android:icon="@drawable/ic_kana"
                 android:title="@string/menu_kana"/>
-        <item
+        <!--<item
                 android:id="@+id/nav_keysofkanji"
                 android:icon="@drawable/ic_partofkanji"
-                android:title="@string/menu_kanjiKeys"/>
-        <item
+                android:title="@string/menu_kanjiKeys"/>-->
+        <!--<item
                 android:id="@+id/nav_userlistofkanji"
                 android:icon="@drawable/ic_baseline_list_24"
-                android:title="@string/menu_myLists"/>
+                android:title="@string/menu_myLists"/>-->
         <item
                 android:id="@+id/nav_beginnerkanji"
                 android:icon="@drawable/ic_chiisai"
                 android:title="@string/menu_kanjiBeginner"/>
-        <item
+        <!--<item
                 android:id="@+id/nav_middlekanji"
                 android:icon="@drawable/ic_naka"
                 android:title="@string/menu_kanjiMiddle"/>
@@ -39,7 +39,7 @@
         <item
                 android:id="@+id/nav_anotherkanji"
                 android:icon="@drawable/ic_anotherkanji"
-                android:title="@string/menu_kanjiAnother"/>
+                android:title="@string/menu_kanjiAnother"/>-->
         <item
                 android:id="@+id/nav_grammar"
                 android:icon="@drawable/ic_grammar"
@@ -50,7 +50,7 @@
                 android:title="@string/menu_dictionary"/>
         <item
                 android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_baseline_settings_24"
+                android:icon="@drawable/ic_baseline_more_horiz_24"
                 android:title="@string/menu_settings"/>
 
 

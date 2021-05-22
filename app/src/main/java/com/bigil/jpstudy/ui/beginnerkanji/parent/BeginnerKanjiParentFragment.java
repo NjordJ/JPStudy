@@ -51,7 +51,7 @@ public class BeginnerKanjiParentFragment extends Fragment {
         Integer countOfKanjiCards = 1;
         Resources resources = this.getResources();
 
-        //Def json parse
+        /*//Def json parse
         try {
             JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "kanjiapi_obj.json"));
             JSONObject jsonObjectKanjis = rootJson.getJSONObject("kanjis");
@@ -93,7 +93,11 @@ public class BeginnerKanjiParentFragment extends Fragment {
 
         } catch (JSONException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        //String[] grades = {"1"};
+
+        jsonUtils.GetValuesFromKanjiJSON(getContext(), kanjiBeginnerItemArrayList);
 
         mRecyclerViewBeginnerKanji = root.findViewById(R.id.recyclerViewBeginnerKanji);
         mRecyclerViewBeginnerKanji.setHasFixedSize(true);
@@ -106,7 +110,7 @@ public class BeginnerKanjiParentFragment extends Fragment {
 
         InitPreferences();
 
-//        Integer defScoreValue = Integer.valueOf(getResources().getString(R.string.saved_high_score_key));
+//        Integer defScoreValue = getResources().getInteger(R.string.saved_high_score_key);
 //        Integer highScore = pref.getInt(getString(R.string.saved_high_score_key), defScoreValue);
 //
 //        if(highScore >= defScoreValue){
@@ -115,7 +119,7 @@ public class BeginnerKanjiParentFragment extends Fragment {
 //            textViewScoreBeginnerKanji1.setText(String.valueOf(defScoreValue));
 //        }
 
-        textViewScoreBeginnerKanji1.setText(pref.getString(getString(R.string.saved_high_score_key), getString(R.string.saved_high_score_default_key)));
+        textViewScoreBeginnerKanji1.setText((pref.getString(getString(R.string.saved_high_score_key), getString(R.string.saved_high_score_default_key)))+"%");
 
         mAdapterBeginnerKanji.setOnItemClickListener(new BeginnerKanjiAdapter.OnItemClickListener() {
             @Override

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JPStudy</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">JPStudy</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Настройки</string>
+
+    <!-- Header combo strings -->
+    <string name="nav_header_subtitle">Привет</string>
+    <string name="nav_header_learnedkanji">6</string>
+    <string name="nav_header_daysinrow">25</string>
+    <string name="nav_header_timetostudyleft">30 минут</string>
+
+    <!-- Menu items -->
+    <string name="menu_home">Алгоритм изучения</string>
+    <string name="menu_search">Поиск</string>
+    <string name="menu_favourite">Избранное</string>
+    <string name="menu_kana">Алфавит</string>
+    <string name="menu_kanjiKeys">Ключи</string>
+    <string name="menu_myLists">Свои списки</string>
+    <string name="menu_kanjiBeginner">Начальный уровень</string>
+    <string name="menu_kanjiMiddle">Средний уровень</string>
+    <string name="menu_kanjiHigh">Высший уровень</string>
+    <string name="menu_kanjiAnother">Остальные кандзи</string>
+    <string name="menu_grammar">Грамматика</string>
+    <string name="menu_dictionary">Словарь</string>
+    <string name="menu_settings">Дополнительно</string>
+
+    <!--Sample strings-->
+    <string name="kanji10_List">10 кандзи</string>
+    <string name="countKanji_List">1/8</string>
+    <string name="lastSeen_List">2 недели назад</string>
+
+    <string name="kanji_DetailInfo">Кандзи</string>
+    <string name="strokeCount_DetailInfo">Количество черт</string>
+    <string name="unicode_DetailInfo">Юникод</string>
+    <string name="jlpt_DetailInfo">JLPT</string>
+    <string name="heisigEn_DetailInfo">Ассоциация</string>
+    <string name="grade_DetailInfo">Уровень</string>
+    <string name="kunyomi_DetailInfo">Кунъёми</string>
+    <string name="onyomi_DetailInfo">Онъёми</string>
+    <string name="meanings_DetailInfo">Значения</string>
+    <string name="nameReadings_DetailInfo">Чтения в именах</string>
+    <string name="image_DetailInfo">Img how to stroke</string>
+
+    <string name="hiragana_KanaDetailInfo">Хирагана</string>
+    <string name="katakana_KanaDetailInfo">Катакана</string>
+    <string name="transcription_KanaDetailInfo">Транскрипция</string>
+    <string name="image_KanaDetailInfo">Img how to stroke</string>
+
+    <string name="learnAlphabet_Kana">Учить алфавит</string>
+
+    <!--Home strings-->
+    <string name="title_HomePage">Guide how to learn japanese</string>
+    <string name="warning_HomePage">Guide how to learn japanese</string>
+
+    <!--Samples for textViews-->
+    <string name="kanji_sample">草</string>
+    <string name="kunyomi_sample">くさ</string>
+    <string name="onyomi_sample">ソー</string>
+    <string name="hiragana_sample">あ</string>
+    <string name="katakana_sample">ア</string>
+    <string name="romanji_sample">a</string>
+    <string name="grade_sample">1</string>
+    <string name="strokeCount_sample">1</string>
+    <string name="heisigEn_sample">Азия</string>
+    <string name="unicode_sample">4e00</string>
+    <string name="meanings_sample">Азия</string>
+    <string name="nameReadings_sample">かず</string>
+
+    <!--Edit text-->
+    <string name="search_Hint">Напишите что-нибудь</string>
+
+    <!--Samples for Buttons-->
+    <string name="button_startLearn">Учить</string>
+    <string name="button_startLearn_Hiragana">Хирагана</string>
+    <string name="button_startLearn_Katakana">Катакана</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Сообщения</string>
+    <string name="sync_header">Синхронизация</string>
+    <string name="kanji_header">Кандзи</string>
+    <string name="help_header">Помощь</string>
+
+    <!--Kanji Preferences-->
+    <string name="kanji_title">Сбросить рекорды кандзи</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Ваша подпись</string>
+    <string name="reply_title">Действие по умолчанию</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="resetScoreTitle_Settings">Сбросить рекорды</string>
+    <string name="resetScoreDescription_Settings">Сбросить рекорды во всех уровнях</string>
+    <string name="suggestionTitle_Settings">Сделать предложение</string>
+    <string name="suggestionDescription_Settings">Сделайте предложение по улучшению приложения</string>
+    <string name="bugReportTitle_Settings">Сообщить об ошибке</string>
+    <string name="bugReportDescription_Settings">Напишите сообщение о ошибке вызванной в приложении</string>
+    <!--Score-->
+    <string name="saved_high_score_default_key">0</string>
+    <string name="saved_high_score_key">SCORE_BEGINNERKANJI1_KEY</string>
+    <string name="preference_file_key">Score</string>
+</resources>

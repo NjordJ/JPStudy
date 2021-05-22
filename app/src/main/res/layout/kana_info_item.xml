@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <RelativeLayout
+                    android:id="@+id/relativeLayoutKanaInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    tools:ignore="MissingConstraints">
+                <!--How to stroke kanji-->
+                <!--<ImageView
+                        android:id="@+id/imageViewKanaInfoHowToStroke"
+                        android:layout_width="230dp"
+                        android:layout_height="230dp"
+                        android:contentDescription="@string/image_DetailInfo"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_kanji"/>-->
+                <LinearLayout
+                        android:id="@+id/linearLayoutBigKanaInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+                    <TextView
+                            android:id="@+id/textViewBigHiraganaInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hiragana_sample"
+                            android:textSize="200sp"
+                            android:gravity="center_horizontal"/>
+                    <TextView
+                            android:id="@+id/textViewBigKatakanaInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/katakana_sample"
+                            android:textSize="200sp"
+                            android:gravity="center_horizontal"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/linearLayoutBigKanaInfo"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center">
+
+                    <!--Kanji-->
+                    <TextView
+                            android:id="@+id/textViewHiraganaInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hiragana_KanaDetailInfo"
+                            android:textSize="20sp"
+                            android:layout_marginStart="8dp"/>
+
+                    <TextView
+                            android:id="@+id/textViewHiraganaInfoValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/textViewHiraganaInfo"
+                            android:text="@string/hiragana_sample"
+                            android:textSize="35sp"
+                            android:layout_marginStart="30dp"/>
+
+                    <!--Stroke count-->
+                    <TextView
+                            android:id="@+id/textViewRomanjiInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/textViewHiraganaInfo"
+                            android:layout_marginStart="15dp"
+                            android:text="@string/transcription_KanaDetailInfo"
+                            android:textSize="20sp"/>
+                    <TextView
+                            android:id="@+id/textViewRomanjiInfoValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/textViewHiraganaInfoValue"
+                            android:layout_below="@+id/textViewRomanjiInfo"
+                            android:layout_marginStart="90dp"
+                            android:text="@string/romanji_sample"
+                            android:textSize="35sp"/>
+
+                    <!--Grade-->
+                    <TextView
+                            android:id="@+id/textViewKatakanaInfo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/textViewRomanjiInfo"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/katakana_KanaDetailInfo"
+                            android:textSize="20sp"/>
+
+                    <TextView
+                            android:id="@+id/textViewKatakanaInfoValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@id/textViewRomanjiInfoValue"
+                            android:layout_below="@+id/textViewKatakanaInfo"
+                            android:layout_marginStart="80dp"
+                            android:text="@string/katakana_sample"
+                            android:textSize="35sp"/>
+
+                </RelativeLayout>
+
+
+
+            </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

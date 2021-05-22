@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,13 +24,14 @@ import com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment;
 import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClickListener {
 
     //Classes
 
     //From layout
-    private CardView cardViewBeginnerKanjiTestsAnswer1;
+    CardView cardViewBeginnerKanjiTestsAnswer1;
     CardView cardViewBeginnerKanjiTestsAnswer2;
     CardView cardViewBeginnerKanjiTestsAnswer3;
     CardView cardViewBeginnerKanjiTestsAnswer4;
@@ -165,22 +167,22 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         switch(v.getId()){
             case R.id.cardViewBeginnerKanjiTestsAnswer1:
                 //Check if answer correct
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer1);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer1, cardViewBeginnerKanjiTestsAnswer1);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer2:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer2);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer2, cardViewBeginnerKanjiTestsAnswer2);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer3:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer3);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer3, cardViewBeginnerKanjiTestsAnswer3);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer4:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer4);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer4, cardViewBeginnerKanjiTestsAnswer4);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer5:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer5);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer5, cardViewBeginnerKanjiTestsAnswer5);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer6:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer6);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer6, cardViewBeginnerKanjiTestsAnswer6);
                 break;
 
         }
@@ -194,20 +196,26 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         return n > copy.size() ? copy.subList(0, copy.size()) : copy.subList(0, n);
     }
 
-    private void CheckAnswer (TextView textView){
+    private void CheckAnswer (TextView textView, CardView cardView){
+        Toast mToastCorrectAnswer = Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT);
+        Toast mToastWrongAnswer = Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_SHORT);
         if (answerKanjiItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
-            Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT).show();
+            //cardView.setCardBackgroundColor(Color.parseColor("#00a86b"));
+            mToastCorrectAnswer.show();
         }
         else {
             wrongAnswer++;
-            Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_LONG).show();
+            mToastWrongAnswer.show();
         }
 
         //Load next question if any
         if(currentQuestion < arrayListKanjiItem.size()-1){
             currentQuestion++;
+            //cardView.setCardBackgroundColor(Color.parseColor("#ffffff"));
+//            mToastCorrectAnswer.cancel();
+//            mToastWrongAnswer.cancel();
             setTextsScreen(currentQuestion);
         }else{
             //Score value after end tests
@@ -258,7 +266,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
 
     private void OpenNewFragment(Fragment newFragment){
         getFragmentManager().beginTransaction()
-                .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
+                .setCustomAnimations(R.anim.slide_out_bottom, R.anim.slide_in_top, R.anim.slide_out_bottom, R.anim.slide_in_top)
                 .replace(R.id.nav_host_fragment, newFragment)
                 .addToBackStack(null)
                 .commit();

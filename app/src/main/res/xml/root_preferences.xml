@@ -6,8 +6,8 @@
 
         <Preference
                 app:key="resetScore"
-                app:title="Reset score"
-                app:summary="Reset score in all kanji levels"/>
+                app:title="@string/resetScoreTitle_Settings"
+                app:summary="@string/resetScoreDescription_Settings"/>
 
     </PreferenceCategory>
 
@@ -16,13 +16,13 @@
 
         <Preference
                 app:key="feedback"
-                app:title="Make a suggestion"
-                app:summary="Suggest what can be improved in the app"/>
+                app:title="@string/suggestionTitle_Settings"
+                app:summary="@string/suggestionDescription_Settings"/>
 
         <Preference
                 app:key="bugReport"
-                app:title="Report about error"
-                app:summary="Write about a bug in the application"/>
+                app:title="@string/bugReportTitle_Settings"
+                app:summary="@string/bugReportTitle_Settings"/>
 
     </PreferenceCategory>
 

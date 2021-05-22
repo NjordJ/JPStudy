@@ -4,10 +4,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
@@ -19,9 +18,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class KanaFragment extends Fragment {
+public class KanaFragment extends Fragment implements View.OnClickListener {
 
-    private KanaViewModel kanaViewModel;
+    //Classes
+    JSONUtils jsonUtils = new JSONUtils();
+
+    //Variables
+    private ArrayList<KanaItem> kanaItemArrayList = new ArrayList<>();
 
     //RecyclerView for show information
     private RecyclerView mRecyclerViewKana;
@@ -30,13 +33,10 @@ public class KanaFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        kanaViewModel =
-                ViewModelProviders.of(this).get(KanaViewModel.class);
         View root = inflater.inflate(R.layout.fragment_kana, container, false);
 
-            JSONUtils jsonUtils = new JSONUtils();
-
-            ArrayList<KanaItem> kanaItemArrayList = new ArrayList<>();
+        Button buttonStartLearningHiragana = root.findViewById(R.id.buttonStartLearningHiragana);
+        Button buttonStartLearningKatakana = root.findViewById(R.id.buttonStartLearningKatakana);
 
             try {
                 JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "japanese_alphabet.json"));
@@ -66,6 +66,17 @@ public class KanaFragment extends Fragment {
             mAdapterKana.setOnItemClickListener(new KanaAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(int position) {
+                    //using Bundle to send data
+                    Fragment fragmentKanaInfoFragment = new KanaInfoFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("KanaItemData", kanaItemArrayList.get(position));
+                    fragmentKanaInfoFragment.setArguments(bundle);
+
+                    getFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                            .replace(R.id.nav_host_fragment, fragmentKanaInfoFragment)
+                            .addToBackStack(null)
+                            .commit();
                     //Toast.makeText(getActivity().getApplicationContext(), "Successful click", Toast.LENGTH_LONG).show();
                 }
 
@@ -75,10 +86,42 @@ public class KanaFragment extends Fragment {
                 }
             });
 
+            buttonStartLearningHiragana.setOnClickListener(this);
+            buttonStartLearningKatakana.setOnClickListener(this);
+
             return root;
-
-
         }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.buttonStartLearningHiragana:
+                //using Bundle to send data
+                Fragment fragmentKanaHiraganaTestsFragment = new KanaHiraganaTestsFragment();
+                Bundle bundleHiragana = new Bundle();
+                bundleHiragana.putParcelableArrayList("KanaDataTests", kanaItemArrayList);
+                fragmentKanaHiraganaTestsFragment.setArguments(bundleHiragana);
+
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
+                        .replace(R.id.nav_host_fragment, fragmentKanaHiraganaTestsFragment)
+                        .addToBackStack(null)
+                        .commit();
+                break;
+            case R.id.buttonStartLearningKatakana:
+                //using Bundle to send data
+                Fragment fragmentKanaKatakanaTestsFragment = new KanaKatakanaTestsFragment();
+                Bundle bundleKatakana = new Bundle();
+                bundleKatakana.putParcelableArrayList("KanaDataTests", kanaItemArrayList);
+                fragmentKanaKatakanaTestsFragment.setArguments(bundleKatakana);
+
+                getFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_bottom, R.anim.slide_out_top, R.anim.slide_in_top, R.anim.slide_out_bottom)
+                        .replace(R.id.nav_host_fragment, fragmentKanaKatakanaTestsFragment)
+                        .addToBackStack(null)
+                        .commit();
+                break;
+        }
+    }
 }
 
