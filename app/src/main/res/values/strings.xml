@@ -13,7 +13,7 @@
     <string name="nav_header_timetostudyleft">30 min</string>
 
     <!-- Menu items -->
-    <string name="menu_home">Learning algorithm </string>
+    <string name="menu_home">About the program</string>
     <string name="menu_search">Search</string>
     <string name="menu_favourite">Favourite</string>
     <string name="menu_kana">Alphabet</string>
@@ -24,7 +24,7 @@
     <string name="menu_kanjiHigh">High</string>
     <string name="menu_kanjiAnother">Another kanji</string>
     <string name="menu_grammar">Grammar</string>
-    <string name="menu_dictionary">Glossary</string>
+    <string name="menu_dictionary">Dictionary</string>
     <string name="menu_settings">More</string>
 
     <!--Sample strings-->
@@ -53,7 +53,20 @@
 
     <!--Home strings-->
     <string name="title_HomePage">Guide how to learn japanese</string>
-    <string name="warning_HomePage">Guide how to learn japanese</string>
+    <string name="warning_HomePage">The study does not have to be done only in this way.</string>
+    <string name="firstStep_HomePage">1. The basis of the entire language is the alphabet (kana),
+        consisting of two alphabets: hiragana and katakana. Hiragana is used in Japanese words,
+        and katakana is used in loan words such as English. To start studying, open the alphabet tab and view the
+        alphabet itself, in order to see the kana, click on it in more detail. To consolidate what you have learned,
+        take the tests, for this you will need to click the "Hiragana" or "Katakana" button in this tab to consolidate
+        what you have learned. </string>
+    <string name="secondStep_HomePage">2. After learning the alphabet, you should start learning kanji (hieroglyphs).
+        To do this, open the tab with the kanji, then browse through them and click on the kanji for details and a spelling diagram.
+        After you memorize them, you can take tests to consolidate what you have learned. </string>
+    <string name="thirdStep_HomePage">3. In parallel with the study of kanji, you should learn grammar in Japanese,
+        for this there is a corresponding tab "Grammar". It describes the basic topics for understanding basic Japanese. </string>
+    <string name="fourthStep_HomePage">4. If necessary, you can use the dictionary. To do this, open the "Dictionary" tab
+        and enter the information you want to find in the search field. </string>
 
     <!--Samples for textViews-->
     <string name="kanji_sample">草</string>

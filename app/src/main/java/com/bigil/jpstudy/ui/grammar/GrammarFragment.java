@@ -46,7 +46,7 @@ public class GrammarFragment extends Fragment{
 
         webViewGrammar.getSettings().setJavaScriptEnabled(true);
         webViewGrammar.setWebViewClient(new WebViewClient());
-        webViewGrammar.loadUrl("https://vandal.sdf-eu.org/JapaneseGuide/index.html");
+        webViewGrammar.loadUrl("http://www.guidetojapanese.org/learn/grammar/writing");
         webViewGrammar.setOnKeyListener(new View.OnKeyListener(){
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {

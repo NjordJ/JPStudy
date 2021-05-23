@@ -40,7 +40,7 @@ public class DictionaryFragment extends Fragment {
 
         webViewDictionary.getSettings().setJavaScriptEnabled(true);
         webViewDictionary.setWebViewClient(new WebViewClient());
-        webViewDictionary.loadUrl("https://akanji.ru/school/kyouiku-year-1");
+        webViewDictionary.loadUrl("https://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?1C");
         webViewDictionary.setOnKeyListener(new View.OnKeyListener(){
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {

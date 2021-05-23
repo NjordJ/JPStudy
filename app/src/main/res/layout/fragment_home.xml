@@ -7,19 +7,76 @@
         tools:context=".ui.home.HomeFragment"
         android:padding="10dp">
 
-    <TextView
-            android:id="@+id/textViewTitleHomePage"
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/title_HomePage"
-            android:textSize="25sp"/>
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/textViewTitleHomePage"
-            android:gravity="start"
-            android:text="@string/title_HomePage"
-            android:textSize="25sp"/>
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:id="@+id/textViewTitleHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/title_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                    android:id="@+id/textViewWarningHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewTitleHomePage"
+                    android:gravity="start"
+                    android:text="@string/warning_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                    android:id="@+id/textViewFirstStepHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewWarningHomePage"
+                    android:gravity="start"
+                    android:text="@string/firstStep_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                    android:id="@+id/textViewSecondStepHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewFirstStepHomePage"
+                    android:gravity="start"
+                    android:text="@string/secondStep_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                    android:id="@+id/textViewThirdStepHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewSecondStepHomePage"
+                    android:gravity="start"
+                    android:text="@string/thirdStep_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+            <TextView
+                    android:id="@+id/textViewFourthStepHomePage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textViewThirdStepHomePage"
+                    android:gravity="start"
+                    android:text="@string/fourthStep_HomePage"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorTextBlack"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 
 </RelativeLayout>
