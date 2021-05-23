@@ -4,14 +4,14 @@
       tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item
+        <!--<item
                 android:id="@+id/nav_search"
                 android:icon="@drawable/ic_baseline_search_24"
-                android:title="@string/menu_search"/>
-        <item
+                android:title="@string/menu_search"/>-->
+        <!--<item
                 android:id="@+id/nav_favourite"
                 android:icon="@drawable/ic_baseline_favorite_24"
-                android:title="@string/menu_favourite"/>
+                android:title="@string/menu_favourite"/>-->
         <item
                 android:id="@+id/nav_kana"
                 android:icon="@drawable/ic_kana"
@@ -28,6 +28,26 @@
                 android:id="@+id/nav_beginnerkanji"
                 android:icon="@drawable/ic_chiisai"
                 android:title="@string/menu_kanjiBeginner"/>
+        <item
+                android:id="@+id/nav_beginnerkanjitwo"
+                android:icon="@drawable/ic_chiisai"
+                android:title="@string/menu_kanjiBeginnerTwo"/>
+        <item
+                android:id="@+id/nav_beginnerkanjithree"
+                android:icon="@drawable/ic_chiisai"
+                android:title="@string/menu_kanjiBeginnerThree"/>
+        <item
+                android:id="@+id/nav_beginnerkanjifour"
+                android:icon="@drawable/ic_chiisai"
+                android:title="@string/menu_kanjiBeginnerFour"/>
+        <item
+                android:id="@+id/nav_beginnerkanjifive"
+                android:icon="@drawable/ic_chiisai"
+                android:title="@string/menu_kanjiBeginnerFive"/>
+        <item
+                android:id="@+id/nav_beginnerkanjisix"
+                android:icon="@drawable/ic_chiisai"
+                android:title="@string/menu_kanjiBeginnerSix"/>
         <!--<item
                 android:id="@+id/nav_middlekanji"
                 android:icon="@drawable/ic_naka"

@@ -28,6 +28,8 @@ import java.util.concurrent.TimeUnit;
 
 public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClickListener {
 
+    public static final String BEGINNER_SCORE = "beginnerScore";
+
     //Classes
 
     //From layout

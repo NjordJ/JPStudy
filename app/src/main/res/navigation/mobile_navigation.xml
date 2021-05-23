@@ -48,6 +48,36 @@
             tools:layout="@layout/fragment_beginnerlistofkanji"/>
 
     <fragment
+            android:id="@+id/nav_beginnerkanjitwo"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiTwoParentFragment"
+            android:label="@string/menu_kanjiBeginnerTwo"
+            tools:layout="@layout/fragment_beginnerlistofkanjitwo"/>
+
+    <fragment
+            android:id="@+id/nav_beginnerkanjithree"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiThreeParentFragment"
+            android:label="@string/menu_kanjiBeginnerThree"
+            tools:layout="@layout/fragment_beginnerlistofkanjithree"/>
+
+    <fragment
+            android:id="@+id/nav_beginnerkanjifour"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiFourParentFragment"
+            android:label="@string/menu_kanjiBeginnerFour"
+            tools:layout="@layout/fragment_beginnerlistofkanjifour"/>
+
+    <fragment
+            android:id="@+id/nav_beginnerkanjifive"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiFiveParentFragment"
+            android:label="@string/menu_kanjiBeginnerFive"
+            tools:layout="@layout/fragment_beginnerlistofkanjifive"/>
+
+    <fragment
+            android:id="@+id/nav_beginnerkanjisix"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiSixParentFragment"
+            android:label="@string/menu_kanjiBeginnerSix"
+            tools:layout="@layout/fragment_beginnerlistofkanjisix"/>
+
+    <fragment
             android:id="@+id/nav_middlekanji"
             android:name="com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment"
             android:label="@string/menu_kanjiMiddle"

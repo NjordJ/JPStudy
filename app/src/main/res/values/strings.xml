@@ -19,7 +19,12 @@
     <string name="menu_kana">Alphabet</string>
     <string name="menu_kanjiKeys">Keys</string>
     <string name="menu_myLists">My lists</string>
-    <string name="menu_kanjiBeginner">Beginner</string>
+    <string name="menu_kanjiBeginner">Beginner 1</string>
+    <string name="menu_kanjiBeginnerTwo">Beginner 2</string>
+    <string name="menu_kanjiBeginnerThree">Beginner 3</string>
+    <string name="menu_kanjiBeginnerFour">Beginner 4</string>
+    <string name="menu_kanjiBeginnerFive">Beginner 5</string>
+    <string name="menu_kanjiBeginnerSix">Beginner 6</string>
     <string name="menu_kanjiMiddle">Middle</string>
     <string name="menu_kanjiHigh">High</string>
     <string name="menu_kanjiAnother">Another kanji</string>

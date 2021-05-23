@@ -20,7 +20,12 @@
     <string name="menu_kana">Алфавит</string>
     <string name="menu_kanjiKeys">Ключи</string>
     <string name="menu_myLists">Свои списки</string>
-    <string name="menu_kanjiBeginner">Начальный уровень</string>
+    <string name="menu_kanjiBeginner">Начальный уровень 1</string>
+    <string name="menu_kanjiBeginnerTwo">Начальный уровень 2</string>
+    <string name="menu_kanjiBeginnerThree">Начальный уровень 3</string>
+    <string name="menu_kanjiBeginnerFour">Начальный уровень 4</string>
+    <string name="menu_kanjiBeginnerFive">Начальный уровень 5</string>
+    <string name="menu_kanjiBeginnerSix">Начальный уровень 6</string>
     <string name="menu_kanjiMiddle">Средний уровень</string>
     <string name="menu_kanjiHigh">Высший уровень</string>
     <string name="menu_kanjiAnother">Остальные кандзи</string>

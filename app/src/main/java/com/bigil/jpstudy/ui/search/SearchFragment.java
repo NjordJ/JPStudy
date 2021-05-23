@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.utils.JSONUtils;
 import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.ReadContext;
 
 import java.util.List;
 
@@ -39,9 +41,9 @@ public class SearchFragment extends Fragment {
         String json = jsonUtils.JsonDataFromAsset(getContext(), "kanjiapi_obj.json");
         Object document = Configuration.defaultConfiguration().jsonProvider().parse(json);
 
-        //ReadContext ctx = JsonPath.read(document, "$..亜");
-
-        //kanji = JsonPath.read(document, "$.kanjis[0]");
+//        ReadContext ctx = JsonPath.read(document, "$..亜");
+//
+//        kanji = JsonPath.read(document, "$.kanjis[0]");
 
         editText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,7 +58,7 @@ public class SearchFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                textViewSearchResult.setText(String.valueOf(kanji));
+                textViewSearchResult.setText((CharSequence) kanji);
             }
         });
 
