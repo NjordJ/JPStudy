@@ -19,7 +19,7 @@ import android.view.ViewGroup;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanjiItem;
 import com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment;
-import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment;
+import com.bigil.jpstudy.ui.beginnerkanji.parent.*;
 import com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment;
 import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
 
@@ -240,13 +240,28 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
 
             switch (grade){
                 case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
                     Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiParentFragment);
+                    break;
+                case 2:
+                    Fragment fragmentBeginnerKanjiTwoParentFragment = new BeginnerKanjiTwoParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiTwoParentFragment);
+                    break;
+                case 3:
+                    Fragment fragmentBeginnerKanjiThreeParentFragment = new BeginnerKanjiThreeParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiThreeParentFragment);
+                    break;
+                case 4:
+                    Fragment fragmentBeginnerKanjiFourParentFragment = new BeginnerKanjiFourParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiFourParentFragment);
+                    break;
+                case 5:
+                    Fragment fragmentBeginnerKanjiFiveParentFragment = new BeginnerKanjiFiveParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiFiveParentFragment);
+                    break;
+                case 6:
+                    Fragment fragmentBeginnerKanjiSixParentFragment = new BeginnerKanjiSixParentFragment();
+                    OpenNewFragment(fragmentBeginnerKanjiSixParentFragment);
                     break;
                 case 8:
                     Fragment fragmentMiddleKanjiParentFragment = new MiddleKanjiParentFragment();
