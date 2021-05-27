@@ -1,5 +1,6 @@
 package com.bigil.jpstudy.ui.kana;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +39,7 @@ public class KanaFragment extends Fragment implements View.OnClickListener {
         Button buttonStartLearningHiragana = root.findViewById(R.id.buttonStartLearningHiragana);
         Button buttonStartLearningKatakana = root.findViewById(R.id.buttonStartLearningKatakana);
 
+        Resources resources = this.getResources();
             try {
                 JSONObject rootJson = new JSONObject(jsonUtils.JsonDataFromAsset(getContext(), "japanese_alphabet.json"));
                 JSONArray jsonArray = rootJson.getJSONArray("kana");
@@ -46,8 +48,14 @@ public class KanaFragment extends Fragment implements View.OnClickListener {
                     String hiragana = hiraganaData.getString("hiragana");
                     String katakana = hiraganaData.getString("katakana");
                     String transcription = hiraganaData.getString("transcription");
+                    //Image name from drawable folder
+                    String imageNameHiragana = "kn_"+stringToUnicode(hiragana);
+                    String imageNameKatakana = "kn_"+stringToUnicode(katakana);
+                    //Get resource by imageName from drawable
+                    final int resourceIdHiragana = resources.getIdentifier(imageNameHiragana, "drawable", getContext().getPackageName());
+                    final int resourceIdKatakana = resources.getIdentifier(imageNameKatakana, "drawable", getContext().getPackageName());
 
-                    kanaItemArrayList.add(new KanaItem(hiragana, katakana, transcription));
+                    kanaItemArrayList.add(new KanaItem(hiragana, katakana, transcription, resourceIdHiragana, resourceIdKatakana));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -122,6 +130,20 @@ public class KanaFragment extends Fragment implements View.OnClickListener {
                         .commit();
                 break;
         }
+    }
+
+    public static String stringToUnicode(String string) {
+        StringBuffer unicode = new StringBuffer();
+        for (int i = 0; i < string.length(); i++) {
+            // Take out every character
+            char c = string.charAt(i);
+            // Convert to unicode
+            //"\\u is just a code name, please add corresponding symbols according to specific needs"
+            //unicode.append("\\u" + Integer.toHexString(c));
+            unicode.append(Integer.toHexString(c));
+        }
+        System.out.println("stringToUnicode: " + unicode);
+        return unicode.toString();
     }
 }
 

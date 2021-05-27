@@ -19,6 +19,7 @@ import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.ui.dictionary.DictionaryViewModel;
 import com.bigil.jpstudy.ui.grammar.GrammarViewModel;
 
+import java.util.Locale;
 
 
 public class GrammarFragment extends Fragment{
@@ -42,11 +43,20 @@ public class GrammarFragment extends Fragment{
 
         View root = inflater.inflate(R.layout.fragment_grammar, container, false);
 
+        String language = Locale.getDefault().toString();
+
         webViewGrammar = root.findViewById(R.id.webViewGrammar);
 
         webViewGrammar.getSettings().setJavaScriptEnabled(true);
         webViewGrammar.setWebViewClient(new WebViewClient());
-        webViewGrammar.loadUrl("http://www.guidetojapanese.org/learn/grammar/writing");
+        switch (language){
+            case "en_US":
+                webViewGrammar.loadUrl("http://www.guidetojapanese.org/learn/grammar/writing");
+                break;
+            case "ru_RU":
+                webViewGrammar.loadUrl("https://vandal.sdf-eu.org/JapaneseGuide/index.html");
+                break;
+        }
         webViewGrammar.setOnKeyListener(new View.OnKeyListener(){
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {

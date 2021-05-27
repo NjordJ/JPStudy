@@ -123,19 +123,19 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
         //Collect n unique elements
         tempKana = pickNRandom(arrayListKanaItem, 5);
 
-        kanaValue = arrayListKanaItem.get(number).getmBigKana();
+        kanaValue = arrayListKanaItem.get(number).getHiragana();
         answerKanaItem = kanaValue;
 
-        romanjiReading = arrayListKanaItem.get(number).getmTranscriptionKana();
+        romanjiReading = arrayListKanaItem.get(number).getTranscriptionKana();
 
         Integer tempKanjiSize = tempKana.size();
 
         kana1 = answerKanaItem;
-        kana2 = tempKana.get(0).getmBigKana();
-        kana3 = tempKana.get(1).getmBigKana();
-        kana4 = tempKana.get(2).getmBigKana();
-        kana5 = tempKana.get(3).getmBigKana();
-        kana6 = tempKana.get(4).getmBigKana();
+        kana2 = tempKana.get(0).getHiragana();
+        kana3 = tempKana.get(1).getHiragana();
+        kana4 = tempKana.get(2).getHiragana();
+        kana5 = tempKana.get(3).getHiragana();
+        kana6 = tempKana.get(4).getHiragana();
 
         String[] answersKanji = {kana1, kana2, kana3, kana4, kana5, kana6};
 

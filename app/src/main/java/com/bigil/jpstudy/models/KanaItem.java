@@ -5,21 +5,36 @@ import android.os.Parcelable;
 
 public class KanaItem implements Parcelable {
 
-    private String mBigKana;
-    private String mSmallKana;
+    private String mHiragana;
+    private String mKatakana;
     private String mTranscriptionKana;
 
+    private Integer mImageResourceHiragana;
+    private Integer mImageResourceKatakana;
+
     //Constructor
-    public KanaItem(String bigKana, String smallKana, String transcriptionKana){
-        mBigKana = bigKana;
-        mSmallKana = smallKana;
+    public KanaItem(String hiragana, String katakana, String transcriptionKana, Integer imageResourceHiragana, Integer imageResourceKatakana){
+        mHiragana = hiragana;
+        mKatakana = katakana;
         mTranscriptionKana = transcriptionKana;
+        mImageResourceHiragana = imageResourceHiragana;
+        mImageResourceKatakana = imageResourceKatakana;
     }
 
     public KanaItem(Parcel in) {
-        mBigKana = in.readString();
-        mSmallKana = in.readString();
+        mHiragana = in.readString();
+        mKatakana = in.readString();
         mTranscriptionKana = in.readString();
+        if (in.readByte() == 0) {
+            mImageResourceHiragana = null;
+        } else {
+            mImageResourceHiragana = in.readInt();
+        }
+        if (in.readByte() == 0) {
+            mImageResourceKatakana = null;
+        } else {
+            mImageResourceKatakana = in.readInt();
+        }
     }
 
     public static final Creator<KanaItem> CREATOR = new Creator<KanaItem>() {
@@ -35,16 +50,24 @@ public class KanaItem implements Parcelable {
     };
 
     //Getters
-    public String getmBigKana() {
-        return mBigKana;
+    public String getHiragana() {
+        return mHiragana;
     }
 
-    public String getmSmallKana() {
-        return mSmallKana;
+    public String getKatakana() {
+        return mKatakana;
     }
 
-    public String getmTranscriptionKana() {
+    public String getTranscriptionKana() {
         return mTranscriptionKana;
+    }
+
+    public Integer getImageResourceHiragana() {
+        return mImageResourceHiragana;
+    }
+
+    public Integer getImageResourceKatakana() {
+        return mImageResourceKatakana;
     }
 
 
@@ -55,8 +78,20 @@ public class KanaItem implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(mBigKana);
-        dest.writeString(mSmallKana);
+        dest.writeString(mHiragana);
+        dest.writeString(mKatakana);
         dest.writeString(mTranscriptionKana);
+        if (mImageResourceHiragana == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(mImageResourceHiragana);
+        }
+        if (mImageResourceKatakana == null) {
+            dest.writeByte((byte) 0);
+        } else {
+            dest.writeByte((byte) 1);
+            dest.writeInt(mImageResourceKatakana);
+        }
     }
 }

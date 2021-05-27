@@ -75,9 +75,9 @@ public class KanaAdapter extends RecyclerView.Adapter<KanaAdapter.KanaViewHolder
         KanaItem currentItem = mKanaList.get(position);
 
         //Get information for current position
-        holder.mTextViewBigKana.setText(currentItem.getmBigKana());
-        holder.mTextViewSmallKana.setText(currentItem.getmSmallKana());
-        holder.mTextViewTranscriptionKana.setText(currentItem.getmTranscriptionKana());
+        holder.mTextViewBigKana.setText(currentItem.getHiragana());
+        holder.mTextViewSmallKana.setText(currentItem.getKatakana());
+        holder.mTextViewTranscriptionKana.setText(currentItem.getTranscriptionKana());
     }
 
     @Override

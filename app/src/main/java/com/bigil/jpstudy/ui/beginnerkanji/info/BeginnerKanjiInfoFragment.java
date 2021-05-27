@@ -31,8 +31,6 @@ public class BeginnerKanjiInfoFragment extends Fragment {
     //Variables
     private ImageView imageViewKanjiInfoHowToStroke;
 
-    //private Resources resources = getContext().getResources();
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -92,7 +90,6 @@ public class BeginnerKanjiInfoFragment extends Fragment {
         textViewKanjiInfoHeisigEnValue.setText(heisigenValue);
 
         // get drawable by resource id
-
         if (img == 0)
         {
             imageViewKanjiInfoHowToStroke.setImageResource(R.drawable.ic_kanji);

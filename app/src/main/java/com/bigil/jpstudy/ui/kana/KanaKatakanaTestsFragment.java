@@ -117,19 +117,19 @@ public class KanaKatakanaTestsFragment extends Fragment implements View.OnClickL
         //Collect n unique elements
         tempKana = pickNRandom(arrayListKanaItem, 5);
 
-        kanaValue = arrayListKanaItem.get(number).getmSmallKana();
+        kanaValue = arrayListKanaItem.get(number).getKatakana();
         answerKanaItem = kanaValue;
 
-        romanjiReading = arrayListKanaItem.get(number).getmTranscriptionKana();
+        romanjiReading = arrayListKanaItem.get(number).getTranscriptionKana();
 
         Integer tempKanjiSize = tempKana.size();
 
         kana1 = answerKanaItem;
-        kana2 = tempKana.get(0).getmSmallKana();
-        kana3 = tempKana.get(1).getmSmallKana();
-        kana4 = tempKana.get(2).getmSmallKana();
-        kana5 = tempKana.get(3).getmSmallKana();
-        kana6 = tempKana.get(4).getmSmallKana();
+        kana2 = tempKana.get(0).getKatakana();
+        kana3 = tempKana.get(1).getKatakana();
+        kana4 = tempKana.get(2).getKatakana();
+        kana5 = tempKana.get(3).getKatakana();
+        kana6 = tempKana.get(4).getKatakana();
 
         String[] answersKanji = {kana1, kana2, kana3, kana4, kana5, kana6};
 

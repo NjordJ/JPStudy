@@ -4,6 +4,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,9 +23,7 @@ public class KanaInfoFragment extends Fragment {
     private KanaItem kanaItem;
 
     //Variables
-    private ImageView imageViewKanaInfoHowToStroke;
 
-    //private Resources resources = getContext().getResources();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -41,35 +40,37 @@ public class KanaInfoFragment extends Fragment {
             kanaItem = bundle.getParcelable("KanaItemData");
         }
 
-        String hiraganaValue = kanaItem.getmBigKana();
-        String katakanaValue = kanaItem.getmSmallKana();
-        String romanjiValue = kanaItem.getmTranscriptionKana();
-
-
+        String hiraganaValue = kanaItem.getHiragana();
+        String katakanaValue = kanaItem.getKatakana();
+        String romanjiValue = kanaItem.getTranscriptionKana();
+        Integer imgHiragana = kanaItem.getImageResourceHiragana();
+        Integer imgKatakana = kanaItem.getImageResourceKatakana();
 
         //Find variables from layout
-        //imageViewKanaInfoHowToStroke = root.findViewById(R.id.imageViewKanaInfoHowToStroke);
         TextView textViewHiraganaInfoValue = root.findViewById(R.id.textViewHiraganaInfoValue);
         TextView textViewKatakanaInfoValue = root.findViewById(R.id.textViewKatakanaInfoValue);
         TextView textViewRomanjiInfoValue = root.findViewById(R.id.textViewRomanjiInfoValue);
-        TextView textViewBigHiraganaInfo = root.findViewById(R.id.textViewBigHiraganaInfo);
-        TextView textViewBigKatakanaInfo = root.findViewById(R.id.textViewBigKatakanaInfo);
+//        TextView textViewBigHiraganaInfo = root.findViewById(R.id.textViewBigHiraganaInfo);
+//        TextView textViewBigKatakanaInfo = root.findViewById(R.id.textViewBigKatakanaInfo);
+        ImageView imageViewBigHiraganaInfo = root.findViewById(R.id.imageViewBigHiraganaInfo);
+        ImageView imageViewBigKatakanaInfo = root.findViewById(R.id.imageViewBigKatakanaInfo);
 
         //Set values to TextViews
         textViewHiraganaInfoValue.setText(hiraganaValue);
         textViewKatakanaInfoValue.setText(katakanaValue);
         textViewRomanjiInfoValue.setText(romanjiValue);
-        textViewBigHiraganaInfo.setText(hiraganaValue);
-        textViewBigKatakanaInfo.setText(katakanaValue);
+//        textViewBigHiraganaInfo.setText(hiraganaValue);
+//        textViewBigKatakanaInfo.setText(katakanaValue);
 
         // get drawable by resource id
-
-//        if (img == 0)
-//        {
-//            imageViewKanjiInfoHowToStroke.setImageResource(R.drawable.ic_kanji);
-//        }else{
-//            imageViewKanjiInfoHowToStroke.setImageResource(img);
-//        }
+        if (imgHiragana == 0 || imgKatakana == 0)
+        {
+            imageViewBigHiraganaInfo.setImageResource(R.drawable.ic_kanji);
+            imageViewBigKatakanaInfo.setImageResource(R.drawable.ic_kanji);
+        }else{
+            imageViewBigHiraganaInfo.setImageResource(imgHiragana);
+            imageViewBigKatakanaInfo.setImageResource(imgKatakana);
+        }
 
         return root;
     }

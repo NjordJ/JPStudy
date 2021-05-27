@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.ui.dictionary.DictionaryViewModel;
 
+import java.util.Locale;
+
 public class DictionaryFragment extends Fragment {
 
     private DictionaryViewModel dictionaryViewModel;
@@ -36,11 +38,21 @@ public class DictionaryFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_dictionary, container, false);
 
+        String language = Locale.getDefault().toString();
+
         webViewDictionary = root.findViewById(R.id.webViewDictionary);
 
         webViewDictionary.getSettings().setJavaScriptEnabled(true);
         webViewDictionary.setWebViewClient(new WebViewClient());
         webViewDictionary.loadUrl("https://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?1C");
+        switch (language){
+            case "en_US":
+                webViewDictionary.loadUrl("https://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?1C");
+                break;
+            case "ru_RU":
+                webViewDictionary.loadUrl("https://akanji.ru/search");
+                break;
+        }
         webViewDictionary.setOnKeyListener(new View.OnKeyListener(){
 
             public boolean onKey(View v, int keyCode, KeyEvent event) {
