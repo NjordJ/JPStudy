@@ -24,7 +24,7 @@
                         android:layout_height="230dp"
                         android:contentDescription="@string/image_DetailInfo"
                         android:layout_centerHorizontal="true"/>
-                <ImageButton
+                <!--<ImageButton
                         android:id="@+id/imageButtonFavouriteKanjiInfo"
                         android:layout_width="55dp"
                         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
                         android:scaleType="fitCenter"
                         android:adjustViewBounds="true"
                         android:background="@android:color/transparent"
-                        android:contentDescription="@string/kanji_header"/>
+                        android:contentDescription="@string/kanji_header"/>-->
 
                 <RelativeLayout
                         android:layout_width="match_parent"
@@ -49,6 +49,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/kanji_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"
                             android:layout_marginStart="8dp"/>
 
@@ -69,6 +70,7 @@
                             android:layout_toEndOf="@id/textViewKanjiInfoKanji"
                             android:layout_marginStart="35dp"
                             android:text="@string/strokeCount_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"/>
                     <TextView
                             android:id="@+id/textViewKanjiInfoStrokeCountValue"
@@ -88,6 +90,7 @@
                             android:layout_below="@id/textViewKanjiInfoKanjiValue"
                             android:layout_marginStart="8dp"
                             android:text="@string/grade_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"/>
 
                     <TextView
@@ -108,6 +111,7 @@
                             android:layout_toEndOf="@id/textViewKanjiInfoGrade"
                             android:layout_marginStart="55dp"
                             android:text="@string/jlpt_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"/>
                     <TextView
                             android:id="@+id/textViewKanjiInfoJlptValue"
@@ -127,6 +131,7 @@
                             android:layout_below="@id/textViewKanjiInfoGradeValue"
                             android:layout_marginStart="8dp"
                             android:text="@string/unicode_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"/>
                     <TextView
                             android:id="@+id/textViewKanjiInfoUnicodeValue"
@@ -145,6 +150,7 @@
                             android:layout_toEndOf="@id/textViewKanjiInfoUnicode"
                             android:layout_marginStart="25dp"
                             android:text="@string/heisigEn_DetailInfo"
+                            android:textStyle="bold"
                             android:textSize="20sp"/>
                     <TextView
                             android:id="@+id/textViewKanjiInfoHeisigEnValue"
@@ -176,6 +182,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/kunyomi_DetailInfo"
+                        android:textStyle="bold"
                         android:textSize="20sp"/>
                 <TextView
                         android:id="@+id/textViewKanjiInfoKunyomiValue"
@@ -191,6 +198,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/onyomi_DetailInfo"
+                        android:textStyle="bold"
                         android:textSize="20sp"
                         android:layout_below="@id/textViewKanjiInfoKunyomiValue"/>
                 <TextView
@@ -207,6 +215,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/meanings_DetailInfo"
+                        android:textStyle="bold"
                         android:textSize="20sp"
                         android:layout_below="@id/textViewKanjiInfoOnyomiValue"/>
                 <TextView
@@ -223,6 +232,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/nameReadings_DetailInfo"
+                        android:textStyle="bold"
                         android:textSize="20sp"
                         android:layout_below="@id/textViewKanjiInfoMeaningsValue"/>
                 <TextView

@@ -132,6 +132,7 @@ public class KanaFragment extends Fragment implements View.OnClickListener {
         }
     }
 
+    //Convert kana to unicode
     public static String stringToUnicode(String string) {
         StringBuffer unicode = new StringBuffer();
         for (int i = 0; i < string.length(); i++) {

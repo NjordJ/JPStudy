@@ -72,6 +72,9 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
     private Integer currentQuestion = 0;
     private Double answersScore = 0.00;
 
+    private Toast mToastCorrectAnswer;
+    private Toast mToastWrongAnswer;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -187,8 +190,8 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
     }
 
     private void CheckAnswer (TextView textView){
-        Toast mToastCorrectAnswer = Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT);
-        Toast mToastWrongAnswer = Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_SHORT);
+        mToastCorrectAnswer = Toast.makeText(getContext(), R.string.correctText_Toast, Toast.LENGTH_SHORT);
+        mToastWrongAnswer = Toast.makeText(getContext(), R.string.wrongText_Toast, Toast.LENGTH_SHORT);
         if (answerKanaItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
@@ -216,8 +219,8 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
 //            edit.apply();
             //ShowDialog with results at end test
             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-            alertDialog.setTitle("Result");
-            alertDialog.setMessage("Correct: "+correctAnswer+"\n Wrong: "+wrongAnswer+"\n Score: "+answersScore+"%");
+            alertDialog.setTitle(R.string.resultText_Dialog);
+            alertDialog.setMessage(getString(R.string.correctText_Dialog)+correctAnswer+"\n"+getString(R.string.wrongText_Dialog)+wrongAnswer+"\n"+getString(R.string.scoreText_Dialog)+answersScore+"%");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

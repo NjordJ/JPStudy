@@ -44,13 +44,13 @@ public class DictionaryFragment extends Fragment {
 
         webViewDictionary.getSettings().setJavaScriptEnabled(true);
         webViewDictionary.setWebViewClient(new WebViewClient());
-        webViewDictionary.loadUrl("https://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?1C");
         switch (language){
             case "en_US":
                 webViewDictionary.loadUrl("https://www.edrdg.org/cgi-bin/wwwjdic/wwwjdic?1C");
                 break;
             case "ru_RU":
                 webViewDictionary.loadUrl("https://akanji.ru/search");
+                //webViewDictionary.loadUrl("https://www.yarxi.ru");
                 break;
         }
         webViewDictionary.setOnKeyListener(new View.OnKeyListener(){

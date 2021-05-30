@@ -77,6 +77,9 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     private Integer grade;
     private Double answersScore = 0.00;
 
+    private Toast mToastCorrectAnswer;
+    private Toast mToastWrongAnswer;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -162,6 +165,7 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
         textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
         textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
+
     }
 
     @Override
@@ -169,22 +173,22 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         switch(v.getId()){
             case R.id.cardViewBeginnerKanjiTestsAnswer1:
                 //Check if answer correct
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer1, cardViewBeginnerKanjiTestsAnswer1);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer1);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer2:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer2, cardViewBeginnerKanjiTestsAnswer2);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer2);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer3:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer3, cardViewBeginnerKanjiTestsAnswer3);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer3);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer4:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer4, cardViewBeginnerKanjiTestsAnswer4);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer4);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer5:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer5, cardViewBeginnerKanjiTestsAnswer5);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer5);
                 break;
             case R.id.cardViewBeginnerKanjiTestsAnswer6:
-                CheckAnswer(textViewBeginnerKanjiTestsAnswer6, cardViewBeginnerKanjiTestsAnswer6);
+                CheckAnswer(textViewBeginnerKanjiTestsAnswer6);
                 break;
 
         }
@@ -198,9 +202,9 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         return n > copy.size() ? copy.subList(0, copy.size()) : copy.subList(0, n);
     }
 
-    private void CheckAnswer (TextView textView, CardView cardView){
-        Toast mToastCorrectAnswer = Toast.makeText(getContext(), "Correct!", Toast.LENGTH_SHORT);
-        Toast mToastWrongAnswer = Toast.makeText(getContext(), "Wrong!", Toast.LENGTH_SHORT);
+    private void CheckAnswer (TextView textView){
+        mToastCorrectAnswer = Toast.makeText(getContext(), R.string.correctText_Toast, Toast.LENGTH_SHORT);
+        mToastWrongAnswer = Toast.makeText(getContext(), R.string.wrongText_Toast, Toast.LENGTH_SHORT);
         if (answerKanjiItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
@@ -228,8 +232,8 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
             edit.apply();
             //ShowDialog with results at end test
             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-            alertDialog.setTitle("Result");
-            alertDialog.setMessage("Correct: "+correctAnswer+"\n Wrong: "+wrongAnswer+"\n Score: "+answersScore+"%");
+            alertDialog.setTitle(R.string.resultText_Dialog);
+            alertDialog.setMessage(getString(R.string.correctText_Dialog)+correctAnswer+"\n"+getString(R.string.wrongText_Dialog)+wrongAnswer+"\n"+getString(R.string.scoreText_Dialog)+answersScore+"%");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -242,38 +246,56 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                 case 1:
                     Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 2:
                     Fragment fragmentBeginnerKanjiTwoParentFragment = new BeginnerKanjiTwoParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiTwoParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 3:
                     Fragment fragmentBeginnerKanjiThreeParentFragment = new BeginnerKanjiThreeParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiThreeParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 4:
                     Fragment fragmentBeginnerKanjiFourParentFragment = new BeginnerKanjiFourParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiFourParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 5:
                     Fragment fragmentBeginnerKanjiFiveParentFragment = new BeginnerKanjiFiveParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiFiveParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 6:
                     Fragment fragmentBeginnerKanjiSixParentFragment = new BeginnerKanjiSixParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiSixParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 8:
                     Fragment fragmentMiddleKanjiParentFragment = new MiddleKanjiParentFragment();
                     OpenNewFragment(fragmentMiddleKanjiParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 9:
                     Fragment fragmentHighKanjiParentFragment = new HighKanjiParentFragment();
                     OpenNewFragment(fragmentHighKanjiParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
                 case 10:
                     Fragment fragmentAnotherKanjiParentFragment = new AnotherKanjiParentFragment();
                     OpenNewFragment(fragmentAnotherKanjiParentFragment);
+                    mToastCorrectAnswer.cancel();
+                    mToastWrongAnswer.cancel();
                     break;
 
             }

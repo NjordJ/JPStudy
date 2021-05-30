@@ -1,11 +1,12 @@
 package com.bigil.jpstudy.activity;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import com.bigil.jpstudy.R;
-import com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment;
 import com.google.android.material.navigation.NavigationView;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -50,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
-
     }
 
     @Override
@@ -71,11 +70,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack();
+        FragmentManager fm = getSupportFragmentManager();
+        if (fm.getBackStackEntryCount() > 0) {
+            fm.popBackStack();
         } else {
             super.onBackPressed();
         }
     }
-
 }

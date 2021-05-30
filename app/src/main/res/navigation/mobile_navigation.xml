@@ -42,6 +42,17 @@
             tools:layout="@layout/fragment_userlistofkanji"/>
 
     <fragment
+            android:id="@+id/nav_kanjiinfo"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.info.BeginnerKanjiInfoFragment"
+            android:label="@string/menu_kanjiBeginner"
+            tools:layout="@layout/kanji_info_item"/>
+    <fragment
+            android:id="@+id/nav_kanjitests"
+            android:name="com.bigil.jpstudy.ui.beginnerkanji.tests.BeginnerKanjiTestsFragment"
+            android:label="@string/menu_kanjiBeginner"
+            tools:layout="@layout/fragment_kanji_tests"/>
+
+    <fragment
             android:id="@+id/nav_beginnerkanji"
             android:name="com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment"
             android:label="@string/menu_kanjiBeginner"

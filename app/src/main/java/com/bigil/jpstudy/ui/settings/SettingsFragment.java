@@ -36,7 +36,7 @@ public class SettingsFragment extends PreferenceFragmentCompat{
                 SharedPreferences.Editor edit = pref.edit();
                 edit.remove(getString(R.string.saved_high_score_key));
                 edit.apply();
-                Toast.makeText(getContext(), "Successful score reset", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), R.string.successfulScoreReset_Toast, Toast.LENGTH_SHORT).show();
                 break;
             case "feedback":
                 Intent sendIntentFeedBack = new Intent(Intent.ACTION_SENDTO);

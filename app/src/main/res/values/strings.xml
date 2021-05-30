@@ -54,10 +54,10 @@
     <string name="transcription_KanaDetailInfo">Transcription</string>
     <string name="image_KanaDetailInfo">Img how to stroke</string>
 
-    <string name="learnAlphabet_Kana">Learn alphabet</string>
+    <string name="learnAlphabet_Kana">Get tested</string>
 
     <!--Home strings-->
-    <string name="title_HomePage">Guide how to learn japanese</string>
+    <string name="title_HomePage">Recommendation to learn japanese</string>
     <string name="warning_HomePage">The study does not have to be done only in this way.</string>
     <string name="firstStep_HomePage">1. The basis of the entire language is the alphabet (kana),
         consisting of two alphabets: hiragana and katakana. Hiragana is used in Japanese words,
@@ -91,9 +91,23 @@
     <string name="search_Hint">Write something</string>
 
     <!--Samples for Buttons-->
-    <string name="button_startLearn">Learn</string>
+    <string name="button_startLearn">Start test</string>
     <string name="button_startLearn_Hiragana">Hiragana</string>
     <string name="button_startLearn_Katakana">Katakana</string>
+
+    <!--ShowDialogs-->
+    <!--Dialog in kanji and kana tests-->
+    <string name="resultText_Dialog">Result</string>
+    <string name="correctText_Dialog">Correct:</string>
+    <string name="wrongText_Dialog">Wrong:</string>
+    <string name="scoreText_Dialog">Score:</string>
+
+    <!--Toasts-->
+    <!--Wrong and correct in tests-->
+    <string name="correctText_Toast">Correct!</string>
+    <string name="wrongText_Toast">Wrong!</string>
+    <!--Alert about successful score reset in settings-->
+    <string name="successfulScoreReset_Toast">Successful score reset</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Messages</string>

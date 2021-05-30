@@ -55,10 +55,10 @@
     <string name="transcription_KanaDetailInfo">Транскрипция</string>
     <string name="image_KanaDetailInfo">Img how to stroke</string>
 
-    <string name="learnAlphabet_Kana">Учить алфавит</string>
+    <string name="learnAlphabet_Kana">Пройти тестирование</string>
 
     <!--Home strings-->
-    <string name="title_HomePage">Руководство по изучению японского языка</string>
+    <string name="title_HomePage">Рекомендации по изучению японского языка</string>
     <string name="warning_HomePage">Обучение языку может проходить не только данным способом.</string>
     <string name="firstStep_HomePage">1. Основой всего языка является алфавит (кана), состоящая из двух алфавитов:
         хираганы и катаканы. Хирагана используется в японских словах, а катакана используется в заимствованных словах,
@@ -91,9 +91,23 @@
     <string name="search_Hint">Напишите что-нибудь</string>
 
     <!--Samples for Buttons-->
-    <string name="button_startLearn">Учить</string>
+    <string name="button_startLearn">Тест</string>
     <string name="button_startLearn_Hiragana">Хирагана</string>
     <string name="button_startLearn_Katakana">Катакана</string>
+
+    <!--ShowDialogs-->
+    <!--Dialog in kanji and kana tests-->
+    <string name="resultText_Dialog">Результат</string>
+    <string name="correctText_Dialog">Правильных: </string>
+    <string name="wrongText_Dialog">Неправильных: </string>
+    <string name="scoreText_Dialog">Счёт: </string>
+
+    <!--Toasts-->
+    <!--Wrong and correct in tests-->
+    <string name="correctText_Toast">Правильно!</string>
+    <string name="wrongText_Toast">Неправильно!</string>
+    <!--Alert about successful score reset in settings-->
+    <string name="successfulScoreReset_Toast">Рекорды успешно сброшены</string>
 
     <!-- Preference Titles -->
     <string name="messages_header">Сообщения</string>

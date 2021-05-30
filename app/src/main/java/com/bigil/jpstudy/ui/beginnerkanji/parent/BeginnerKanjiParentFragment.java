@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bigil.jpstudy.R;
@@ -131,11 +133,17 @@ public class BeginnerKanjiParentFragment extends Fragment {
                 bundle.putParcelable("KanjiItemData", kanjiBeginnerItemArrayList.get(position));
                 fragmentBeginnerKanjiInfo.setArguments(bundle);
 
-                getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo)
-                        .addToBackStack(null)
-                        .commit();
+                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
+                ft.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
+                ft.replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo);
+                ft.addToBackStack(null);
+                ft.commit();
+
+//                getFragmentManager().beginTransaction()
+//                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+//                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo)
+//                        .addToBackStack(null)
+//                        .commit();
 
             }
 

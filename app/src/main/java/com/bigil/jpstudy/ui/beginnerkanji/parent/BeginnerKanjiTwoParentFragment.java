@@ -21,10 +21,7 @@ import com.bigil.jpstudy.utils.JSONUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class BeginnerKanjiTwoParentFragment extends Fragment {
 
@@ -123,7 +120,7 @@ public class BeginnerKanjiTwoParentFragment extends Fragment {
 
                 getFragmentManager().beginTransaction()
                         .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo)
+                        .replace(R.id.nav_host_fragment, fragmentBeginnerKanjiInfo, null)
                         .addToBackStack(null)
                         .commit();
 
