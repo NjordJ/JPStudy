@@ -5,4 +5,7 @@
     <color name="colorAccent">#c77a8c</color>
     <color name="colorCorrectAnswer">#745582</color>
     <color name="colorTextBlack">#2c282c</color>
+
+    <color name="colorCorrectAnswerTests">#00a86b</color>
+    <color name="colorDefaultAnswerTests">#ffffff</color>
 </resources>

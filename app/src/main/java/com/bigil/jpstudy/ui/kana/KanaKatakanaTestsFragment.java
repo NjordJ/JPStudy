@@ -17,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import com.bigil.jpstudy.R;
 import com.bigil.jpstudy.models.KanaItem;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -67,8 +68,8 @@ public class KanaKatakanaTestsFragment extends Fragment implements View.OnClickL
     private Integer currentQuestion = 0;
     private Double answersScore = 0.00;
 
-    private Toast mToastCorrectAnswer;
-    private Toast mToastWrongAnswer;
+    private Snackbar mToastCorrectAnswer;
+    private Snackbar mToastWrongAnswer;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -186,8 +187,8 @@ public class KanaKatakanaTestsFragment extends Fragment implements View.OnClickL
     }
 
     private void CheckAnswer (TextView textView){
-        mToastCorrectAnswer = Toast.makeText(getContext(), R.string.correctText_Toast, Toast.LENGTH_SHORT);
-        mToastWrongAnswer = Toast.makeText(getContext(), R.string.wrongText_Toast, Toast.LENGTH_SHORT);
+        mToastCorrectAnswer = Snackbar.make(textView, R.string.correctText_Toast, 250);
+        mToastWrongAnswer = Snackbar.make(textView, R.string.wrongText_Toast, 250);
         if (answerKanaItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;

@@ -22,6 +22,7 @@ import com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment;
 import com.bigil.jpstudy.ui.beginnerkanji.parent.*;
 import com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment;
 import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -77,8 +78,8 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     private Integer grade;
     private Double answersScore = 0.00;
 
-    private Toast mToastCorrectAnswer;
-    private Toast mToastWrongAnswer;
+    private Snackbar mToastCorrectAnswer;
+    private Snackbar mToastWrongAnswer;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -139,8 +140,6 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         kun_readingsValue = arrayListKanjiItem.get(number).getKunyomiReading();
         on_readingsValue = arrayListKanjiItem.get(number).getOnyomiReading();
 
-        Integer tempKanjiSize = tempKanji.size();
-
         kanji1 = answerKanjiItem;
         kanji2 = tempKanji.get(0).getKanji();
         kanji3 = tempKanji.get(1).getKanji();
@@ -165,7 +164,6 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         textViewBeginnerKanjiTestsAnswer4.setText(answersKanji[3]);
         textViewBeginnerKanjiTestsAnswer5.setText(answersKanji[4]);
         textViewBeginnerKanjiTestsAnswer6.setText(answersKanji[5]);
-
     }
 
     @Override
@@ -203,12 +201,11 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
     }
 
     private void CheckAnswer (TextView textView){
-        mToastCorrectAnswer = Toast.makeText(getContext(), R.string.correctText_Toast, Toast.LENGTH_SHORT);
-        mToastWrongAnswer = Toast.makeText(getContext(), R.string.wrongText_Toast, Toast.LENGTH_SHORT);
+        mToastCorrectAnswer = Snackbar.make(textView, R.string.correctText_Toast, 250);
+        mToastWrongAnswer = Snackbar.make(textView, R.string.wrongText_Toast, 250);
         if (answerKanjiItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
-            //cardView.setCardBackgroundColor(Color.parseColor("#00a86b"));
             mToastCorrectAnswer.show();
         }
         else {
@@ -219,10 +216,8 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
         //Load next question if any
         if(currentQuestion < arrayListKanjiItem.size()-1){
             currentQuestion++;
-            //cardView.setCardBackgroundColor(Color.parseColor("#ffffff"));
-//            mToastCorrectAnswer.cancel();
-//            mToastWrongAnswer.cancel();
             setTextsScreen(currentQuestion);
+
         }else{
             //Score value after end tests
             answersScore = (double) ((correctAnswer * 100) / arrayListKanjiItem.size());
@@ -246,56 +241,38 @@ public class BeginnerKanjiTestsFragment extends Fragment implements View.OnClick
                 case 1:
                     Fragment fragmentBeginnerKanjiParentFragment = new BeginnerKanjiParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 2:
                     Fragment fragmentBeginnerKanjiTwoParentFragment = new BeginnerKanjiTwoParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiTwoParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 3:
                     Fragment fragmentBeginnerKanjiThreeParentFragment = new BeginnerKanjiThreeParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiThreeParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 4:
                     Fragment fragmentBeginnerKanjiFourParentFragment = new BeginnerKanjiFourParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiFourParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 5:
                     Fragment fragmentBeginnerKanjiFiveParentFragment = new BeginnerKanjiFiveParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiFiveParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 6:
                     Fragment fragmentBeginnerKanjiSixParentFragment = new BeginnerKanjiSixParentFragment();
                     OpenNewFragment(fragmentBeginnerKanjiSixParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 8:
                     Fragment fragmentMiddleKanjiParentFragment = new MiddleKanjiParentFragment();
                     OpenNewFragment(fragmentMiddleKanjiParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 9:
                     Fragment fragmentHighKanjiParentFragment = new HighKanjiParentFragment();
                     OpenNewFragment(fragmentHighKanjiParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
                 case 10:
                     Fragment fragmentAnotherKanjiParentFragment = new AnotherKanjiParentFragment();
                     OpenNewFragment(fragmentAnotherKanjiParentFragment);
-                    mToastCorrectAnswer.cancel();
-                    mToastWrongAnswer.cancel();
                     break;
 
             }

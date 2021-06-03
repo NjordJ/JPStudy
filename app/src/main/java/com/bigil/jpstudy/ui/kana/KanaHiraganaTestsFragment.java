@@ -22,6 +22,7 @@ import com.bigil.jpstudy.ui.anotherkanji.parent.AnotherKanjiParentFragment;
 import com.bigil.jpstudy.ui.beginnerkanji.parent.BeginnerKanjiParentFragment;
 import com.bigil.jpstudy.ui.highkanji.parent.HighKanjiParentFragment;
 import com.bigil.jpstudy.ui.middlekanji.parent.MiddleKanjiParentFragment;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -72,8 +73,8 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
     private Integer currentQuestion = 0;
     private Double answersScore = 0.00;
 
-    private Toast mToastCorrectAnswer;
-    private Toast mToastWrongAnswer;
+    private Snackbar mToastCorrectAnswer;
+    private Snackbar mToastWrongAnswer;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -130,8 +131,6 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
         answerKanaItem = kanaValue;
 
         romanjiReading = arrayListKanaItem.get(number).getTranscriptionKana();
-
-        Integer tempKanjiSize = tempKana.size();
 
         kana1 = answerKanaItem;
         kana2 = tempKana.get(0).getHiragana();
@@ -190,8 +189,8 @@ public class KanaHiraganaTestsFragment extends Fragment implements View.OnClickL
     }
 
     private void CheckAnswer (TextView textView){
-        mToastCorrectAnswer = Toast.makeText(getContext(), R.string.correctText_Toast, Toast.LENGTH_SHORT);
-        mToastWrongAnswer = Toast.makeText(getContext(), R.string.wrongText_Toast, Toast.LENGTH_SHORT);
+        mToastCorrectAnswer = Snackbar.make(textView, R.string.correctText_Toast, 200);
+        mToastWrongAnswer = Snackbar.make(textView, R.string.wrongText_Toast, 200);
         if (answerKanaItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;

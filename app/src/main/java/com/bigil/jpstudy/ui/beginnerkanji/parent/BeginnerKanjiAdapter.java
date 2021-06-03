@@ -95,12 +95,7 @@ public class BeginnerKanjiAdapter extends RecyclerView.Adapter<BeginnerKanjiAdap
 
         KanjiItem currentItem = mBeginnerKanjiList.get(position);
 
-        int allKanjiCount = mBeginnerKanjiList.size();
-        int co = 1;
-        for(int i = 0; i < mBeginnerKanjiList.size(); i++){
-            holder.mTextViewCurrentNumberBeginnerKanji.setText(co+"/"+allKanjiCount);
-            co++;
-        }
+        holder.mTextViewCurrentNumberBeginnerKanji.setText(String.valueOf(position+1)+"/"+mBeginnerKanjiList.size());
 
         //Get information for current position
         holder.mTextViewKanji.setText(currentItem.getKanji());

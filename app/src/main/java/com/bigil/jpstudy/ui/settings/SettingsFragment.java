@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 import androidx.preference.Preference;
@@ -40,13 +41,18 @@ public class SettingsFragment extends PreferenceFragmentCompat{
                 break;
             case "feedback":
                 Intent sendIntentFeedBack = new Intent(Intent.ACTION_SENDTO);
-                sendIntentFeedBack.setData(Uri.parse("mailto:"+EMAIL_FEEDBACK));
-                startActivity(Intent.createChooser(sendIntentFeedBack, null));
+                sendIntentFeedBack.setData(Uri.parse("mailto:"));
+                sendIntentFeedBack.putExtra(Intent.EXTRA_EMAIL, EMAIL_FEEDBACK);
+                startActivity(sendIntentFeedBack);
                 break;
             case "bugReport":
+                String phoneModel = Build.BRAND+ " " + Build.MODEL + "\n________________________________";
                 Intent sendIntentBugReport = new Intent(Intent.ACTION_SENDTO);
-                sendIntentBugReport.setData(Uri.parse("mailto:"+EMAIL_BUGREPORT));
-                startActivity(Intent.createChooser(sendIntentBugReport, null));
+                sendIntentBugReport.setData(Uri.parse("mailto:"));
+                sendIntentBugReport.putExtra(Intent.EXTRA_EMAIL, EMAIL_BUGREPORT);
+                sendIntentBugReport.putExtra(Intent.EXTRA_TEXT, phoneModel);
+                startActivity(sendIntentBugReport);
+                //startActivity(Intent.createChooser(sendIntentBugReport, null));
                 break;
         }
         return super.onPreferenceTreeClick(preference);

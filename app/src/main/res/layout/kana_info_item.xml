@@ -71,6 +71,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/hiragana_KanaDetailInfo"
+                            android:textColor="@color/colorTextBlack"
                             android:textStyle="bold"
                             android:textSize="20sp"
                             android:layout_marginStart="8dp"/>
@@ -92,6 +93,7 @@
                             android:layout_toEndOf="@id/textViewHiraganaInfo"
                             android:layout_marginStart="15dp"
                             android:text="@string/transcription_KanaDetailInfo"
+                            android:textColor="@color/colorTextBlack"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
                     <TextView
@@ -112,6 +114,7 @@
                             android:layout_toEndOf="@id/textViewRomanjiInfo"
                             android:layout_marginStart="8dp"
                             android:text="@string/katakana_KanaDetailInfo"
+                            android:textColor="@color/colorTextBlack"
                             android:textStyle="bold"
                             android:textSize="20sp"/>
 
