@@ -187,8 +187,8 @@ public class KanaKatakanaTestsFragment extends Fragment implements View.OnClickL
     }
 
     private void CheckAnswer (TextView textView){
-        mToastCorrectAnswer = Snackbar.make(textView, R.string.correctText_Toast, 250);
-        mToastWrongAnswer = Snackbar.make(textView, R.string.wrongText_Toast, 250);
+        mToastCorrectAnswer = Snackbar.make(textView, R.string.correctText_Toast, 650);
+        mToastWrongAnswer = Snackbar.make(textView, R.string.wrongText_Toast, 650);
         if (answerKanaItem
                 .equals(textView.getText().toString())) {
             correctAnswer++;
@@ -216,8 +216,8 @@ public class KanaKatakanaTestsFragment extends Fragment implements View.OnClickL
 //            edit.apply();
             //ShowDialog with results at end test
             AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
-            alertDialog.setTitle(R.string.resultText_Dialog);
-            alertDialog.setMessage(getString(R.string.correctText_Dialog)+correctAnswer+"\n"+getString(R.string.wrongText_Dialog)+wrongAnswer+"\n"+getString(R.string.scoreText_Dialog)+answersScore+"%");
+            alertDialog.setTitle(getString(R.string.resultText_Dialog));
+            alertDialog.setMessage(getString(R.string.correctText_Dialog)+correctAnswer+"\n\n"+getString(R.string.wrongText_Dialog)+wrongAnswer+"\n\n"+getString(R.string.scoreText_Dialog)+answersScore+"%");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

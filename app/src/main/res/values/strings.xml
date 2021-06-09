@@ -100,7 +100,7 @@
     <string name="resultText_Dialog">Result</string>
     <string name="correctText_Dialog">Correct:</string>
     <string name="wrongText_Dialog">Wrong:</string>
-    <string name="scoreText_Dialog">Score:</string>
+    <string name="scoreText_Dialog">Progress:</string>
 
     <!--Toasts-->
     <!--Wrong and correct in tests-->
